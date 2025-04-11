@@ -3,13 +3,14 @@ import { BaseRepository } from "./base.repository";
 import { PrismaService } from "@/database/prisma/prisma.service";
 import { Prisma, Account, ProviderType } from "@prisma/client";
 import { SignUpUser } from "@repo/domain";
-
+import { Logger } from "@nestjs/common";
 @Injectable()
 export class AccountRepository extends BaseRepository<
   Account,
   Prisma.AccountCreateInput,
   Prisma.AccountUpdateInput
 > {
+  private readonly logger = new Logger(AccountRepository.name);
   constructor(prisma: PrismaService) {
     super(prisma, "account");
   }
@@ -30,11 +31,15 @@ export class AccountRepository extends BaseRepository<
       },
     });
 
+    this.logger.debug(`User created: ${user.id}`);
+
     const provider = await prismaClient.provider.findUniqueOrThrow({
       where: {
         type: input.providerType,
       },
     });
+
+    this.logger.debug(`Provider found: ${provider.id}`);
 
     const account = await prismaClient.account.create({
       data: {
@@ -48,6 +53,8 @@ export class AccountRepository extends BaseRepository<
         user: true,
       },
     });
+
+    this.logger.debug(`Account created: ${account.id}`);
 
     return account;
   }

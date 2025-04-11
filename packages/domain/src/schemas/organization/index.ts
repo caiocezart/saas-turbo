@@ -1,3 +1,3 @@
 export * from "./create-organization.schema";
 export * from "./update-organization.schema";
-export * from "./create-membership-invite.schema";
+export * from "./organization-id.schema";

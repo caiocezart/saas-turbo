@@ -14,8 +14,13 @@ export class MembershipRepository extends BaseRepository<
     super(prisma, "membership");
   }
 
-  async createMembership(organizationId: string, userId: string, role: Role) {
-    return this.prisma.membership.create({
+  async createMembership(
+    organizationId: string,
+    userId: string,
+    role: Role,
+    tx?: Prisma.TransactionClient
+  ) {
+    return (tx || this.prisma).membership.create({
       data: {
         organization: {
           connect: {

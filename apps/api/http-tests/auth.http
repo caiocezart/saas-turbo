@@ -1,85 +1,86 @@
-@providerId = "cm9awis0r00009u1faqq2bdda"
-###
+### Environment variables
+@baseUrl = http://localhost:3001/api/v1
+@email = test@example.com
+@firstName = Caio Trevisan
+@lastName = Trevisan
+@password = password123
+@providerType = PASSWORD
+@refreshToken = {{refreshTokenResponse.response.body.refreshToken}}
+@accessToken = {{loginResponse.response.body.accessToken}}
 
-GET http://127.0.0.1:3001/api/v1/auth/is_authenticated
-
-### 
-
-# @name signUp
-POST http://127.0.0.1:3001/api/v1/auth/sign-up
+### Sign Up
+# @name signupResponse
+POST {{baseUrl}}/auth/sign-up
 Content-Type: application/json
 
 {
-  "email": "test1@test.com",
-  "password": "testtest",
-  "firstName": "Test",
-  "lastName": "Test",
-  "providerType": "PASSWORD"
+  "email": "{{email}}",
+  "firstName": "{{firstName}}",
+  "lastName": "{{lastName}}",
+  "password": "{{password}}",
+  "providerType": "{{providerType}}"
 }
 
-###
-
-POST http://127.0.0.1:3001/api/v1/auth/new-email-verification
-Cookie: {{signUp.response.headers.set-cookie}}
-
-###
-
-
-# @name signIn
-POST http://127.0.0.1:3001/api/v1/auth/sign-in
+### Verify Email
+# @name verifyEmailResponse
+POST {{baseUrl}}/auth/verify-email
 Content-Type: application/json
 
 {
-  "email": "test1@test.com",
-  "password": "testtest",
-  "providerType": "PASSWORD"
+  "token": "{{signupResponse.response.body.verificationToken}}"
 }
 
-###
-
-POST http://127.0.0.1:3001/api/v1/auth/verify-email
-Cookie: {{signUp.response.headers.set-cookie}}
+### Login
+# @name loginResponse
+POST {{baseUrl}}/auth/sign-in
 Content-Type: application/json
 
 {
-  "userId": "cm9clusxb00009u1vmsfv9rp3",
-  "token": "uCyLscBR3XiRHYaJ7jla"
+  "email": "{{email}}",
+  "password": "{{password}}"
 }
 
-###
+### Get User Profile
+GET {{baseUrl}}/users/me
+Authorization: Bearer {{accessToken}}
 
-# Access a protected endpoint with the access token
-GET http://127.0.0.1:3001/api/v1/users
-Cookie: {{refreshTokenRequest.response.headers.set-cookie}}
-
-###
-
-# @name refreshTokenRequest
-# Refresh token endpoint using the cookie
-POST http://127.0.0.1:3001/api/v1/auth/refresh-token
-Cookie: {{signIn.response.headers.set-cookie}}
-
-###
-
-POST http://127.0.0.1:3001/api/v1/auth/otp
-Cookie: {{signIn.response.headers.set-cookie}}
+### Refresh Token
+# @name refreshTokenResponse
+POST {{baseUrl}}/auth/refresh
 Content-Type: application/json
 
 {
-  "action": "FORGOT_PASSWORD",
-  "method": "EMAIL"
+  "refreshToken": "{{refreshToken}}"
 }
 
-###
-
-POST http://127.0.0.1:3001/api/v1/auth/forgot-password
-Cookie: {{signUp.response.headers.set-cookie}}
+### Change Password
+POST {{baseUrl}}/auth/change-password
+Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
-  "otp": "485468",
-  "oldPassword": "testtest2",
-  "newPassword": "testtest3"
+  "currentPassword": "{{password}}",
+  "newPassword": "newPassword123"
 }
 
-###
+### Forgot Password
+# @name forgotPasswordResponse
+POST {{baseUrl}}/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": "{{email}}"
+}
+
+### Reset Password
+POST {{baseUrl}}/auth/reset-password
+Content-Type: application/json
+
+{
+  "token": "{{forgotPasswordResponse.response.body.resetToken}}",
+  "password": "{{password}}"
+}
+
+### Logout (Optional, if implemented)
+POST {{baseUrl}}/auth/logout
+Authorization: Bearer {{accessToken}}

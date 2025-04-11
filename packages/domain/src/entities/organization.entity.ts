@@ -9,7 +9,6 @@ export const organizationSchema = z.object({
   updatedAt: z.coerce.date(),
   timezone: z.string().default("UTC"),
   defaultLanguage: z.string().default("en"),
-  supportedLanguages: z.array(z.string()).default(["en"]),
   settings: z.any().nullish(),
   customDomain: z.string().nullish(),
   logo: z.string().nullish(),

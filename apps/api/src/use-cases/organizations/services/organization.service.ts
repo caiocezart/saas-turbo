@@ -1,9 +1,11 @@
 import { Injectable } from "@nestjs/common";
 import { OrganizationRepository } from "@/database/repositories/organization.repository";
 import { MembershipRepository } from "@/database/repositories/membership.repository";
-import { MembershipUpdate } from "@repo/domain";
-import { Role } from "@prisma/client";
-import { OrganizationUpdate } from "@repo/domain";
+import {
+  MembershipUpdate,
+  OrganizationUpdate,
+  PrismaRoles,
+} from "@repo/domain";
 
 @Injectable()
 export class OrganizationService {
@@ -11,6 +13,10 @@ export class OrganizationService {
     private readonly organizationRepository: OrganizationRepository,
     private readonly membershipRepository: MembershipRepository
   ) {}
+
+  async findAll() {
+    return await this.organizationRepository.findAll();
+  }
 
   async createOrganization(name: string) {
     return await this.organizationRepository.create({
@@ -25,11 +31,19 @@ export class OrganizationService {
     });
   }
 
+  async getOrganizationById(organizationId: string) {
+    return await this.organizationRepository.findById(organizationId);
+  }
+
   async deleteOrganization(organizationId: string) {
     await this.organizationRepository.delete(organizationId);
   }
 
-  async createMembership(organizationId: string, memberId: string, role: Role) {
+  async createMembership(
+    organizationId: string,
+    memberId: string,
+    role: PrismaRoles
+  ) {
     await this.membershipRepository.createMembership(
       organizationId,
       memberId,

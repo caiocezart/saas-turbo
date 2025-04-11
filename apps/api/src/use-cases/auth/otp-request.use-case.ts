@@ -31,6 +31,7 @@ export class OtpRequestUseCase {
       );
 
     this.logger.debug(`Existing verification: ${existingVerification?.id}`);
+
     if (
       existingVerification &&
       (await this.verificationService.rateLimitCheck(existingVerification))

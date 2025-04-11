@@ -2,7 +2,6 @@ import { Injectable } from "@nestjs/common";
 import { BaseRepository } from "./base.repository";
 import { PrismaService } from "@/database/prisma/prisma.service";
 import { MembershipInvite, Prisma, Role } from "@prisma/client";
-import { MembershipInviteUpdate } from "@repo/domain";
 
 @Injectable()
 export class MembershipInviteRepository extends BaseRepository<
@@ -11,16 +10,7 @@ export class MembershipInviteRepository extends BaseRepository<
   Prisma.MembershipInviteUpdateInput
 > {
   constructor(prisma: PrismaService) {
-    super(prisma, "membership");
-  }
-
-  async getMembershipInviteByMemberId(
-    organizationId: string,
-    memberId: string
-  ) {
-    return this.prisma.membershipInvite.findFirst({
-      where: { organizationId, memberId },
-    });
+    super(prisma, "membershipInvite");
   }
 
   async createInvite(
@@ -29,7 +19,7 @@ export class MembershipInviteRepository extends BaseRepository<
     memberId: string,
     role: Role
   ) {
-    return this.prisma.membershipInvite.create({
+    return await this.prisma.membershipInvite.create({
       data: {
         organization: {
           connect: {
@@ -48,46 +38,26 @@ export class MembershipInviteRepository extends BaseRepository<
         },
         role,
       },
-    });
-  }
-
-  async deleteInvite(organizationId: string, inviteId: string) {
-    return this.prisma.membershipInvite.delete({
-      where: {
-        organizationId,
-        id: inviteId,
+      include: {
+        organization: true,
+        inviter: true,
+        member: true,
       },
     });
   }
 
   async updateInvite(
-    organizationId: string,
-    inviteId: string,
-    invite: MembershipInviteUpdate
+    id: string,
+    data: Prisma.MembershipInviteUpdateInput,
+    tx?: Prisma.TransactionClient
   ) {
-    return this.prisma.membershipInvite.update({
-      where: {
-        organizationId,
-        id: inviteId,
-      },
-      data: {
-        ...invite,
-      },
-    });
-  }
-
-  async acceptInvite(
-    organizationId: string,
-    inviteId: string,
-    invite: MembershipInvite
-  ) {
-    return this.prisma.membershipInvite.update({
-      where: {
-        organizationId,
-        id: inviteId,
-      },
-      data: {
-        ...invite,
+    return await (tx || this.prisma).membershipInvite.update({
+      where: { id },
+      data,
+      include: {
+        organization: true,
+        inviter: true,
+        member: true,
       },
     });
   }

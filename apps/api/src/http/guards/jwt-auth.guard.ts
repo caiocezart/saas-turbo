@@ -28,12 +28,6 @@ export class JwtAuthGuard extends AuthGuard("jwt") {
   }
 
   handleRequest(err: any, user: any, info: any, context: ExecutionContext) {
-    // --- DEBUG LOGGING START ---
-    this.logger.log(
-      `JwtAuthGuard handleRequest: err=${JSON.stringify(err)}, user=${JSON.stringify(user)}, info=${JSON.stringify(info)}`,
-      context.getClass().name
-    );
-    // --- DEBUG LOGGING END ---
     if (info instanceof Error || err || !user) {
       this.logger.error("JwtAuthGuard error: invalid access token");
       throw new AppException(ErrorCode.UNAUTHORIZED, "Invalid access token.");

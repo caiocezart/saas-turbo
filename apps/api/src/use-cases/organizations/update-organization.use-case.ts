@@ -1,17 +1,24 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { OrganizationService } from "./services/organization.service";
-import { OrganizationUpdate } from "@repo/domain";
+import { UpdateOrganization } from "@repo/domain";
 
 @Injectable()
 export class UpdateOrganizationUseCase {
   constructor(private readonly organizationService: OrganizationService) {}
 
-  async execute(organizationId: string, input: OrganizationUpdate) {
-    const organization = await this.organizationService.updateMembership(
-      organizationId,
-      input
-    );
+  async execute(
+    organizationId: string,
+    input: UpdateOrganization
+  ): Promise<void> {
+    // Optional: Check if organization exists first
+    const existingOrg =
+      await this.organizationService.getOrganizationById(organizationId);
+    if (!existingOrg) {
+      throw new NotFoundException(
+        `Organization with ID ${organizationId} not found`
+      );
+    }
 
-    return organization;
+    await this.organizationService.updateOrganization(organizationId, input);
   }
 }

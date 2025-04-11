@@ -7,13 +7,23 @@ import { UseCasesModule } from "@/use-cases/use-cases.module";
 
 import { AuthController } from "./controllers/auth.controller";
 import { UsersController } from "./controllers/users.controller";
+import { OrganizationsController } from "./controllers/organizations.controller";
+import {
+  MembershipInvitesController,
+  MembershipInvitesPublicController,
+} from "./controllers/membership-invites.controller";
 
 import { AccessTokenStrategy } from "./strategies/access-token.strategy";
-import { OrganizationsController } from "./controllers/organizations.controller";
 import { RefreshTokenStrategy } from "./strategies/refresh-token.strategy";
 @Module({
   imports: [EnvModule, DatabaseModule, UseCasesModule],
-  controllers: [AuthController, UsersController, OrganizationsController],
+  controllers: [
+    AuthController,
+    UsersController,
+    OrganizationsController,
+    MembershipInvitesController,
+    MembershipInvitesPublicController,
+  ],
   providers: [
     AccessTokenStrategy,
     RefreshTokenStrategy,

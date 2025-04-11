@@ -1,0 +1,98 @@
+### Environment variables
+@baseUrl = http://localhost:3001/api/v1
+@email = test@example.com
+@password = password123
+@accessToken = {{loginResponse.response.body.accessToken}}
+@organizationId = {{createOrgResponse.response.body.id}}
+@membershipId = {{listMembershipsResponse.response.body[0].id}}
+@inviteId = {{createInviteResponse.response.body.id}}
+@inviteToken = {{createInviteResponse.response.body.token}}
+
+### Login (Optional, if not already authenticated)
+# @name loginResponse
+POST {{baseUrl}}/auth/sign-in
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### ----- ORGANIZATIONS -----
+
+### Create Organization
+# @name createOrgResponse
+POST {{baseUrl}}/organizations
+Content-Type: application/json
+
+{
+  "name": "Test Organization",
+  "description": "This is a test organization"
+}
+
+### Get Organization by ID
+GET {{baseUrl}}/organizations/{{organizationId}}
+
+### List Organizations (for current user)
+GET {{baseUrl}}/organizations
+
+### Update Organization
+PATCH {{baseUrl}}/organizations/{{organizationId}}
+Content-Type: application/json
+
+{
+  "name": "Updated Organization Name",
+  "description": "Updated description"
+}
+
+### ----- MEMBERSHIPS -----
+
+### List Memberships for Organization
+# @name listMembershipsResponse
+GET {{baseUrl}}/organizations/{{organizationId}}/memberships
+
+### Get Membership by ID
+GET {{baseUrl}}/organizations/{{organizationId}}/memberships/{{membershipId}}
+
+### Update Membership Role
+PATCH {{baseUrl}}/organizations/{{organizationId}}/memberships/{{membershipId}}
+Content-Type: application/json
+
+{
+  "role": "ORGANIZATION_ADMIN"
+}
+
+### Delete Membership (remove a member)
+DELETE {{baseUrl}}/organizations/{{organizationId}}/memberships/{{membershipId}}
+
+### ----- MEMBERSHIP INVITES -----
+
+### Create Membership Invite
+# @name createInviteResponse
+POST {{baseUrl}}/organizations/{{organizationId}}/membership-invites
+Content-Type: application/json
+
+{
+  "email": "newmember@example.com",
+  "role": "ORGANIZATION_USER"
+}
+
+### List Membership Invites
+GET {{baseUrl}}/organizations/{{organizationId}}/membership-invites?status=active
+
+### Get Membership Invite by ID
+GET {{baseUrl}}/organizations/{{organizationId}}/membership-invites/{{inviteId}}
+
+### Get Membership Invite by Token (public endpoint)
+GET {{baseUrl}}/membership-invites/by-token/{{inviteToken}}
+
+### Accept Membership Invite
+POST {{baseUrl}}/membership-invites/accept/{{inviteToken}}
+
+### Delete (Revoke) Membership Invite
+DELETE {{baseUrl}}/organizations/{{organizationId}}/membership-invites/{{inviteId}}
+
+### ----- ORGANIZATION DELETION -----
+
+### Delete Organization
+DELETE {{baseUrl}}/organizations/{{organizationId}}

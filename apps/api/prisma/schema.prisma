@@ -18,19 +18,19 @@ enum Role {
 }
 
 model Organization {
-  id           String   @id @default(cuid())
-  name         String
-  slug         String   @unique
-  createdAt    DateTime @default(now()) @map("created_at")
-  updatedAt    DateTime @updatedAt @map("updated_at")
-  timezone     String   @default("UTC")
-  language     String   @default("en")
-  settings     Json?
-  customDomain String?  @map("custom_domain")
+  id              String   @id @default(cuid())
+  name            String
+  slug            String   @unique
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+  timezone        String   @default("UTC")
+  defaultLanguage String   @default("en") @map("default_language")
+  settings        Json?
+  customDomain    String?  @map("custom_domain")
   // subscriptionId     String?  @map("subscription_id")
-  logo         String?
-  primaryColor String?  @map("primary_color")
-  accentColor  String?  @map("accent_color")
+  logo            String?
+  primaryColor    String?  @map("primary_color")
+  accentColor     String?  @map("accent_color")
 
   // Relations
   // profiles    Profile[]
@@ -176,6 +176,7 @@ model MembershipInvite {
   createdAt      DateTime  @default(now()) @map("created_at")
   updatedAt      DateTime  @updatedAt @map("updated_at")
   inviterId      String    @map("inviter_id")
+  acceptedById   String?   @map("accepted_by_id")
   acceptedAt     DateTime? @map("accepted_at")
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)

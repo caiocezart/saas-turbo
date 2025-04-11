@@ -5,6 +5,7 @@ import { envSchema } from "./env/env";
 import { EnvModule } from "./env/env.module";
 import { EnvService } from "./env/env.service";
 import { JwtModule } from "@nestjs/jwt";
+import { EventEmitterModule } from "@nestjs/event-emitter";
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { JwtModule } from "@nestjs/jwt";
         };
       },
     }),
+    EventEmitterModule.forRoot(),
     // LoggerModule.forRootAsync({
     //   imports: [EnvModule],
     //   inject: [EnvService],
@@ -50,6 +52,7 @@ import { JwtModule } from "@nestjs/jwt";
     //   },
     // }),
   ],
+  controllers: [],
   providers: [],
 })
 export class AppModule {}

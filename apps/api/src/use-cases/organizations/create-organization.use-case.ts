@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { OrganizationService } from "./services/organization.service";
-import { Role } from "@prisma/client";
+import { PrismaRoles } from "@repo/domain";
 @Injectable()
 export class CreateOrganizationUseCase {
   constructor(private readonly organizationService: OrganizationService) {}
@@ -12,7 +12,7 @@ export class CreateOrganizationUseCase {
     await this.organizationService.createMembership(
       organization.id,
       userId,
-      Role.ORGANIZATION_OWNER
+      PrismaRoles.ORGANIZATION_OWNER
     );
 
     return organization;
