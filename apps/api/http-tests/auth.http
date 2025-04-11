@@ -1,0 +1,85 @@
+@providerId = "cm9awis0r00009u1faqq2bdda"
+###
+
+GET http://127.0.0.1:3001/api/v1/auth/is_authenticated
+
+### 
+
+# @name signUp
+POST http://127.0.0.1:3001/api/v1/auth/sign-up
+Content-Type: application/json
+
+{
+  "email": "test1@test.com",
+  "password": "testtest",
+  "firstName": "Test",
+  "lastName": "Test",
+  "providerType": "PASSWORD"
+}
+
+###
+
+POST http://127.0.0.1:3001/api/v1/auth/new-email-verification
+Cookie: {{signUp.response.headers.set-cookie}}
+
+###
+
+
+# @name signIn
+POST http://127.0.0.1:3001/api/v1/auth/sign-in
+Content-Type: application/json
+
+{
+  "email": "test1@test.com",
+  "password": "testtest",
+  "providerType": "PASSWORD"
+}
+
+###
+
+POST http://127.0.0.1:3001/api/v1/auth/verify-email
+Cookie: {{signUp.response.headers.set-cookie}}
+Content-Type: application/json
+
+{
+  "userId": "cm9clusxb00009u1vmsfv9rp3",
+  "token": "uCyLscBR3XiRHYaJ7jla"
+}
+
+###
+
+# Access a protected endpoint with the access token
+GET http://127.0.0.1:3001/api/v1/users
+Cookie: {{refreshTokenRequest.response.headers.set-cookie}}
+
+###
+
+# @name refreshTokenRequest
+# Refresh token endpoint using the cookie
+POST http://127.0.0.1:3001/api/v1/auth/refresh-token
+Cookie: {{signIn.response.headers.set-cookie}}
+
+###
+
+POST http://127.0.0.1:3001/api/v1/auth/otp
+Cookie: {{signIn.response.headers.set-cookie}}
+Content-Type: application/json
+
+{
+  "action": "FORGOT_PASSWORD",
+  "method": "EMAIL"
+}
+
+###
+
+POST http://127.0.0.1:3001/api/v1/auth/forgot-password
+Cookie: {{signUp.response.headers.set-cookie}}
+Content-Type: application/json
+
+{
+  "otp": "485468",
+  "oldPassword": "testtest2",
+  "newPassword": "testtest3"
+}
+
+###

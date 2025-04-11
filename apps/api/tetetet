@@ -1,0 +1,3108 @@
+
+> @repo/api@0.0.1 start:dev /home/caio/saas-turbo/apps/api
+> nest start --watch
+
+[[90m7:42:13 PM[0m] Starting compilation in watch mode...
+
+[[90m7:42:16 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +15ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mEmailModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDatabaseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mEventsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mEventEmitterModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mEnvModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUseCasesModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHttpModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/v1/auth}:[39m[38;5;3m +5ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/sign-up, POST} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/sign-in, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/verify-email, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/new-email-verification, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/otp, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/refresh-token, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/forgot-password, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/v1/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/users, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOrganizationsController {/api/v1/organizations}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 89167  - [39m04/11/2025, 7:42:17 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +46ms[39m
+{"level":30,"time":1744364537119,"pid":89167,"hostname":"milleniumfalcon","msg":"Server listening at http://10.255.255.254:3001"}
+🚀 Application is running on: http://127.0.0.1:3001
+{"level":30,"time":1744364537119,"pid":89167,"hostname":"milleniumfalcon","msg":"Server listening at http://127.0.0.1:3001"}
+{"level":30,"time":1744364537119,"pid":89167,"hostname":"milleniumfalcon","msg":"Server listening at http://172.23.249.42:3001"}
+{"level":30,"time":1744364539344,"pid":89167,"hostname":"milleniumfalcon","reqId":"req-1","req":{"method":"POST","url":"/api/v1/auth/new-email-verification","host":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":52880},"msg":"incoming request"}
+[95m[Nest] 89167  - [39m04/11/2025, 7:42:19 PM [95m  DEBUG[39m [38;5;3m[AccessTokenStrategy] [39m[95mvalidate[39m
+[95m[Nest] 89167  - [39m04/11/2025, 7:42:19 PM [95m  DEBUG[39m [38;5;3m[AccessTokenStrategy] [39m_Request {
+  id: [32m'req-1'[39m,
+  params: NullObject <[Object: null prototype] {}> {},
+  raw: [36m<ref *3>[39m IncomingMessage {
+    _readableState: ReadableState {
+      state: [33m137266[39m,
+      highWaterMark: [33m16384[39m,
+      buffer: BufferList {
+        head: [1mnull[22m,
+        tail: [1mnull[22m,
+        length: [33m0[39m
+      },
+      length: [33m0[39m,
+      pipes: [],
+      flowing: [1mnull[22m,
+      errored: [1mnull[22m,
+      defaultEncoding: [32m'utf8'[39m,
+      awaitDrainWriters: [1mnull[22m,
+      decoder: [1mnull[22m,
+      encoding: [1mnull[22m,
+      [[32mSymbol(kPaused)[39m]: [1mnull[22m
+    },
+    _events: [Object: null prototype] {},
+    _eventsCount: [33m0[39m,
+    _maxListeners: [90mundefined[39m,
+    socket: [36m<ref *2>[39m Socket {
+      connecting: [33mfalse[39m,
+      _hadError: [33mfalse[39m,
+      _parent: [1mnull[22m,
+      _host: [1mnull[22m,
+      _closeAfterHandlingError: [33mfalse[39m,
+      _readableState: ReadableState {
+        state: [33m4184[39m,
+        highWaterMark: [33m16384[39m,
+        buffer: BufferList {
+          head: [1mnull[22m,
+          tail: [1mnull[22m,
+          length: [33m0[39m
+        },
+        length: [33m0[39m,
+        pipes: [],
+        flowing: [33mtrue[39m,
+        errored: [1mnull[22m,
+        defaultEncoding: [32m'utf8'[39m,
+        awaitDrainWriters: [1mnull[22m,
+        decoder: [1mnull[22m,
+        encoding: [1mnull[22m,
+        [[32mSymbol(kPaused)[39m]: [33mfalse[39m
+      },
+      _events: [Object: null prototype] {
+        end: [
+          [36m[Function: onReadableStreamEnd][39m,
+          [36m[Function: bound socketOnEnd][39m
+        ],
+        timeout: [36m[Function: socketOnTimeout][39m,
+        data: [36m[Function: bound socketOnData][39m,
+        error: [36m[Function: socketOnError][39m,
+        close: [
+          [36m[Function: bound socketOnClose][39m,
+          [36m[Function: onServerResponseClose][39m
+        ],
+        drain: [36m[Function: bound socketOnDrain][39m,
+        resume: [36m[Function: onSocketResume][39m,
+        pause: [36m[Function: onSocketPause][39m
+      },
+      _eventsCount: [33m8[39m,
+      _maxListeners: [90mundefined[39m,
+      _writableState: WritableState {
+        state: [33m786508[39m,
+        highWaterMark: [33m16384[39m,
+        defaultEncoding: [32m'utf8'[39m,
+        length: [33m0[39m,
+        corked: [33m0[39m,
+        onwrite: [36m[Function: bound onwrite][39m,
+        writecb: [1mnull[22m,
+        writelen: [33m0[39m,
+        afterWriteTickInfo: [1mnull[22m,
+        buffered: [],
+        bufferedIndex: [33m0[39m,
+        pendingcb: [33m0[39m,
+        errored: [1mnull[22m,
+        [[32mSymbol(kOnFinished)[39m]: []
+      },
+      allowHalfOpen: [33mtrue[39m,
+      _sockname: [1mnull[22m,
+      _pendingData: [1mnull[22m,
+      _pendingEncoding: [32m''[39m,
+      server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      _server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      parser: HTTPParser {
+        [32m'0'[39m: [1mnull[22m,
+        [32m'1'[39m: [36m[Function: parserOnHeaders][39m,
+        [32m'2'[39m: [36m[Function: parserOnHeadersComplete][39m,
+        [32m'3'[39m: [36m[Function: parserOnBody][39m,
+        [32m'4'[39m: [36m[Function: parserOnMessageComplete][39m,
+        [32m'5'[39m: [36m[Function: bound onParserExecute][39m,
+        [32m'6'[39m: [36m[Function: bound onParserTimeout][39m,
+        _headers: [],
+        _url: [32m''[39m,
+        socket: [36m[Circular *2][39m,
+        incoming: [36m[Circular *3][39m,
+        outgoing: [1mnull[22m,
+        maxHeaderPairs: [33m2000[39m,
+        _consumed: [33mtrue[39m,
+        onIncoming: [36m[Function: bound parserOnIncoming][39m,
+        joinDuplicateHeaders: [1mnull[22m,
+        [[32mSymbol(resource_symbol)[39m]: HTTPServerAsyncResource {
+          type: [32m'HTTPINCOMINGMESSAGE'[39m,
+          socket: [36m[Circular *2][39m
+        }
+      },
+      on: [36m[Function: socketListenerWrap][39m,
+      addListener: [36m[Function: socketListenerWrap][39m,
+      prependListener: [36m[Function: socketListenerWrap][39m,
+      setEncoding: [36m[Function: socketSetEncoding][39m,
+      _paused: [33mfalse[39m,
+      _httpMessage: ServerResponse {
+        _events: [Object: null prototype] {
+          finish: [
+            [36m[Function: bound resOnFinish][39m,
+            [36m[Function: onResFinished][39m
+          ],
+          error: [36m[Function: onResFinished][39m
+        },
+        _eventsCount: [33m2[39m,
+        _maxListeners: [90mundefined[39m,
+        outputData: [],
+        outputSize: [33m0[39m,
+        writable: [33mtrue[39m,
+        destroyed: [33mfalse[39m,
+        _last: [33mfalse[39m,
+        chunkedEncoding: [33mfalse[39m,
+        shouldKeepAlive: [33mfalse[39m,
+        maxRequestsOnConnectionReached: [33mfalse[39m,
+        _defaultKeepAlive: [33mtrue[39m,
+        useChunkedEncodingByDefault: [33mtrue[39m,
+        sendDate: [33mtrue[39m,
+        _removedConnection: [33mfalse[39m,
+        _removedContLen: [33mfalse[39m,
+        _removedTE: [33mfalse[39m,
+        strictContentLength: [33mfalse[39m,
+        _contentLength: [1mnull[22m,
+        _hasBody: [33mtrue[39m,
+        _trailer: [32m''[39m,
+        finished: [33mfalse[39m,
+        _headerSent: [33mfalse[39m,
+        _closed: [33mfalse[39m,
+        socket: [36m[Circular *2][39m,
+        _header: [1mnull[22m,
+        _keepAliveTimeout: [33m72000[39m,
+        _onPendingData: [36m[Function: bound updateOutgoingData][39m,
+        req: [36m[Circular *3][39m,
+        _sent100: [33mfalse[39m,
+        _expect_continue: [33mfalse[39m,
+        _maxRequestsPerSocket: [33m0[39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(kBytesWritten)[39m]: [33m0[39m,
+        [[32mSymbol(kNeedDrain)[39m]: [33mfalse[39m,
+        [[32mSymbol(corked)[39m]: [33m0[39m,
+        [[32mSymbol(kOutHeaders)[39m]: [Object: null prototype] {
+          [32m'content-security-policy'[39m: [
+            [32m'Content-Security-Policy'[39m,
+            [32m"default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"[39m
+          ],
+          [32m'cross-origin-opener-policy'[39m: [
+            [32m'Cross-Origin-Opener-Policy'[39m,
+            [32m'same-origin'[39m
+          ],
+          [32m'cross-origin-resource-policy'[39m: [
+            [32m'Cross-Origin-Resource-Policy'[39m,
+            [32m'same-origin'[39m
+          ],
+          [32m'origin-agent-cluster'[39m: [
+            [32m'Origin-Agent-Cluster'[39m,
+            [32m'?1'[39m
+          ],
+          [32m'referrer-policy'[39m: [
+            [32m'Referrer-Policy'[39m,
+            [32m'no-referrer'[39m
+          ],
+          [32m'strict-transport-security'[39m: [
+            [32m'Strict-Transport-Security'[39m,
+            [32m'max-age=31536000; includeSubDomains'[39m
+          ],
+          [32m'x-content-type-options'[39m: [
+            [32m'X-Content-Type-Options'[39m,
+            [32m'nosniff'[39m
+          ],
+          [32m'x-dns-prefetch-control'[39m: [
+            [32m'X-DNS-Prefetch-Control'[39m,
+            [32m'off'[39m
+          ],
+          [32m'x-download-options'[39m: [
+            [32m'X-Download-Options'[39m,
+            [32m'noopen'[39m
+          ],
+          [32m'x-frame-options'[39m: [
+            [32m'X-Frame-Options'[39m,
+            [32m'SAMEORIGIN'[39m
+          ],
+          [32m'x-permitted-cross-domain-policies'[39m: [
+            [32m'X-Permitted-Cross-Domain-Policies'[39m,
+            [32m'none'[39m
+          ],
+          [32m'x-xss-protection'[39m: [
+            [32m'X-XSS-Protection'[39m,
+            [32m'0'[39m
+          ]
+        },
+        [[32mSymbol(errored)[39m]: [1mnull[22m,
+        [[32mSymbol(kHighWaterMark)[39m]: [33m16384[39m,
+        [[32mSymbol(kRejectNonStandardBodyWrites)[39m]: [33mfalse[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m
+      },
+      _peername: {
+        address: [32m'127.0.0.1'[39m,
+        family: [32m'IPv4'[39m,
+        port: [33m52880[39m
+      },
+      [[32mSymbol(async_id_symbol)[39m]: [33m150[39m,
+      [[32mSymbol(kHandle)[39m]: TCP {
+        reading: [33mtrue[39m,
+        onconnection: [1mnull[22m,
+        _consumed: [33mtrue[39m,
+        [[32mSymbol(owner_symbol)[39m]: [36m[Circular *2][39m
+      },
+      [[32mSymbol(lastWriteQueueSize)[39m]: [33m0[39m,
+      [[32mSymbol(timeout)[39m]: [1mnull[22m,
+      [[32mSymbol(kBuffer)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferCb)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferGen)[39m]: [1mnull[22m,
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetNoDelay)[39m]: [33mtrue[39m,
+      [[32mSymbol(kSetKeepAlive)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetKeepAliveInitialDelay)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesRead)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesWritten)[39m]: [33m0[39m
+    },
+    httpVersionMajor: [33m1[39m,
+    httpVersionMinor: [33m1[39m,
+    httpVersion: [32m'1.1'[39m,
+    complete: [33mtrue[39m,
+    rawHeaders: [
+      [32m'user-agent'[39m,
+      [32m'vscode-restclient'[39m,
+      [32m'cookie'[39m,
+      [32m'access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE3NDQzNjM5MzksImV4cCI6MTc0NDQyMzkzOX0.pQlDUQ7jzf2kSDfLV-1SUPeIT9RXZaoVZ2K2312jq9N7CQFOvmXRYr_QHXBlqaMX4xHmJsIr2kND3UZO9tEaoaLdr_eoIRQ9A7hn3SI3iHu_kusujeixTa0HaeI0Isze-4ZJ5IBnSmeBP_YuzOGSKo-DoaIwj2Vd3EdM07jo7om_5Sm6q8dS5RRNZRK-vmeh7_jDQYIXwYK0SbNLwvhUrOnkm55GGqIVzKQrU-5RHFaZvrVFo_rxzioR3-U_lv6B0P9WUpfZ0_7hqdklkQUlNfw5WzbS61v9YCCAUIzxgw8jgtzQNcnhFUnWC1MK1Ejyy7qf2z4IO_kVLtKiLjKQ4ls4tNbMdAmtjfUwbmKY8EUZdiqMj7rLINQ3sNr5RMqOJ5KxLUCLuuTAa1iTIxHbGyp18gNSmRVzHJiUaadFNm7pYpv5Cu442YvVrUbvE0IcQH7BSysH1bVfCepRrgS3O0R7oNOBS0Iqcl4HYdIJ80RuFxgse-EC7l7fFdAzRo_c3C38ywzgu78sIt3xtlEyy1CHDstEVC6Y8QI0ntMaSxLfkpQzQKC8UhSyxZCHqV5Aww9LREk_yQh_3YkhPPi3SP7D9p0jjh6hdxXFSbHDtgi_f9f5JZ7y2GlczqLQK3RqkLiwnF6y2Rkyq11BhnZ1nYuuP9-VjYIzDPkO8hbXrwA; refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiaWF0IjoxNzQ0MzYzOTM5LCJleHAiOjE3NDQ0ODM5Mzl9.b6n4s86_cGsLrpcZ0OV9d8eGZZIvRkO5JaAEXX2s2OtbHP1Cnn3OuYydGCqb_23qwZ4iLVEub6ejnG7_YqF7ZUoQzoB3X6msIRO4Ok6BF8QqNyYqHWKqR5MHk3CNbSA4EJJVdVlW5YJoLwNDO4czqDb4p3-0W3R5Vq-iw0od-xmRL_YhsuvM9K34mTUtR03K2uRZ9pVCA1ryd4gxAKbhDIiGkqhnuyclZi-aY9gqQ5VtkISQqctJ3DfCPo4RB8Eb6x3wxyr0Op9mvADWNA4cOPfgK_E-wz-ytojtY79SfLfP-DhCkM0ezzOLUWG4To-EOSSbqhV1dOn84QM2mwMWJIsHeQTZR8R7Lf-4wfAxjayeOWd7EyFegRJyd7P0gKwQ86kVDwFJJq-nF-WP7UgxY4__kFBouVpEkN0aGxEo5jNAqrDjK9Tugk9TT6xZQWV51PgD4tVGVIgZ7V_lUQ9Am3BzJi9JX2eo331todao3Qs82EAqAAskZ_UcwKJgasssxo65aJZLtvtSwXe8AtjdSS3xNqDIbZvg5Pt42W0UpCWzX7lK0RG1ctTqYLihhmel2sxSeIDFwTdjBCE0ATEMfvqDKH5qy7kKXhyQlk006tmWimSjj9jbMVwldEKdsjTvpRvVp-T_cV7kZEyAPKaIJz2L2T8RP1tsguZ7J0EU04s; {{signUp.response.headers.set-cookie}}'[39m,
+      [32m'accept-encoding'[39m,
+      [32m'gzip, deflate'[39m,
+      [32m'Host'[39m,
+      [32m'127.0.0.1:3001'[39m,
+      [32m'Connection'[39m,
+      [32m'close'[39m,
+      [32m'Content-Length'[39m,
+      [32m'0'[39m
+    ],
+    rawTrailers: [],
+    joinDuplicateHeaders: [1mnull[22m,
+    aborted: [33mfalse[39m,
+    upgrade: [33mfalse[39m,
+    url: [32m'/api/v1/auth/new-email-verification'[39m,
+    method: [32m'POST'[39m,
+    statusCode: [1mnull[22m,
+    statusMessage: [1mnull[22m,
+    client: [36m<ref *2>[39m Socket {
+      connecting: [33mfalse[39m,
+      _hadError: [33mfalse[39m,
+      _parent: [1mnull[22m,
+      _host: [1mnull[22m,
+      _closeAfterHandlingError: [33mfalse[39m,
+      _readableState: ReadableState {
+        state: [33m4184[39m,
+        highWaterMark: [33m16384[39m,
+        buffer: BufferList {
+          head: [1mnull[22m,
+          tail: [1mnull[22m,
+          length: [33m0[39m
+        },
+        length: [33m0[39m,
+        pipes: [],
+        flowing: [33mtrue[39m,
+        errored: [1mnull[22m,
+        defaultEncoding: [32m'utf8'[39m,
+        awaitDrainWriters: [1mnull[22m,
+        decoder: [1mnull[22m,
+        encoding: [1mnull[22m,
+        [[32mSymbol(kPaused)[39m]: [33mfalse[39m
+      },
+      _events: [Object: null prototype] {
+        end: [
+          [36m[Function: onReadableStreamEnd][39m,
+          [36m[Function: bound socketOnEnd][39m
+        ],
+        timeout: [36m[Function: socketOnTimeout][39m,
+        data: [36m[Function: bound socketOnData][39m,
+        error: [36m[Function: socketOnError][39m,
+        close: [
+          [36m[Function: bound socketOnClose][39m,
+          [36m[Function: onServerResponseClose][39m
+        ],
+        drain: [36m[Function: bound socketOnDrain][39m,
+        resume: [36m[Function: onSocketResume][39m,
+        pause: [36m[Function: onSocketPause][39m
+      },
+      _eventsCount: [33m8[39m,
+      _maxListeners: [90mundefined[39m,
+      _writableState: WritableState {
+        state: [33m786508[39m,
+        highWaterMark: [33m16384[39m,
+        defaultEncoding: [32m'utf8'[39m,
+        length: [33m0[39m,
+        corked: [33m0[39m,
+        onwrite: [36m[Function: bound onwrite][39m,
+        writecb: [1mnull[22m,
+        writelen: [33m0[39m,
+        afterWriteTickInfo: [1mnull[22m,
+        buffered: [],
+        bufferedIndex: [33m0[39m,
+        pendingcb: [33m0[39m,
+        errored: [1mnull[22m,
+        [[32mSymbol(kOnFinished)[39m]: []
+      },
+      allowHalfOpen: [33mtrue[39m,
+      _sockname: [1mnull[22m,
+      _pendingData: [1mnull[22m,
+      _pendingEncoding: [32m''[39m,
+      server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      _server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      parser: HTTPParser {
+        [32m'0'[39m: [1mnull[22m,
+        [32m'1'[39m: [36m[Function: parserOnHeaders][39m,
+        [32m'2'[39m: [36m[Function: parserOnHeadersComplete][39m,
+        [32m'3'[39m: [36m[Function: parserOnBody][39m,
+        [32m'4'[39m: [36m[Function: parserOnMessageComplete][39m,
+        [32m'5'[39m: [36m[Function: bound onParserExecute][39m,
+        [32m'6'[39m: [36m[Function: bound onParserTimeout][39m,
+        _headers: [],
+        _url: [32m''[39m,
+        socket: [36m[Circular *2][39m,
+        incoming: [36m[Circular *3][39m,
+        outgoing: [1mnull[22m,
+        maxHeaderPairs: [33m2000[39m,
+        _consumed: [33mtrue[39m,
+        onIncoming: [36m[Function: bound parserOnIncoming][39m,
+        joinDuplicateHeaders: [1mnull[22m,
+        [[32mSymbol(resource_symbol)[39m]: HTTPServerAsyncResource {
+          type: [32m'HTTPINCOMINGMESSAGE'[39m,
+          socket: [36m[Circular *2][39m
+        }
+      },
+      on: [36m[Function: socketListenerWrap][39m,
+      addListener: [36m[Function: socketListenerWrap][39m,
+      prependListener: [36m[Function: socketListenerWrap][39m,
+      setEncoding: [36m[Function: socketSetEncoding][39m,
+      _paused: [33mfalse[39m,
+      _httpMessage: ServerResponse {
+        _events: [Object: null prototype] {
+          finish: [
+            [36m[Function: bound resOnFinish][39m,
+            [36m[Function: onResFinished][39m
+          ],
+          error: [36m[Function: onResFinished][39m
+        },
+        _eventsCount: [33m2[39m,
+        _maxListeners: [90mundefined[39m,
+        outputData: [],
+        outputSize: [33m0[39m,
+        writable: [33mtrue[39m,
+        destroyed: [33mfalse[39m,
+        _last: [33mfalse[39m,
+        chunkedEncoding: [33mfalse[39m,
+        shouldKeepAlive: [33mfalse[39m,
+        maxRequestsOnConnectionReached: [33mfalse[39m,
+        _defaultKeepAlive: [33mtrue[39m,
+        useChunkedEncodingByDefault: [33mtrue[39m,
+        sendDate: [33mtrue[39m,
+        _removedConnection: [33mfalse[39m,
+        _removedContLen: [33mfalse[39m,
+        _removedTE: [33mfalse[39m,
+        strictContentLength: [33mfalse[39m,
+        _contentLength: [1mnull[22m,
+        _hasBody: [33mtrue[39m,
+        _trailer: [32m''[39m,
+        finished: [33mfalse[39m,
+        _headerSent: [33mfalse[39m,
+        _closed: [33mfalse[39m,
+        socket: [36m[Circular *2][39m,
+        _header: [1mnull[22m,
+        _keepAliveTimeout: [33m72000[39m,
+        _onPendingData: [36m[Function: bound updateOutgoingData][39m,
+        req: [36m[Circular *3][39m,
+        _sent100: [33mfalse[39m,
+        _expect_continue: [33mfalse[39m,
+        _maxRequestsPerSocket: [33m0[39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(kBytesWritten)[39m]: [33m0[39m,
+        [[32mSymbol(kNeedDrain)[39m]: [33mfalse[39m,
+        [[32mSymbol(corked)[39m]: [33m0[39m,
+        [[32mSymbol(kOutHeaders)[39m]: [Object: null prototype] {
+          [32m'content-security-policy'[39m: [
+            [32m'Content-Security-Policy'[39m,
+            [32m"default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"[39m
+          ],
+          [32m'cross-origin-opener-policy'[39m: [
+            [32m'Cross-Origin-Opener-Policy'[39m,
+            [32m'same-origin'[39m
+          ],
+          [32m'cross-origin-resource-policy'[39m: [
+            [32m'Cross-Origin-Resource-Policy'[39m,
+            [32m'same-origin'[39m
+          ],
+          [32m'origin-agent-cluster'[39m: [
+            [32m'Origin-Agent-Cluster'[39m,
+            [32m'?1'[39m
+          ],
+          [32m'referrer-policy'[39m: [
+            [32m'Referrer-Policy'[39m,
+            [32m'no-referrer'[39m
+          ],
+          [32m'strict-transport-security'[39m: [
+            [32m'Strict-Transport-Security'[39m,
+            [32m'max-age=31536000; includeSubDomains'[39m
+          ],
+          [32m'x-content-type-options'[39m: [
+            [32m'X-Content-Type-Options'[39m,
+            [32m'nosniff'[39m
+          ],
+          [32m'x-dns-prefetch-control'[39m: [
+            [32m'X-DNS-Prefetch-Control'[39m,
+            [32m'off'[39m
+          ],
+          [32m'x-download-options'[39m: [
+            [32m'X-Download-Options'[39m,
+            [32m'noopen'[39m
+          ],
+          [32m'x-frame-options'[39m: [
+            [32m'X-Frame-Options'[39m,
+            [32m'SAMEORIGIN'[39m
+          ],
+          [32m'x-permitted-cross-domain-policies'[39m: [
+            [32m'X-Permitted-Cross-Domain-Policies'[39m,
+            [32m'none'[39m
+          ],
+          [32m'x-xss-protection'[39m: [
+            [32m'X-XSS-Protection'[39m,
+            [32m'0'[39m
+          ]
+        },
+        [[32mSymbol(errored)[39m]: [1mnull[22m,
+        [[32mSymbol(kHighWaterMark)[39m]: [33m16384[39m,
+        [[32mSymbol(kRejectNonStandardBodyWrites)[39m]: [33mfalse[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m
+      },
+      _peername: {
+        address: [32m'127.0.0.1'[39m,
+        family: [32m'IPv4'[39m,
+        port: [33m52880[39m
+      },
+      [[32mSymbol(async_id_symbol)[39m]: [33m150[39m,
+      [[32mSymbol(kHandle)[39m]: TCP {
+        reading: [33mtrue[39m,
+        onconnection: [1mnull[22m,
+        _consumed: [33mtrue[39m,
+        [[32mSymbol(owner_symbol)[39m]: [36m[Circular *2][39m
+      },
+      [[32mSymbol(lastWriteQueueSize)[39m]: [33m0[39m,
+      [[32mSymbol(timeout)[39m]: [1mnull[22m,
+      [[32mSymbol(kBuffer)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferCb)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferGen)[39m]: [1mnull[22m,
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetNoDelay)[39m]: [33mtrue[39m,
+      [[32mSymbol(kSetKeepAlive)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetKeepAliveInitialDelay)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesRead)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesWritten)[39m]: [33m0[39m
+    },
+    _consuming: [33mfalse[39m,
+    _dumped: [33mfalse[39m,
+    [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+    [[32mSymbol(kHeaders)[39m]: {
+      [32m'user-agent'[39m: [32m'vscode-restclient'[39m,
+      cookie: [32m'access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE3NDQzNjM5MzksImV4cCI6MTc0NDQyMzkzOX0.pQlDUQ7jzf2kSDfLV-1SUPeIT9RXZaoVZ2K2312jq9N7CQFOvmXRYr_QHXBlqaMX4xHmJsIr2kND3UZO9tEaoaLdr_eoIRQ9A7hn3SI3iHu_kusujeixTa0HaeI0Isze-4ZJ5IBnSmeBP_YuzOGSKo-DoaIwj2Vd3EdM07jo7om_5Sm6q8dS5RRNZRK-vmeh7_jDQYIXwYK0SbNLwvhUrOnkm55GGqIVzKQrU-5RHFaZvrVFo_rxzioR3-U_lv6B0P9WUpfZ0_7hqdklkQUlNfw5WzbS61v9YCCAUIzxgw8jgtzQNcnhFUnWC1MK1Ejyy7qf2z4IO_kVLtKiLjKQ4ls4tNbMdAmtjfUwbmKY8EUZdiqMj7rLINQ3sNr5RMqOJ5KxLUCLuuTAa1iTIxHbGyp18gNSmRVzHJiUaadFNm7pYpv5Cu442YvVrUbvE0IcQH7BSysH1bVfCepRrgS3O0R7oNOBS0Iqcl4HYdIJ80RuFxgse-EC7l7fFdAzRo_c3C38ywzgu78sIt3xtlEyy1CHDstEVC6Y8QI0ntMaSxLfkpQzQKC8UhSyxZCHqV5Aww9LREk_yQh_3YkhPPi3SP7D9p0jjh6hdxXFSbHDtgi_f9f5JZ7y2GlczqLQK3RqkLiwnF6y2Rkyq11BhnZ1nYuuP9-VjYIzDPkO8hbXrwA; refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiaWF0IjoxNzQ0MzYzOTM5LCJleHAiOjE3NDQ0ODM5Mzl9.b6n4s86_cGsLrpcZ0OV9d8eGZZIvRkO5JaAEXX2s2OtbHP1Cnn3OuYydGCqb_23qwZ4iLVEub6ejnG7_YqF7ZUoQzoB3X6msIRO4Ok6BF8QqNyYqHWKqR5MHk3CNbSA4EJJVdVlW5YJoLwNDO4czqDb4p3-0W3R5Vq-iw0od-xmRL_YhsuvM9K34mTUtR03K2uRZ9pVCA1ryd4gxAKbhDIiGkqhnuyclZi-aY9gqQ5VtkISQqctJ3DfCPo4RB8Eb6x3wxyr0Op9mvADWNA4cOPfgK_E-wz-ytojtY79SfLfP-DhCkM0ezzOLUWG4To-EOSSbqhV1dOn84QM2mwMWJIsHeQTZR8R7Lf-4wfAxjayeOWd7EyFegRJyd7P0gKwQ86kVDwFJJq-nF-WP7UgxY4__kFBouVpEkN0aGxEo5jNAqrDjK9Tugk9TT6xZQWV51PgD4tVGVIgZ7V_lUQ9Am3BzJi9JX2eo331todao3Qs82EAqAAskZ_UcwKJgasssxo65aJZLtvtSwXe8AtjdSS3xNqDIbZvg5Pt42W0UpCWzX7lK0RG1ctTqYLihhmel2sxSeIDFwTdjBCE0ATEMfvqDKH5qy7kKXhyQlk006tmWimSjj9jbMVwldEKdsjTvpRvVp-T_cV7kZEyAPKaIJz2L2T8RP1tsguZ7J0EU04s; {{signUp.response.headers.set-cookie}}'[39m,
+      [32m'accept-encoding'[39m: [32m'gzip, deflate'[39m,
+      host: [32m'127.0.0.1:3001'[39m,
+      connection: [32m'close'[39m,
+      [32m'content-length'[39m: [32m'0'[39m
+    },
+    [[32mSymbol(kHeadersCount)[39m]: [33m12[39m,
+    [[32mSymbol(kTrailers)[39m]: [1mnull[22m,
+    [[32mSymbol(kTrailersCount)[39m]: [33m0[39m
+  },
+  query: {},
+  log: EventEmitter {
+    trace: [36m[Function: noop][39m,
+    debug: [36m[Function: noop][39m,
+    info: [36m[Function: LOG][39m,
+    warn: [36m[Function: LOG][39m,
+    error: [36m[Function: LOG][39m,
+    fatal: [36m[Function (anonymous)][39m,
+    [[32mSymbol(pino.serializers)[39m]: {
+      err: [36m[Function: errSerializer][39m,
+      req: [36m[Function: asReqValue][39m,
+      res: [36m[Function: asResValue][39m
+    },
+    [[32mSymbol(pino.formatters)[39m]: {
+      level: [36m[Function: level][39m,
+      bindings: [36m[Function: resetChildingsFormatter][39m,
+      log: [90mundefined[39m
+    },
+    [[32mSymbol(pino.chindings)[39m]: [32m',"pid":89167,"hostname":"milleniumfalcon","reqId":"req-1"'[39m,
+    [[32mSymbol(pino.levelVal)[39m]: [33m30[39m,
+    [[32mSymbol(fastify.disableRequestLogging)[39m]: [33mfalse[39m
+  },
+  body: [90mundefined[39m,
+  cookies: C <[Object: null prototype] {}> {
+    access_token: [32m'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE3NDQzNjM5MzksImV4cCI6MTc0NDQyMzkzOX0.pQlDUQ7jzf2kSDfLV-1SUPeIT9RXZaoVZ2K2312jq9N7CQFOvmXRYr_QHXBlqaMX4xHmJsIr2kND3UZO9tEaoaLdr_eoIRQ9A7hn3SI3iHu_kusujeixTa0HaeI0Isze-4ZJ5IBnSmeBP_YuzOGSKo-DoaIwj2Vd3EdM07jo7om_5Sm6q8dS5RRNZRK-vmeh7_jDQYIXwYK0SbNLwvhUrOnkm55GGqIVzKQrU-5RHFaZvrVFo_rxzioR3-U_lv6B0P9WUpfZ0_7hqdklkQUlNfw5WzbS61v9YCCAUIzxgw8jgtzQNcnhFUnWC1MK1Ejyy7qf2z4IO_kVLtKiLjKQ4ls4tNbMdAmtjfUwbmKY8EUZdiqMj7rLINQ3sNr5RMqOJ5KxLUCLuuTAa1iTIxHbGyp18gNSmRVzHJiUaadFNm7pYpv5Cu442YvVrUbvE0IcQH7BSysH1bVfCepRrgS3O0R7oNOBS0Iqcl4HYdIJ80RuFxgse-EC7l7fFdAzRo_c3C38ywzgu78sIt3xtlEyy1CHDstEVC6Y8QI0ntMaSxLfkpQzQKC8UhSyxZCHqV5Aww9LREk_yQh_3YkhPPi3SP7D9p0jjh6hdxXFSbHDtgi_f9f5JZ7y2GlczqLQK3RqkLiwnF6y2Rkyq11BhnZ1nYuuP9-VjYIzDPkO8hbXrwA'[39m,
+    refresh_token: [32m'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiaWF0IjoxNzQ0MzYzOTM5LCJleHAiOjE3NDQ0ODM5Mzl9.b6n4s86_cGsLrpcZ0OV9d8eGZZIvRkO5JaAEXX2s2OtbHP1Cnn3OuYydGCqb_23qwZ4iLVEub6ejnG7_YqF7ZUoQzoB3X6msIRO4Ok6BF8QqNyYqHWKqR5MHk3CNbSA4EJJVdVlW5YJoLwNDO4czqDb4p3-0W3R5Vq-iw0od-xmRL_YhsuvM9K34mTUtR03K2uRZ9pVCA1ryd4gxAKbhDIiGkqhnuyclZi-aY9gqQ5VtkISQqctJ3DfCPo4RB8Eb6x3wxyr0Op9mvADWNA4cOPfgK_E-wz-ytojtY79SfLfP-DhCkM0ezzOLUWG4To-EOSSbqhV1dOn84QM2mwMWJIsHeQTZR8R7Lf-4wfAxjayeOWd7EyFegRJyd7P0gKwQ86kVDwFJJq-nF-WP7UgxY4__kFBouVpEkN0aGxEo5jNAqrDjK9Tugk9TT6xZQWV51PgD4tVGVIgZ7V_lUQ9Am3BzJi9JX2eo331todao3Qs82EAqAAskZ_UcwKJgasssxo65aJZLtvtSwXe8AtjdSS3xNqDIbZvg5Pt42W0UpCWzX7lK0RG1ctTqYLihhmel2sxSeIDFwTdjBCE0ATEMfvqDKH5qy7kKXhyQlk006tmWimSjj9jbMVwldEKdsjTvpRvVp-T_cV7kZEyAPKaIJz2L2T8RP1tsguZ7J0EU04s'[39m
+  },
+  corsPreflightEnabled: [33mfalse[39m,
+  logIn: [36m[Function (anonymous)][39m,
+  login: [36m[Function (anonymous)][39m,
+  logOut: [36m[Function (anonymous)][39m,
+  logout: [36m[Function (anonymous)][39m,
+  isAuthenticated: [36m[Function (anonymous)][39m,
+  isUnauthenticated: [36m[Function (anonymous)][39m,
+  _sessionManager: SessionManager {
+    _key: [32m'passport'[39m,
+    _serializeUser: [36m[Function: bound ][39m
+  },
+  [[32mSymbol(fastify.context)[39m]: Context {
+    schema: [90mundefined[39m,
+    handler: [36m[Function: bound ] AsyncFunction[39m,
+    Reply: [Function: _Reply] {
+      parent: [Function: Reply] {
+        props: [],
+        buildReply: [36m[Function: buildReply][39m,
+        setupResponseListeners: [36m[Function: setupResponseListeners][39m
+      },
+      props: [
+        {
+          key: [32mSymbol(fastify.reply.setCookies)[39m,
+          value: [1mnull[22m
+        },
+        {
+          key: [32mSymbol(fastify.reply.setCookiesHookRan)[39m,
+          value: [33mfalse[39m
+        },
+        {
+          key: [32m'helmet'[39m,
+          value: [1mnull[22m
+        },
+        {
+          key: [32m'cspNonce'[39m,
+          value: [1mnull[22m
+        }
+      ],
+      [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+    },
+    Request: [Function: _Request] {
+      props: [
+        {
+          key: [32m'cookies'[39m,
+          value: [1mnull[22m
+        },
+        {
+          key: [32m'corsPreflightEnabled'[39m,
+          value: [33mfalse[39m
+        }
+      ],
+      parent: [Function: Request] {
+        props: [],
+        buildRequest: [36m[Function: buildRequest][39m
+      },
+      [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+    },
+    contentTypeParser: ContentTypeParser {
+      customParsers: Map(3) {
+        [32m'application/json'[39m => Parser {
+          asString: [33mfalse[39m,
+          asBuffer: [33mtrue[39m,
+          bodyLimit: [33m1048576[39m,
+          fn: [36m[Function (anonymous)][39m
+        },
+        [32m'text/plain'[39m => Parser {
+          asString: [33mtrue[39m,
+          asBuffer: [33mfalse[39m,
+          bodyLimit: [33m1048576[39m,
+          fn: [36m[Function: defaultPlainTextParser][39m
+        },
+        [32m'application/x-www-form-urlencoded'[39m => Parser {
+          asString: [33mfalse[39m,
+          asBuffer: [33mtrue[39m,
+          bodyLimit: [33m1048576[39m,
+          fn: [36m[Function (anonymous)][39m
+        }
+      },
+      parserList: [
+        [32m'application/json'[39m,
+        [32m'application/x-www-form-urlencoded'[39m,
+        [32m'application/json'[39m,
+        [32m'text/plain'[39m
+      ],
+      parserRegExpList: [],
+      cache: FifoMap {
+        first: [1mnull[22m,
+        items: Map(0) {},
+        last: [1mnull[22m,
+        max: [33m100[39m,
+        ttl: [33m0[39m
+      },
+      [[32mSymbol(fastify.defaultJSONParse)[39m]: [36m[Function: defaultJsonParser][39m
+    },
+    onRequest: [
+      [36m[Function: bound runMiddie][39m,
+      [36m[Function: bound fastifyCookieHandler][39m,
+      [36m[Function: bound handleCors][39m,
+      [36m[Function: bound helmetConfigureReply] AsyncFunction[39m,
+      [36m[Function: bound helmetApplyHeaders][39m
+    ],
+    onSend: [
+      [36m[Function: bound fastifyCookieOnSendHandler][39m
+    ],
+    onError: [1mnull[22m,
+    onTimeout: [1mnull[22m,
+    preHandler: [1mnull[22m,
+    onResponse: [1mnull[22m,
+    preSerialization: [1mnull[22m,
+    onRequestAbort: [1mnull[22m,
+    config: {
+      url: [32m'/api/v1/auth/new-email-verification'[39m,
+      method: [32m'POST'[39m
+    },
+    errorHandler: {
+      func: [36m[Function: bound ] AsyncFunction[39m
+    },
+    requestIdLogLabel: [32m'reqId'[39m,
+    childLoggerFactory: [36m[Function: defaultChildLoggerFactory][39m,
+    _middie: [1mnull[22m,
+    _parserOptions: {
+      limit: [1mnull[22m
+    },
+    exposeHeadRoute: [33mtrue[39m,
+    prefixTrailingSlash: [32m'both'[39m,
+    logLevel: [32m''[39m,
+    logSerializers: [90mundefined[39m,
+    attachValidation: [33mfalse[39m,
+    schemaErrorFormatter: [36m[Function: defaultSchemaErrorFormatter][39m,
+    validatorCompiler: [1mnull[22m,
+    serializerCompiler: [1mnull[22m,
+    server: [36m<ref *4>[39m {
+      routing: [36m[Function: preRouting][39m,
+      delete: [36m[Function: _delete][39m,
+      get: [36m[Function: _get][39m,
+      head: [36m[Function: _head][39m,
+      trace: [36m[Function: _trace][39m,
+      patch: [36m[Function: _patch][39m,
+      post: [36m[Function: _post][39m,
+      put: [36m[Function: _put][39m,
+      options: [36m[Function: _options][39m,
+      all: [36m[Function: _all][39m,
+      route: [36m[Function: _route][39m,
+      hasRoute: [36m[Function: _route][39m,
+      findRoute: [36m[Function: _findRoute][39m,
+      log: EventEmitter {
+        levels: {
+          labels: {
+            [32m'10'[39m: [32m'trace'[39m,
+            [32m'20'[39m: [32m'debug'[39m,
+            [32m'30'[39m: [32m'info'[39m,
+            [32m'40'[39m: [32m'warn'[39m,
+            [32m'50'[39m: [32m'error'[39m,
+            [32m'60'[39m: [32m'fatal'[39m
+          },
+          values: {
+            trace: [33m10[39m,
+            debug: [33m20[39m,
+            info: [33m30[39m,
+            warn: [33m40[39m,
+            error: [33m50[39m,
+            fatal: [33m60[39m
+          }
+        },
+        silent: [36m[Function: noop][39m,
+        onChild: [36m[Function: noop][39m,
+        trace: [36m[Function: noop][39m,
+        debug: [36m[Function: noop][39m,
+        info: [36m[Function: LOG][39m,
+        warn: [36m[Function: LOG][39m,
+        error: [36m[Function: LOG][39m,
+        fatal: [36m[Function (anonymous)][39m,
+        [[32mSymbol(pino.levelComp)[39m]: [36m[Function: bound compareLevel][39m,
+        [[32mSymbol(pino.useOnlyCustomLevels)[39m]: [33mfalse[39m,
+        [[32mSymbol(pino.stream)[39m]: SonicBoom {
+          _len: [33m255[39m,
+          fd: [33m1[39m,
+          _bufs: [],
+          _lens: [],
+          _writing: [33mtrue[39m,
+          _ending: [33mfalse[39m,
+          _reopening: [33mfalse[39m,
+          _asyncDrainScheduled: [33mfalse[39m,
+          _flushPending: [33mfalse[39m,
+          _hwm: [33m16387[39m,
+          file: [1mnull[22m,
+          destroyed: [33mfalse[39m,
+          minLength: [33m0[39m,
+          maxLength: [33m0[39m,
+          maxWrite: [33m16384[39m,
+          _periodicFlush: [33m0[39m,
+          _periodicFlushTimer: [90mundefined[39m,
+          sync: [33mfalse[39m,
+          writable: [33mtrue[39m,
+          _fsync: [33mfalse[39m,
+          append: [33mtrue[39m,
+          mode: [90mundefined[39m,
+          retryEAGAIN: [36m[Function (anonymous)][39m,
+          mkdir: [33mfalse[39m,
+          _writingBuf: [32m'{"level":30,"time":1744364539344,"pid":89167,"hostname":"milleniumfalcon","reqId":"req-1","req":{"method":"POST","url":"/api/v1/auth/new-email-verification","host":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":52880},"msg":"incoming request"}\n'[39m,
+          write: [36m[Function: write][39m,
+          flush: [36m[Function: flush][39m,
+          flushSync: [36m[Function: flushSync][39m,
+          _actualWrite: [36m[Function: actualWrite][39m,
+          release: [36m[Function (anonymous)][39m,
+          _events: [Object: null prototype] {
+            newListener: [36m[Function (anonymous)][39m,
+            error: [36m[Function: filterBrokenPipe][39m,
+            close: [36m[Function (anonymous)][39m
+          },
+          _eventsCount: [33m3[39m
+        },
+        [[32mSymbol(pino.time)[39m]: [36m[Function: epochTime][39m,
+        [[32mSymbol(pino.timeSliceIndex)[39m]: [33m8[39m,
+        [[32mSymbol(pino.stringify)[39m]: [36m[Function: stringify][39m,
+        [[32mSymbol(pino.stringifySafe)[39m]: [36m[Function: stringify][39m,
+        [[32mSymbol(pino.stringifiers)[39m]: {},
+        [[32mSymbol(pino.end)[39m]: [32m'}\n'[39m,
+        [[32mSymbol(pino.formatOpts)[39m]: {
+          stringify: [36m[Function: bound stringify][39m
+        },
+        [[32mSymbol(pino.messageKey)[39m]: [32m'msg'[39m,
+        [[32mSymbol(pino.errorKey)[39m]: [32m'err'[39m,
+        [[32mSymbol(pino.nestedKey)[39m]: [1mnull[22m,
+        [[32mSymbol(pino.nestedKeyStr)[39m]: [32m''[39m,
+        [[32mSymbol(pino.serializers)[39m]: {
+          err: [36m[Function: errSerializer][39m,
+          req: [36m[Function: asReqValue][39m,
+          res: [36m[Function: asResValue][39m
+        },
+        [[32mSymbol(pino.mixin)[39m]: [90mundefined[39m,
+        [[32mSymbol(pino.mixinMergeStrategy)[39m]: [90mundefined[39m,
+        [[32mSymbol(pino.chindings)[39m]: [32m',"pid":89167,"hostname":"milleniumfalcon"'[39m,
+        [[32mSymbol(pino.formatters)[39m]: {
+          level: [36m[Function: level][39m,
+          bindings: [36m[Function: bindings][39m,
+          log: [90mundefined[39m
+        },
+        [[32mSymbol(pino.hooks)[39m]: {
+          logMethod: [90mundefined[39m,
+          streamWrite: [90mundefined[39m
+        },
+        [[32mSymbol(pino.msgPrefix)[39m]: [90mundefined[39m,
+        [[32mSymbol(pino.lsCache)[39m]: {
+          [32m'10'[39m: [32m'{"level":10'[39m,
+          [32m'20'[39m: [32m'{"level":20'[39m,
+          [32m'30'[39m: [32m'{"level":30'[39m,
+          [32m'40'[39m: [32m'{"level":40'[39m,
+          [32m'50'[39m: [32m'{"level":50'[39m,
+          [32m'60'[39m: [32m'{"level":60'[39m
+        },
+        [[32mSymbol(pino.levelVal)[39m]: [33m30[39m
+      },
+      withTypeProvider: [36m[Function: withTypeProvider][39m,
+      addHook: [36m[Function: addHook][39m,
+      addSchema: [36m[Function: addSchema][39m,
+      getSchema: [36m[Function: bound getSchema][39m,
+      getSchemas: [36m[Function: bound getSchemas][39m,
+      setValidatorCompiler: [36m[Function: setValidatorCompiler][39m,
+      setSerializerCompiler: [36m[Function: setSerializerCompiler][39m,
+      setSchemaController: [36m[Function: setSchemaController][39m,
+      setReplySerializer: [36m[Function: setReplySerializer][39m,
+      setSchemaErrorFormatter: [36m[Function: setSchemaErrorFormatter][39m,
+      setGenReqId: [36m[Function: setGenReqId][39m,
+      addContentTypeParser: [36m[Function: addContentTypeParser][39m,
+      hasContentTypeParser: [36m[Function: hasContentTypeParser][39m,
+      getDefaultJsonParser: [36m[Function: getDefaultJsonParser][39m,
+      defaultTextParser: [36m[Function: defaultPlainTextParser][39m,
+      removeContentTypeParser: [36m[Function: removeContentTypeParser][39m,
+      removeAllContentTypeParsers: [36m[Function: removeAllContentTypeParsers][39m,
+      register: [36m[Function (anonymous)][39m,
+      after: [36m[Function (anonymous)][39m,
+      ready: [36m[Function: ready][39m,
+      onClose: [36m[Function (anonymous)][39m,
+      close: [36m[Function (anonymous)][39m,
+      printPlugins: [36m[Function: bound ][39m,
+      hasPlugin: [36m[Function: hasPlugin][39m,
+      listen: [36m[Function: listen][39m,
+      server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      addresses: [36m[Function: addresses][39m,
+      decorate: [36m[Function: decorateFastify][39m,
+      hasDecorator: [36m[Function: checkExistence][39m,
+      decorateReply: [36m[Function: decorateReply][39m,
+      decorateRequest: [36m[Function: decorateRequest][39m,
+      hasRequestDecorator: [36m[Function: checkRequestExistence][39m,
+      hasReplyDecorator: [36m[Function: checkReplyExistence][39m,
+      addHttpMethod: [36m[Function: addHttpMethod][39m,
+      inject: [36m[Function: inject][39m,
+      printRoutes: [36m[Function: printRoutes][39m,
+      setNotFoundHandler: [36m[Function: setNotFoundHandler][39m,
+      setErrorHandler: [36m[Function: setErrorHandler][39m,
+      setChildLoggerFactory: [36m[Function: setChildLoggerFactory][39m,
+      initialConfig: {
+        constraints: {
+          version: {
+            name: [32m'version'[39m,
+            validate: [36m[Function: validate][39m,
+            storage: [36m[Function: storage][39m,
+            deriveConstraint: [36m[Function: deriveConstraint][39m,
+            mustMatchWhenDerived: [33mfalse[39m
+          }
+        },
+        connectionTimeout: [33m0[39m,
+        keepAliveTimeout: [33m72000[39m,
+        maxRequestsPerSocket: [33m0[39m,
+        requestTimeout: [33m0[39m,
+        requestIdHeader: [33mfalse[39m,
+        requestIdLogLabel: [32m'reqId'[39m,
+        disableRequestLogging: [33mfalse[39m,
+        bodyLimit: [33m1048576[39m,
+        caseSensitive: [33mtrue[39m,
+        allowUnsafeRegex: [33mfalse[39m,
+        ignoreTrailingSlash: [33mfalse[39m,
+        ignoreDuplicateSlashes: [33mfalse[39m,
+        maxParamLength: [33m100[39m,
+        onProtoPoisoning: [32m'error'[39m,
+        onConstructorPoisoning: [32m'error'[39m,
+        pluginTimeout: [33m10000[39m,
+        http2SessionTimeout: [33m72000[39m,
+        exposeHeadRoutes: [33mtrue[39m,
+        useSemicolonDelimiter: [33mfalse[39m
+      },
+      addConstraintStrategy: [36m[Function: bound addConstraintStrategy][39m,
+      hasConstraintStrategy: [36m[Function: bound hasConstraintStrategy][39m,
+      use: [36m[Function: use][39m,
+      serializeCookie: [36m[Function: serialize][39m,
+      parseCookie: [36m[Function: parseCookie][39m,
+      signCookie: [36m[Function: signCookie][39m,
+      unsignCookie: [36m[Function: unsignCookie][39m,
+      [[32mSymbol(fastify.state)[39m]: {
+        listening: [33mtrue[39m,
+        closing: [33mfalse[39m,
+        started: [33mtrue[39m,
+        ready: [33mtrue[39m,
+        booting: [33mfalse[39m,
+        readyPromise: Promise {
+          [36m[Circular *4][39m
+        },
+        promise: [1mnull[22m
+      },
+      [[32mSymbol(fastify.keepAliveConnections)[39m]: {
+        add: [36m[Function: add][39m,
+        delete: [36m[Function: delete][39m,
+        has: [36m[Function: has][39m,
+        [[32mSymbol(Symbol.iterator)[39m]: [36m[GeneratorFunction: [Symbol.iterator]][39m
+      },
+      [[32mSymbol(fastify.acceptedHTTPMethods)[39m]: {
+        bodyless: Set(3) {
+          [32m'GET'[39m,
+          [32m'HEAD'[39m,
+          [32m'TRACE'[39m
+        },
+        bodywith: Set(5) {
+          [32m'DELETE'[39m,
+          [32m'OPTIONS'[39m,
+          [32m'PATCH'[39m,
+          [32m'PUT'[39m,
+          [32m'POST'[39m
+        }
+      },
+      [[32mSymbol(fastify.options)[39m]: {
+        constraints: {
+          version: {
+            name: [32m'version'[39m,
+            validate: [36m[Function: validate][39m,
+            storage: [36m[Function: storage][39m,
+            deriveConstraint: [36m[Function: deriveConstraint][39m,
+            mustMatchWhenDerived: [33mfalse[39m,
+            isCustom: [33mtrue[39m,
+            isAsync: [33mfalse[39m
+          }
+        },
+        logger: EventEmitter {
+          levels: {
+            labels: [36m[Object][39m,
+            values: [36m[Object][39m
+          },
+          silent: [36m[Function: noop][39m,
+          onChild: [36m[Function: noop][39m,
+          trace: [36m[Function: noop][39m,
+          debug: [36m[Function: noop][39m,
+          info: [36m[Function: LOG][39m,
+          warn: [36m[Function: LOG][39m,
+          error: [36m[Function: LOG][39m,
+          fatal: [36m[Function (anonymous)][39m,
+          [[32mSymbol(pino.levelComp)[39m]: [36m[Function: bound compareLevel][39m,
+          [[32mSymbol(pino.useOnlyCustomLevels)[39m]: [33mfalse[39m,
+          [[32mSymbol(pino.stream)[39m]: SonicBoom {
+            _len: [33m255[39m,
+            fd: [33m1[39m,
+            _bufs: [],
+            _lens: [],
+            _writing: [33mtrue[39m,
+            _ending: [33mfalse[39m,
+            _reopening: [33mfalse[39m,
+            _asyncDrainScheduled: [33mfalse[39m,
+            _flushPending: [33mfalse[39m,
+            _hwm: [33m16387[39m,
+            file: [1mnull[22m,
+            destroyed: [33mfalse[39m,
+            minLength: [33m0[39m,
+            maxLength: [33m0[39m,
+            maxWrite: [33m16384[39m,
+            _periodicFlush: [33m0[39m,
+            _periodicFlushTimer: [90mundefined[39m,
+            sync: [33mfalse[39m,
+            writable: [33mtrue[39m,
+            _fsync: [33mfalse[39m,
+            append: [33mtrue[39m,
+            mode: [90mundefined[39m,
+            retryEAGAIN: [36m[Function (anonymous)][39m,
+            mkdir: [33mfalse[39m,
+            _writingBuf: [32m'{"level":30,"time":1744364539344,"pid":89167,"hostname":"milleniumfalcon","reqId":"req-1","req":{"method":"POST","url":"/api/v1/auth/new-email-verification","host":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":52880},"msg":"incoming request"}\n'[39m,
+            write: [36m[Function: write][39m,
+            flush: [36m[Function: flush][39m,
+            flushSync: [36m[Function: flushSync][39m,
+            _actualWrite: [36m[Function: actualWrite][39m,
+            release: [36m[Function (anonymous)][39m,
+            _events: [36m[Object: null prototype][39m,
+            _eventsCount: [33m3[39m
+          },
+          [[32mSymbol(pino.time)[39m]: [36m[Function: epochTime][39m,
+          [[32mSymbol(pino.timeSliceIndex)[39m]: [33m8[39m,
+          [[32mSymbol(pino.stringify)[39m]: [36m[Function: stringify][39m,
+          [[32mSymbol(pino.stringifySafe)[39m]: [36m[Function: stringify][39m,
+          [[32mSymbol(pino.stringifiers)[39m]: {},
+          [[32mSymbol(pino.end)[39m]: [32m'}\n'[39m,
+          [[32mSymbol(pino.formatOpts)[39m]: {
+            stringify: [36m[Function: bound stringify][39m
+          },
+          [[32mSymbol(pino.messageKey)[39m]: [32m'msg'[39m,
+          [[32mSymbol(pino.errorKey)[39m]: [32m'err'[39m,
+          [[32mSymbol(pino.nestedKey)[39m]: [1mnull[22m,
+          [[32mSymbol(pino.nestedKeyStr)[39m]: [32m''[39m,
+          [[32mSymbol(pino.serializers)[39m]: {
+            err: [36m[Function: errSerializer][39m,
+            req: [36m[Function: asReqValue][39m,
+            res: [36m[Function: asResValue][39m
+          },
+          [[32mSymbol(pino.mixin)[39m]: [90mundefined[39m,
+          [[32mSymbol(pino.mixinMergeStrategy)[39m]: [90mundefined[39m,
+          [[32mSymbol(pino.chindings)[39m]: [32m',"pid":89167,"hostname":"milleniumfalcon"'[39m,
+          [[32mSymbol(pino.formatters)[39m]: {
+            level: [36m[Function: level][39m,
+            bindings: [36m[Function: bindings][39m,
+            log: [90mundefined[39m
+          },
+          [[32mSymbol(pino.hooks)[39m]: {
+            logMethod: [90mundefined[39m,
+            streamWrite: [90mundefined[39m
+          },
+          [[32mSymbol(pino.msgPrefix)[39m]: [90mundefined[39m,
+          [[32mSymbol(pino.lsCache)[39m]: {
+            [32m'10'[39m: [32m'{"level":10'[39m,
+            [32m'20'[39m: [32m'{"level":20'[39m,
+            [32m'30'[39m: [32m'{"level":30'[39m,
+            [32m'40'[39m: [32m'{"level":40'[39m,
+            [32m'50'[39m: [32m'{"level":50'[39m,
+            [32m'60'[39m: [32m'{"level":60'[39m
+          },
+          [[32mSymbol(pino.levelVal)[39m]: [33m30[39m
+        },
+        connectionTimeout: [33m0[39m,
+        keepAliveTimeout: [33m72000[39m,
+        maxRequestsPerSocket: [33m0[39m,
+        requestTimeout: [33m0[39m,
+        requestIdHeader: [33mfalse[39m,
+        requestIdLogLabel: [32m'reqId'[39m,
+        disableRequestLogging: [33mfalse[39m,
+        ajv: {
+          customOptions: {},
+          plugins: []
+        },
+        clientErrorHandler: [36m[Function: defaultClientErrorHandler][39m,
+        exposeHeadRoutes: [33mtrue[39m,
+        http2SessionTimeout: [33m72000[39m
+      },
+      [[32mSymbol(fastify.children)[39m]: [],
+      [[32mSymbol(fastify.serverBindings)[39m]: [],
+      [[32mSymbol(fastify.bodyLimit)[39m]: [33m1048576[39m,
+      [[32mSymbol(fastify.routePrefix)[39m]: [32m''[39m,
+      [[32mSymbol(fastify.logLevel)[39m]: [32m''[39m,
+      [[32mSymbol(fastify.logSerializers)[39m]: [1mnull[22m,
+      [[32mSymbol(fastify.hooks)[39m]: Hooks <[36m[Object: null prototype][39m> {
+        onRequest: [
+          [36m[Function: runMiddie][39m,
+          [36m[Function: fastifyCookieHandler][39m,
+          [36m[Function: handleCors][39m,
+          [36m[AsyncFunction: helmetConfigureReply][39m,
+          [36m[Function: helmetApplyHeaders][39m
+        ],
+        preParsing: [],
+        preValidation: [],
+        preSerialization: [],
+        preHandler: [],
+        onResponse: [],
+        onSend: [
+          [36m[Function: fastifyCookieOnSendHandler][39m
+        ],
+        onError: [],
+        onRoute: [
+          [36m[Function (anonymous)][39m
+        ],
+        onRegister: [
+          [36m[Function: onRegister][39m
+        ],
+        onReady: [],
+        onListen: [],
+        onTimeout: [],
+        onRequestAbort: [],
+        preClose: []
+      },
+      [[32mSymbol(fastify.schemaController)[39m]: SchemaController {
+        opts: {
+          bucket: [36m[Function: buildSchemas][39m,
+          compilersFactory: {
+            buildValidator: [36m[Function: buildCompilerFromPool][39m,
+            buildSerializer: [36m[Function: buildSerializerFactory][39m
+          },
+          isCustomValidatorCompiler: [33mfalse[39m,
+          isCustomSerializerCompiler: [33mfalse[39m
+        },
+        addedSchemas: [33mfalse[39m,
+        compilersFactory: {
+          buildValidator: [36m[Function: buildCompilerFromPool][39m,
+          buildSerializer: [36m[Function: buildSerializerFactory][39m
+        },
+        schemaBucket: Schemas {
+          store: {}
+        },
+        isCustomValidatorCompiler: [33mfalse[39m,
+        isCustomSerializerCompiler: [33mfalse[39m
+      },
+      [[32mSymbol(fastify.schemaErrorFormatter)[39m]: [1mnull[22m,
+      [[32mSymbol(fastify.errorHandler)[39m]: {
+        func: [36m[Function: bound ] AsyncFunction[39m
+      },
+      [[32mSymbol(fastify.childLoggerFactory)[39m]: [36m[Function: defaultChildLoggerFactory][39m,
+      [[32mSymbol(fastify.replySerializerDefault)[39m]: [1mnull[22m,
+      [[32mSymbol(fastify.contentTypeParser)[39m]: ContentTypeParser {
+        customParsers: Map(3) {
+          [32m'application/json'[39m => Parser {
+            asString: [33mfalse[39m,
+            asBuffer: [33mtrue[39m,
+            bodyLimit: [33m1048576[39m,
+            fn: [36m[Function (anonymous)][39m
+          },
+          [32m'text/plain'[39m => Parser {
+            asString: [33mtrue[39m,
+            asBuffer: [33mfalse[39m,
+            bodyLimit: [33m1048576[39m,
+            fn: [36m[Function: defaultPlainTextParser][39m
+          },
+          [32m'application/x-www-form-urlencoded'[39m => Parser {
+            asString: [33mfalse[39m,
+            asBuffer: [33mtrue[39m,
+            bodyLimit: [33m1048576[39m,
+            fn: [36m[Function (anonymous)][39m
+          }
+        },
+        parserList: [
+          [32m'application/json'[39m,
+          [32m'application/x-www-form-urlencoded'[39m,
+          [32m'application/json'[39m,
+          [32m'text/plain'[39m
+        ],
+        parserRegExpList: [],
+        cache: FifoMap {
+          first: [1mnull[22m,
+          items: Map(0) {},
+          last: [1mnull[22m,
+          max: [33m100[39m,
+          ttl: [33m0[39m
+        },
+        [[32mSymbol(fastify.defaultJSONParse)[39m]: [36m[Function: defaultJsonParser][39m
+      },
+      [[32mSymbol(fastify.Reply)[39m]: [Function: _Reply] {
+        parent: [Function: Reply] {
+          props: [],
+          buildReply: [36m[Function: buildReply][39m,
+          setupResponseListeners: [36m[Function: setupResponseListeners][39m
+        },
+        props: [
+          {
+            key: [32mSymbol(fastify.reply.setCookies)[39m,
+            value: [1mnull[22m
+          },
+          {
+            key: [32mSymbol(fastify.reply.setCookiesHookRan)[39m,
+            value: [33mfalse[39m
+          },
+          {
+            key: [32m'helmet'[39m,
+            value: [1mnull[22m
+          },
+          {
+            key: [32m'cspNonce'[39m,
+            value: [1mnull[22m
+          }
+        ],
+        [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+      },
+      [[32mSymbol(fastify.Request)[39m]: [Function: _Request] {
+        props: [
+          {
+            key: [32m'cookies'[39m,
+            value: [1mnull[22m
+          },
+          {
+            key: [32m'corsPreflightEnabled'[39m,
+            value: [33mfalse[39m
+          }
+        ],
+        parent: [Function: Request] {
+          props: [],
+          buildRequest: [36m[Function: buildRequest][39m
+        },
+        [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+      },
+      [[32mSymbol(fastify.404)[39m]: {
+        router: Router {
+          _opts: {
+            onBadUrl: [36m[Function: onBadUrl][39m,
+            defaultRoute: [36m[Function: fourOhFourFallBack][39m
+          },
+          defaultRoute: [36m[Function: bound fourOhFourFallBack][39m,
+          onBadUrl: [36m[Function: bound onBadUrl][39m,
+          buildPrettyMeta: [36m[Function: defaultBuildPrettyMeta][39m,
+          querystringParser: [36m[Function (anonymous)][39m,
+          caseSensitive: [33mtrue[39m,
+          ignoreTrailingSlash: [33mfalse[39m,
+          ignoreDuplicateSlashes: [33mfalse[39m,
+          maxParamLength: [33m100[39m,
+          allowUnsafeRegex: [33mfalse[39m,
+          constrainer: Constrainer {
+            strategies: [36m[Object][39m,
+            strategiesInUse: Set(0) {},
+            asyncStrategiesInUse: Set(0) {}
+          },
+          useSemicolonDelimiter: [33mfalse[39m,
+          routes: [
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m
+          ],
+          trees: {
+            ACL: [36m[StaticNode][39m,
+            BIND: [36m[StaticNode][39m,
+            CHECKOUT: [36m[StaticNode][39m,
+            CONNECT: [36m[StaticNode][39m,
+            COPY: [36m[StaticNode][39m,
+            DELETE: [36m[StaticNode][39m,
+            GET: [36m[StaticNode][39m,
+            HEAD: [36m[StaticNode][39m,
+            LINK: [36m[StaticNode][39m,
+            LOCK: [36m[StaticNode][39m,
+            [32m'M-SEARCH'[39m: [36m[StaticNode][39m,
+            MERGE: [36m[StaticNode][39m,
+            MKACTIVITY: [36m[StaticNode][39m,
+            MKCALENDAR: [36m[StaticNode][39m,
+            MKCOL: [36m[StaticNode][39m,
+            MOVE: [36m[StaticNode][39m,
+            NOTIFY: [36m[StaticNode][39m,
+            OPTIONS: [36m[StaticNode][39m,
+            PATCH: [36m[StaticNode][39m,
+            POST: [36m[StaticNode][39m,
+            PROPFIND: [36m[StaticNode][39m,
+            PROPPATCH: [36m[StaticNode][39m,
+            PURGE: [36m[StaticNode][39m,
+            PUT: [36m[StaticNode][39m,
+            QUERY: [36m[StaticNode][39m,
+            REBIND: [36m[StaticNode][39m,
+            REPORT: [36m[StaticNode][39m,
+            SEARCH: [36m[StaticNode][39m,
+            SOURCE: [36m[StaticNode][39m,
+            SUBSCRIBE: [36m[StaticNode][39m,
+            TRACE: [36m[StaticNode][39m,
+            UNBIND: [36m[StaticNode][39m,
+            UNLINK: [36m[StaticNode][39m,
+            UNLOCK: [36m[StaticNode][39m,
+            UNSUBSCRIBE: [36m[StaticNode][39m
+          }
+        },
+        setNotFoundHandler: [36m[Function: setNotFoundHandler][39m,
+        setContext: [36m[Function: setContext][39m,
+        arrange404: [36m[Function: arrange404][39m
+      },
+      [[32mSymbol(registered-plugin)[39m]: [
+        [32m'@fastify/middie'[39m,
+        [32m'@fastify/cookie'[39m,
+        [32m'@fastify/cors'[39m,
+        [32m'@fastify/helmet'[39m
+      ],
+      [[32mSymbol(fastify.pluginNameChain)[39m]: [
+        [32m'fastify'[39m,
+        [32m'@fastify/middie'[39m,
+        [32m'@fastify/cookie'[39m,
+        [32m'@fastify/cors'[39m,
+        [32m'@fastify/helmet'[39m
+      ],
+      [[32mSymbol(fastify.avvioBoot)[39m]: [36m[Function (anonymous)][39m,
+      [[32mSymbol(fastify.genReqId)[39m]: [36m[Function: defaultGenReqId][39m,
+      [[32mSymbol(avvio.Boot)[39m]: [33mtrue[39m,
+      [[32mSymbol(fastify.canSetNotFoundHandler)[39m]: [33mfalse[39m,
+      [[32mSymbol(fastify.404ContextKey)[39m]: Context {
+        schema: [90mundefined[39m,
+        handler: [36m[Function: bound ] AsyncFunction[39m,
+        Reply: [Function: _Reply] {
+          parent: [Function: Reply] {
+            props: [],
+            buildReply: [36m[Function: buildReply][39m,
+            setupResponseListeners: [36m[Function: setupResponseListeners][39m
+          },
+          props: [
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m
+          ],
+          [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+        },
+        Request: [Function: _Request] {
+          props: [
+            [36m[Object][39m,
+            [36m[Object][39m
+          ],
+          parent: [Function: Request] {
+            props: [],
+            buildRequest: [36m[Function: buildRequest][39m
+          },
+          [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+        },
+        contentTypeParser: ContentTypeParser {
+          customParsers: Map(3) {
+            [32m'application/json'[39m => [36m[Parser][39m,
+            [32m'text/plain'[39m => [36m[Parser][39m,
+            [32m'application/x-www-form-urlencoded'[39m => [36m[Parser][39m
+          },
+          parserList: [
+            [32m'application/json'[39m,
+            [32m'application/x-www-form-urlencoded'[39m,
+            [32m'application/json'[39m,
+            [32m'text/plain'[39m
+          ],
+          parserRegExpList: [],
+          cache: FifoMap {
+            first: [1mnull[22m,
+            items: Map(0) {},
+            last: [1mnull[22m,
+            max: [33m100[39m,
+            ttl: [33m0[39m
+          },
+          [[32mSymbol(fastify.defaultJSONParse)[39m]: [36m[Function: defaultJsonParser][39m
+        },
+        onRequest: [
+          [36m[Function: bound runMiddie][39m,
+          [36m[Function: bound fastifyCookieHandler][39m,
+          [36m[Function: bound handleCors][39m,
+          [36m[Function: bound helmetConfigureReply] AsyncFunction[39m,
+          [36m[Function: bound helmetApplyHeaders][39m
+        ],
+        onSend: [
+          [36m[Function: bound fastifyCookieOnSendHandler][39m
+        ],
+        onError: [1mnull[22m,
+        onTimeout: [1mnull[22m,
+        preHandler: [1mnull[22m,
+        onResponse: [1mnull[22m,
+        preSerialization: [1mnull[22m,
+        onRequestAbort: [1mnull[22m,
+        config: {},
+        errorHandler: {
+          func: [36m[Function: bound ] AsyncFunction[39m
+        },
+        requestIdLogLabel: [32m'reqId'[39m,
+        childLoggerFactory: [36m[Function: defaultChildLoggerFactory][39m,
+        _middie: [1mnull[22m,
+        _parserOptions: {
+          limit: [33m1048576[39m
+        },
+        exposeHeadRoute: [90mundefined[39m,
+        prefixTrailingSlash: [90mundefined[39m,
+        logLevel: [32m''[39m,
+        logSerializers: [90mundefined[39m,
+        attachValidation: [90mundefined[39m,
+        schemaErrorFormatter: [36m[Function: defaultSchemaErrorFormatter][39m,
+        validatorCompiler: [1mnull[22m,
+        serializerCompiler: [1mnull[22m,
+        server: [36m[Circular *4][39m,
+        preParsing: [1mnull[22m,
+        preValidation: [1mnull[22m,
+        [[32mSymbol(fastify.404ContextKey)[39m]: [1mnull[22m,
+        [[32mSymbol(fastify.replySerializerDefault)[39m]: [90mundefined[39m,
+        [[32mSymbol(fastify.routeByFastify)[39m]: [90mundefined[39m,
+        [[32mSymbol(fastify.request.cache.validateFns)[39m]: [1mnull[22m,
+        [[32mSymbol(fastify.reply.cache.serializeFns)[39m]: [1mnull[22m
+      },
+      [[32mSymbol(fastify.404LogLevelInstance)[39m]: [36m[Circular *4][39m,
+      [[32mSymbol(nodejs.asyncDispose)[39m]: [36m[Function: dispose][39m,
+      [[32mSymbol(fastify-middie-middlewares)[39m]: [],
+      [[32mSymbol(fastify-middie-has-middlewares)[39m]: [33mfalse[39m,
+      [[32mSymbol(fastify-middie-instance)[39m]: {
+        use: [36m[Function: use][39m,
+        run: [36m[Function: run][39m
+      }
+    },
+    preParsing: [1mnull[22m,
+    preValidation: [1mnull[22m,
+    [[32mSymbol(fastify.404ContextKey)[39m]: {
+      schema: [90mundefined[39m,
+      handler: [36m[Function: bound ] AsyncFunction[39m,
+      Reply: [Function: _Reply] {
+        parent: [Function: Reply] {
+          props: [],
+          buildReply: [36m[Function: buildReply][39m,
+          setupResponseListeners: [36m[Function: setupResponseListeners][39m
+        },
+        props: [
+          {
+            key: [32mSymbol(fastify.reply.setCookies)[39m,
+            value: [1mnull[22m
+          },
+          {
+            key: [32mSymbol(fastify.reply.setCookiesHookRan)[39m,
+            value: [33mfalse[39m
+          },
+          {
+            key: [32m'helmet'[39m,
+            value: [1mnull[22m
+          },
+          {
+            key: [32m'cspNonce'[39m,
+            value: [1mnull[22m
+          }
+        ],
+        [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+      },
+      Request: [Function: _Request] {
+        props: [
+          {
+            key: [32m'cookies'[39m,
+            value: [1mnull[22m
+          },
+          {
+            key: [32m'corsPreflightEnabled'[39m,
+            value: [33mfalse[39m
+          }
+        ],
+        parent: [Function: Request] {
+          props: [],
+          buildRequest: [36m[Function: buildRequest][39m
+        },
+        [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+      },
+      contentTypeParser: ContentTypeParser {
+        customParsers: Map(3) {
+          [32m'application/json'[39m => Parser {
+            asString: [33mfalse[39m,
+            asBuffer: [33mtrue[39m,
+            bodyLimit: [33m1048576[39m,
+            fn: [36m[Function (anonymous)][39m
+          },
+          [32m'text/plain'[39m => Parser {
+            asString: [33mtrue[39m,
+            asBuffer: [33mfalse[39m,
+            bodyLimit: [33m1048576[39m,
+            fn: [36m[Function: defaultPlainTextParser][39m
+          },
+          [32m'application/x-www-form-urlencoded'[39m => Parser {
+            asString: [33mfalse[39m,
+            asBuffer: [33mtrue[39m,
+            bodyLimit: [33m1048576[39m,
+            fn: [36m[Function (anonymous)][39m
+          }
+        },
+        parserList: [
+          [32m'application/json'[39m,
+          [32m'application/x-www-form-urlencoded'[39m,
+          [32m'application/json'[39m,
+          [32m'text/plain'[39m
+        ],
+        parserRegExpList: [],
+        cache: FifoMap {
+          first: [1mnull[22m,
+          items: Map(0) {},
+          last: [1mnull[22m,
+          max: [33m100[39m,
+          ttl: [33m0[39m
+        },
+        [[32mSymbol(fastify.defaultJSONParse)[39m]: [36m[Function: defaultJsonParser][39m
+      },
+      onRequest: [
+        [36m[Function: bound runMiddie][39m,
+        [36m[Function: bound fastifyCookieHandler][39m,
+        [36m[Function: bound handleCors][39m,
+        [36m[Function: bound helmetConfigureReply] AsyncFunction[39m,
+        [36m[Function: bound helmetApplyHeaders][39m
+      ],
+      onSend: [
+        [36m[Function: bound fastifyCookieOnSendHandler][39m
+      ],
+      onError: [1mnull[22m,
+      onTimeout: [1mnull[22m,
+      preHandler: [1mnull[22m,
+      onResponse: [1mnull[22m,
+      preSerialization: [1mnull[22m,
+      onRequestAbort: [1mnull[22m,
+      config: {},
+      errorHandler: {
+        func: [36m[Function: bound ] AsyncFunction[39m
+      },
+      requestIdLogLabel: [32m'reqId'[39m,
+      childLoggerFactory: [36m[Function: defaultChildLoggerFactory][39m,
+      _middie: [1mnull[22m,
+      _parserOptions: {
+        limit: [33m1048576[39m
+      },
+      exposeHeadRoute: [90mundefined[39m,
+      prefixTrailingSlash: [90mundefined[39m,
+      logLevel: [32m''[39m,
+      logSerializers: [90mundefined[39m,
+      attachValidation: [90mundefined[39m,
+      schemaErrorFormatter: [36m[Function: defaultSchemaErrorFormatter][39m,
+      validatorCompiler: [1mnull[22m,
+      serializerCompiler: [1mnull[22m,
+      server: [36m<ref *4>[39m {
+        routing: [36m[Function: preRouting][39m,
+        delete: [36m[Function: _delete][39m,
+        get: [36m[Function: _get][39m,
+        head: [36m[Function: _head][39m,
+        trace: [36m[Function: _trace][39m,
+        patch: [36m[Function: _patch][39m,
+        post: [36m[Function: _post][39m,
+        put: [36m[Function: _put][39m,
+        options: [36m[Function: _options][39m,
+        all: [36m[Function: _all][39m,
+        route: [36m[Function: _route][39m,
+        hasRoute: [36m[Function: _route][39m,
+        findRoute: [36m[Function: _findRoute][39m,
+        log: EventEmitter {
+          levels: {
+            labels: [36m[Object][39m,
+            values: [36m[Object][39m
+          },
+          silent: [36m[Function: noop][39m,
+          onChild: [36m[Function: noop][39m,
+          trace: [36m[Function: noop][39m,
+          debug: [36m[Function: noop][39m,
+          info: [36m[Function: LOG][39m,
+          warn: [36m[Function: LOG][39m,
+          error: [36m[Function: LOG][39m,
+          fatal: [36m[Function (anonymous)][39m,
+          [[32mSymbol(pino.levelComp)[39m]: [36m[Function: bound compareLevel][39m,
+          [[32mSymbol(pino.useOnlyCustomLevels)[39m]: [33mfalse[39m,
+          [[32mSymbol(pino.stream)[39m]: SonicBoom {
+            _len: [33m255[39m,
+            fd: [33m1[39m,
+            _bufs: [],
+            _lens: [],
+            _writing: [33mtrue[39m,
+            _ending: [33mfalse[39m,
+            _reopening: [33mfalse[39m,
+            _asyncDrainScheduled: [33mfalse[39m,
+            _flushPending: [33mfalse[39m,
+            _hwm: [33m16387[39m,
+            file: [1mnull[22m,
+            destroyed: [33mfalse[39m,
+            minLength: [33m0[39m,
+            maxLength: [33m0[39m,
+            maxWrite: [33m16384[39m,
+            _periodicFlush: [33m0[39m,
+            _periodicFlushTimer: [90mundefined[39m,
+            sync: [33mfalse[39m,
+            writable: [33mtrue[39m,
+            _fsync: [33mfalse[39m,
+            append: [33mtrue[39m,
+            mode: [90mundefined[39m,
+            retryEAGAIN: [36m[Function (anonymous)][39m,
+            mkdir: [33mfalse[39m,
+            _writingBuf: [32m'{"level":30,"time":1744364539344,"pid":89167,"hostname":"milleniumfalcon","reqId":"req-1","req":{"method":"POST","url":"/api/v1/auth/new-email-verification","host":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":52880},"msg":"incoming request"}\n'[39m,
+            write: [36m[Function: write][39m,
+            flush: [36m[Function: flush][39m,
+            flushSync: [36m[Function: flushSync][39m,
+            _actualWrite: [36m[Function: actualWrite][39m,
+            release: [36m[Function (anonymous)][39m,
+            _events: [36m[Object: null prototype][39m,
+            _eventsCount: [33m3[39m
+          },
+          [[32mSymbol(pino.time)[39m]: [36m[Function: epochTime][39m,
+          [[32mSymbol(pino.timeSliceIndex)[39m]: [33m8[39m,
+          [[32mSymbol(pino.stringify)[39m]: [36m[Function: stringify][39m,
+          [[32mSymbol(pino.stringifySafe)[39m]: [36m[Function: stringify][39m,
+          [[32mSymbol(pino.stringifiers)[39m]: {},
+          [[32mSymbol(pino.end)[39m]: [32m'}\n'[39m,
+          [[32mSymbol(pino.formatOpts)[39m]: {
+            stringify: [36m[Function: bound stringify][39m
+          },
+          [[32mSymbol(pino.messageKey)[39m]: [32m'msg'[39m,
+          [[32mSymbol(pino.errorKey)[39m]: [32m'err'[39m,
+          [[32mSymbol(pino.nestedKey)[39m]: [1mnull[22m,
+          [[32mSymbol(pino.nestedKeyStr)[39m]: [32m''[39m,
+          [[32mSymbol(pino.serializers)[39m]: {
+            err: [36m[Function: errSerializer][39m,
+            req: [36m[Function: asReqValue][39m,
+            res: [36m[Function: asResValue][39m
+          },
+          [[32mSymbol(pino.mixin)[39m]: [90mundefined[39m,
+          [[32mSymbol(pino.mixinMergeStrategy)[39m]: [90mundefined[39m,
+          [[32mSymbol(pino.chindings)[39m]: [32m',"pid":89167,"hostname":"milleniumfalcon"'[39m,
+          [[32mSymbol(pino.formatters)[39m]: {
+            level: [36m[Function: level][39m,
+            bindings: [36m[Function: bindings][39m,
+            log: [90mundefined[39m
+          },
+          [[32mSymbol(pino.hooks)[39m]: {
+            logMethod: [90mundefined[39m,
+            streamWrite: [90mundefined[39m
+          },
+          [[32mSymbol(pino.msgPrefix)[39m]: [90mundefined[39m,
+          [[32mSymbol(pino.lsCache)[39m]: {
+            [32m'10'[39m: [32m'{"level":10'[39m,
+            [32m'20'[39m: [32m'{"level":20'[39m,
+            [32m'30'[39m: [32m'{"level":30'[39m,
+            [32m'40'[39m: [32m'{"level":40'[39m,
+            [32m'50'[39m: [32m'{"level":50'[39m,
+            [32m'60'[39m: [32m'{"level":60'[39m
+          },
+          [[32mSymbol(pino.levelVal)[39m]: [33m30[39m
+        },
+        withTypeProvider: [36m[Function: withTypeProvider][39m,
+        addHook: [36m[Function: addHook][39m,
+        addSchema: [36m[Function: addSchema][39m,
+        getSchema: [36m[Function: bound getSchema][39m,
+        getSchemas: [36m[Function: bound getSchemas][39m,
+        setValidatorCompiler: [36m[Function: setValidatorCompiler][39m,
+        setSerializerCompiler: [36m[Function: setSerializerCompiler][39m,
+        setSchemaController: [36m[Function: setSchemaController][39m,
+        setReplySerializer: [36m[Function: setReplySerializer][39m,
+        setSchemaErrorFormatter: [36m[Function: setSchemaErrorFormatter][39m,
+        setGenReqId: [36m[Function: setGenReqId][39m,
+        addContentTypeParser: [36m[Function: addContentTypeParser][39m,
+        hasContentTypeParser: [36m[Function: hasContentTypeParser][39m,
+        getDefaultJsonParser: [36m[Function: getDefaultJsonParser][39m,
+        defaultTextParser: [36m[Function: defaultPlainTextParser][39m,
+        removeContentTypeParser: [36m[Function: removeContentTypeParser][39m,
+        removeAllContentTypeParsers: [36m[Function: removeAllContentTypeParsers][39m,
+        register: [36m[Function (anonymous)][39m,
+        after: [36m[Function (anonymous)][39m,
+        ready: [36m[Function: ready][39m,
+        onClose: [36m[Function (anonymous)][39m,
+        close: [36m[Function (anonymous)][39m,
+        printPlugins: [36m[Function: bound ][39m,
+        hasPlugin: [36m[Function: hasPlugin][39m,
+        listen: [36m[Function: listen][39m,
+        server: [36m<ref *1>[39m Server {
+          maxHeaderSize: [90mundefined[39m,
+          insecureHTTPParser: [90mundefined[39m,
+          requestTimeout: [33m0[39m,
+          headersTimeout: [33m60000[39m,
+          keepAliveTimeout: [33m72000[39m,
+          connectionsCheckingInterval: [33m30000[39m,
+          requireHostHeader: [33mtrue[39m,
+          joinDuplicateHeaders: [90mundefined[39m,
+          rejectNonStandardBodyWrites: [33mfalse[39m,
+          _events: [Object: null prototype] {
+            request: [36m[Function: preRouting][39m,
+            connection: [36m[Function: connectionListener][39m,
+            listening: [36m[Function: setupConnectionsTracking][39m,
+            clientError: [36m[Function: bound defaultClientErrorHandler][39m
+          },
+          _eventsCount: [33m4[39m,
+          _maxListeners: [90mundefined[39m,
+          _connections: [33m1[39m,
+          _handle: TCP {
+            reading: [33mfalse[39m,
+            onconnection: [36m[Function: onconnection][39m,
+            [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+          },
+          _usingWorkers: [33mfalse[39m,
+          _workers: [],
+          _unref: [33mfalse[39m,
+          allowHalfOpen: [33mtrue[39m,
+          pauseOnConnect: [33mfalse[39m,
+          noDelay: [33mtrue[39m,
+          keepAlive: [33mfalse[39m,
+          keepAliveInitialDelay: [33m0[39m,
+          highWaterMark: [33m16384[39m,
+          httpAllowHalfOpen: [33mfalse[39m,
+          timeout: [33m0[39m,
+          maxHeadersCount: [1mnull[22m,
+          maxRequestsPerSocket: [33m0[39m,
+          _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+          [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+          [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+          [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+          [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+          [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+          [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+          [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+            _idleTimeout: [33m30000[39m,
+            _idlePrev: [36m[TimersList][39m,
+            _idleNext: [36m[TimersList][39m,
+            _idleStart: [33m504[39m,
+            _onTimeout: [36m[Function: bound checkConnections][39m,
+            _timerArgs: [90mundefined[39m,
+            _repeat: [33m30000[39m,
+            _destroyed: [33mfalse[39m,
+            [[32mSymbol(refed)[39m]: [33mfalse[39m,
+            [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+            [[32mSymbol(asyncId)[39m]: [33m146[39m,
+            [[32mSymbol(triggerId)[39m]: [33m145[39m
+          }
+        },
+        addresses: [36m[Function: addresses][39m,
+        decorate: [36m[Function: decorateFastify][39m,
+        hasDecorator: [36m[Function: checkExistence][39m,
+        decorateReply: [36m[Function: decorateReply][39m,
+        decorateRequest: [36m[Function: decorateRequest][39m,
+        hasRequestDecorator: [36m[Function: checkRequestExistence][39m,
+        hasReplyDecorator: [36m[Function: checkReplyExistence][39m,
+        addHttpMethod: [36m[Function: addHttpMethod][39m,
+        inject: [36m[Function: inject][39m,
+        printRoutes: [36m[Function: printRoutes][39m,
+        setNotFoundHandler: [36m[Function: setNotFoundHandler][39m,
+        setErrorHandler: [36m[Function: setErrorHandler][39m,
+        setChildLoggerFactory: [36m[Function: setChildLoggerFactory][39m,
+        initialConfig: {
+          constraints: {
+            version: [36m[Object][39m
+          },
+          connectionTimeout: [33m0[39m,
+          keepAliveTimeout: [33m72000[39m,
+          maxRequestsPerSocket: [33m0[39m,
+          requestTimeout: [33m0[39m,
+          requestIdHeader: [33mfalse[39m,
+          requestIdLogLabel: [32m'reqId'[39m,
+          disableRequestLogging: [33mfalse[39m,
+          bodyLimit: [33m1048576[39m,
+          caseSensitive: [33mtrue[39m,
+          allowUnsafeRegex: [33mfalse[39m,
+          ignoreTrailingSlash: [33mfalse[39m,
+          ignoreDuplicateSlashes: [33mfalse[39m,
+          maxParamLength: [33m100[39m,
+          onProtoPoisoning: [32m'error'[39m,
+          onConstructorPoisoning: [32m'error'[39m,
+          pluginTimeout: [33m10000[39m,
+          http2SessionTimeout: [33m72000[39m,
+          exposeHeadRoutes: [33mtrue[39m,
+          useSemicolonDelimiter: [33mfalse[39m
+        },
+        addConstraintStrategy: [36m[Function: bound addConstraintStrategy][39m,
+        hasConstraintStrategy: [36m[Function: bound hasConstraintStrategy][39m,
+        use: [36m[Function: use][39m,
+        serializeCookie: [36m[Function: serialize][39m,
+        parseCookie: [36m[Function: parseCookie][39m,
+        signCookie: [36m[Function: signCookie][39m,
+        unsignCookie: [36m[Function: unsignCookie][39m,
+        [[32mSymbol(fastify.state)[39m]: {
+          listening: [33mtrue[39m,
+          closing: [33mfalse[39m,
+          started: [33mtrue[39m,
+          ready: [33mtrue[39m,
+          booting: [33mfalse[39m,
+          readyPromise: Promise {
+            [36m[Circular *4][39m
+          },
+          promise: [1mnull[22m
+        },
+        [[32mSymbol(fastify.keepAliveConnections)[39m]: {
+          add: [36m[Function: add][39m,
+          delete: [36m[Function: delete][39m,
+          has: [36m[Function: has][39m,
+          [[32mSymbol(Symbol.iterator)[39m]: [36m[GeneratorFunction: [Symbol.iterator]][39m
+        },
+        [[32mSymbol(fastify.acceptedHTTPMethods)[39m]: {
+          bodyless: Set(3) {
+            [32m'GET'[39m,
+            [32m'HEAD'[39m,
+            [32m'TRACE'[39m
+          },
+          bodywith: Set(5) {
+            [32m'DELETE'[39m,
+            [32m'OPTIONS'[39m,
+            [32m'PATCH'[39m,
+            [32m'PUT'[39m,
+            [32m'POST'[39m
+          }
+        },
+        [[32mSymbol(fastify.options)[39m]: {
+          constraints: {
+            version: [36m[Object][39m
+          },
+          logger: EventEmitter {
+            levels: [36m[Object][39m,
+            silent: [36m[Function: noop][39m,
+            onChild: [36m[Function: noop][39m,
+            trace: [36m[Function: noop][39m,
+            debug: [36m[Function: noop][39m,
+            info: [36m[Function: LOG][39m,
+            warn: [36m[Function: LOG][39m,
+            error: [36m[Function: LOG][39m,
+            fatal: [36m[Function (anonymous)][39m,
+            [[32mSymbol(pino.levelComp)[39m]: [36m[Function: bound compareLevel][39m,
+            [[32mSymbol(pino.useOnlyCustomLevels)[39m]: [33mfalse[39m,
+            [[32mSymbol(pino.stream)[39m]: [36m[SonicBoom][39m,
+            [[32mSymbol(pino.time)[39m]: [36m[Function: epochTime][39m,
+            [[32mSymbol(pino.timeSliceIndex)[39m]: [33m8[39m,
+            [[32mSymbol(pino.stringify)[39m]: [36m[Function: stringify][39m,
+            [[32mSymbol(pino.stringifySafe)[39m]: [36m[Function: stringify][39m,
+            [[32mSymbol(pino.stringifiers)[39m]: {},
+            [[32mSymbol(pino.end)[39m]: [32m'}\n'[39m,
+            [[32mSymbol(pino.formatOpts)[39m]: [36m[Object][39m,
+            [[32mSymbol(pino.messageKey)[39m]: [32m'msg'[39m,
+            [[32mSymbol(pino.errorKey)[39m]: [32m'err'[39m,
+            [[32mSymbol(pino.nestedKey)[39m]: [1mnull[22m,
+            [[32mSymbol(pino.nestedKeyStr)[39m]: [32m''[39m,
+            [[32mSymbol(pino.serializers)[39m]: [36m[Object][39m,
+            [[32mSymbol(pino.mixin)[39m]: [90mundefined[39m,
+            [[32mSymbol(pino.mixinMergeStrategy)[39m]: [90mundefined[39m,
+            [[32mSymbol(pino.chindings)[39m]: [32m',"pid":89167,"hostname":"milleniumfalcon"'[39m,
+            [[32mSymbol(pino.formatters)[39m]: [36m[Object][39m,
+            [[32mSymbol(pino.hooks)[39m]: [36m[Object][39m,
+            [[32mSymbol(pino.msgPrefix)[39m]: [90mundefined[39m,
+            [[32mSymbol(pino.lsCache)[39m]: [36m[Object][39m,
+            [[32mSymbol(pino.levelVal)[39m]: [33m30[39m
+          },
+          connectionTimeout: [33m0[39m,
+          keepAliveTimeout: [33m72000[39m,
+          maxRequestsPerSocket: [33m0[39m,
+          requestTimeout: [33m0[39m,
+          requestIdHeader: [33mfalse[39m,
+          requestIdLogLabel: [32m'reqId'[39m,
+          disableRequestLogging: [33mfalse[39m,
+          ajv: {
+            customOptions: {},
+            plugins: []
+          },
+          clientErrorHandler: [36m[Function: defaultClientErrorHandler][39m,
+          exposeHeadRoutes: [33mtrue[39m,
+          http2SessionTimeout: [33m72000[39m
+        },
+        [[32mSymbol(fastify.children)[39m]: [],
+        [[32mSymbol(fastify.serverBindings)[39m]: [],
+        [[32mSymbol(fastify.bodyLimit)[39m]: [33m1048576[39m,
+        [[32mSymbol(fastify.routePrefix)[39m]: [32m''[39m,
+        [[32mSymbol(fastify.logLevel)[39m]: [32m''[39m,
+        [[32mSymbol(fastify.logSerializers)[39m]: [1mnull[22m,
+        [[32mSymbol(fastify.hooks)[39m]: Hooks <[36m[Object: null prototype][39m> {
+          onRequest: [
+            [36m[Function: runMiddie][39m,
+            [36m[Function: fastifyCookieHandler][39m,
+            [36m[Function: handleCors][39m,
+            [36m[AsyncFunction: helmetConfigureReply][39m,
+            [36m[Function: helmetApplyHeaders][39m
+          ],
+          preParsing: [],
+          preValidation: [],
+          preSerialization: [],
+          preHandler: [],
+          onResponse: [],
+          onSend: [
+            [36m[Function: fastifyCookieOnSendHandler][39m
+          ],
+          onError: [],
+          onRoute: [
+            [36m[Function (anonymous)][39m
+          ],
+          onRegister: [
+            [36m[Function: onRegister][39m
+          ],
+          onReady: [],
+          onListen: [],
+          onTimeout: [],
+          onRequestAbort: [],
+          preClose: []
+        },
+        [[32mSymbol(fastify.schemaController)[39m]: SchemaController {
+          opts: {
+            bucket: [36m[Function: buildSchemas][39m,
+            compilersFactory: [36m[Object][39m,
+            isCustomValidatorCompiler: [33mfalse[39m,
+            isCustomSerializerCompiler: [33mfalse[39m
+          },
+          addedSchemas: [33mfalse[39m,
+          compilersFactory: {
+            buildValidator: [36m[Function: buildCompilerFromPool][39m,
+            buildSerializer: [36m[Function: buildSerializerFactory][39m
+          },
+          schemaBucket: Schemas {
+            store: {}
+          },
+          isCustomValidatorCompiler: [33mfalse[39m,
+          isCustomSerializerCompiler: [33mfalse[39m
+        },
+        [[32mSymbol(fastify.schemaErrorFormatter)[39m]: [1mnull[22m,
+        [[32mSymbol(fastify.errorHandler)[39m]: {
+          func: [36m[Function: bound ] AsyncFunction[39m
+        },
+        [[32mSymbol(fastify.childLoggerFactory)[39m]: [36m[Function: defaultChildLoggerFactory][39m,
+        [[32mSymbol(fastify.replySerializerDefault)[39m]: [1mnull[22m,
+        [[32mSymbol(fastify.contentTypeParser)[39m]: ContentTypeParser {
+          customParsers: Map(3) {
+            [32m'application/json'[39m => [36m[Parser][39m,
+            [32m'text/plain'[39m => [36m[Parser][39m,
+            [32m'application/x-www-form-urlencoded'[39m => [36m[Parser][39m
+          },
+          parserList: [
+            [32m'application/json'[39m,
+            [32m'application/x-www-form-urlencoded'[39m,
+            [32m'application/json'[39m,
+            [32m'text/plain'[39m
+          ],
+          parserRegExpList: [],
+          cache: FifoMap {
+            first: [1mnull[22m,
+            items: Map(0) {},
+            last: [1mnull[22m,
+            max: [33m100[39m,
+            ttl: [33m0[39m
+          },
+          [[32mSymbol(fastify.defaultJSONParse)[39m]: [36m[Function: defaultJsonParser][39m
+        },
+        [[32mSymbol(fastify.Reply)[39m]: [Function: _Reply] {
+          parent: [Function: Reply] {
+            props: [],
+            buildReply: [36m[Function: buildReply][39m,
+            setupResponseListeners: [36m[Function: setupResponseListeners][39m
+          },
+          props: [
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m,
+            [36m[Object][39m
+          ],
+          [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+        },
+        [[32mSymbol(fastify.Request)[39m]: [Function: _Request] {
+          props: [
+            [36m[Object][39m,
+            [36m[Object][39m
+          ],
+          parent: [Function: Request] {
+            props: [],
+            buildRequest: [36m[Function: buildRequest][39m
+          },
+          [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+        },
+        [[32mSymbol(fastify.404)[39m]: {
+          router: Router {
+            _opts: [36m[Object][39m,
+            defaultRoute: [36m[Function: bound fourOhFourFallBack][39m,
+            onBadUrl: [36m[Function: bound onBadUrl][39m,
+            buildPrettyMeta: [36m[Function: defaultBuildPrettyMeta][39m,
+            querystringParser: [36m[Function (anonymous)][39m,
+            caseSensitive: [33mtrue[39m,
+            ignoreTrailingSlash: [33mfalse[39m,
+            ignoreDuplicateSlashes: [33mfalse[39m,
+            maxParamLength: [33m100[39m,
+            allowUnsafeRegex: [33mfalse[39m,
+            constrainer: [36m[Constrainer][39m,
+            useSemicolonDelimiter: [33mfalse[39m,
+            routes: [36m[Array][39m,
+            trees: [36m[Object][39m
+          },
+          setNotFoundHandler: [36m[Function: setNotFoundHandler][39m,
+          setContext: [36m[Function: setContext][39m,
+          arrange404: [36m[Function: arrange404][39m
+        },
+        [[32mSymbol(registered-plugin)[39m]: [
+          [32m'@fastify/middie'[39m,
+          [32m'@fastify/cookie'[39m,
+          [32m'@fastify/cors'[39m,
+          [32m'@fastify/helmet'[39m
+        ],
+        [[32mSymbol(fastify.pluginNameChain)[39m]: [
+          [32m'fastify'[39m,
+          [32m'@fastify/middie'[39m,
+          [32m'@fastify/cookie'[39m,
+          [32m'@fastify/cors'[39m,
+          [32m'@fastify/helmet'[39m
+        ],
+        [[32mSymbol(fastify.avvioBoot)[39m]: [36m[Function (anonymous)][39m,
+        [[32mSymbol(fastify.genReqId)[39m]: [36m[Function: defaultGenReqId][39m,
+        [[32mSymbol(avvio.Boot)[39m]: [33mtrue[39m,
+        [[32mSymbol(fastify.canSetNotFoundHandler)[39m]: [33mfalse[39m,
+        [[32mSymbol(fastify.404ContextKey)[39m]: Context {
+          schema: [90mundefined[39m,
+          handler: [36m[Function: bound ] AsyncFunction[39m,
+          Reply: [Function: _Reply] {
+            parent: [36m[Function][39m,
+            props: [36m[Array][39m,
+            [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+          },
+          Request: [Function: _Request] {
+            props: [36m[Array][39m,
+            parent: [36m[Function][39m,
+            [[32mSymbol(fastify.hasBeenDecorated)[39m]: [33mtrue[39m
+          },
+          contentTypeParser: ContentTypeParser {
+            customParsers: [36m[Map][39m,
+            parserList: [36m[Array][39m,
+            parserRegExpList: [],
+            cache: [36m[FifoMap][39m,
+            [[32mSymbol(fastify.defaultJSONParse)[39m]: [36m[Function: defaultJsonParser][39m
+          },
+          onRequest: [
+            [36m[Function: bound runMiddie][39m,
+            [36m[Function: bound fastifyCookieHandler][39m,
+            [36m[Function: bound handleCors][39m,
+            [36m[Function: bound helmetConfigureReply] AsyncFunction[39m,
+            [36m[Function: bound helmetApplyHeaders][39m
+          ],
+          onSend: [
+            [36m[Function: bound fastifyCookieOnSendHandler][39m
+          ],
+          onError: [1mnull[22m,
+          onTimeout: [1mnull[22m,
+          preHandler: [1mnull[22m,
+          onResponse: [1mnull[22m,
+          preSerialization: [1mnull[22m,
+          onRequestAbort: [1mnull[22m,
+          config: {},
+          errorHandler: {
+            func: [36m[Function: bound ] AsyncFunction[39m
+          },
+          requestIdLogLabel: [32m'reqId'[39m,
+          childLoggerFactory: [36m[Function: defaultChildLoggerFactory][39m,
+          _middie: [1mnull[22m,
+          _parserOptions: {
+            limit: [33m1048576[39m
+          },
+          exposeHeadRoute: [90mundefined[39m,
+          prefixTrailingSlash: [90mundefined[39m,
+          logLevel: [32m''[39m,
+          logSerializers: [90mundefined[39m,
+          attachValidation: [90mundefined[39m,
+          schemaErrorFormatter: [36m[Function: defaultSchemaErrorFormatter][39m,
+          validatorCompiler: [1mnull[22m,
+          serializerCompiler: [1mnull[22m,
+          server: [36m[Circular *4][39m,
+          preParsing: [1mnull[22m,
+          preValidation: [1mnull[22m,
+          [[32mSymbol(fastify.404ContextKey)[39m]: [1mnull[22m,
+          [[32mSymbol(fastify.replySerializerDefault)[39m]: [90mundefined[39m,
+          [[32mSymbol(fastify.routeByFastify)[39m]: [90mundefined[39m,
+          [[32mSymbol(fastify.request.cache.validateFns)[39m]: [1mnull[22m,
+          [[32mSymbol(fastify.reply.cache.serializeFns)[39m]: [1mnull[22m
+        },
+        [[32mSymbol(fastify.404LogLevelInstance)[39m]: [36m[Circular *4][39m,
+        [[32mSymbol(nodejs.asyncDispose)[39m]: [36m[Function: dispose][39m,
+        [[32mSymbol(fastify-middie-middlewares)[39m]: [],
+        [[32mSymbol(fastify-middie-has-middlewares)[39m]: [33mfalse[39m,
+        [[32mSymbol(fastify-middie-instance)[39m]: {
+          use: [36m[Function: use][39m,
+          run: [36m[Function: run][39m
+        }
+      },
+      preParsing: [1mnull[22m,
+      preValidation: [1mnull[22m,
+      [[32mSymbol(fastify.404ContextKey)[39m]: [1mnull[22m,
+      [[32mSymbol(fastify.replySerializerDefault)[39m]: [90mundefined[39m,
+      [[32mSymbol(fastify.routeByFastify)[39m]: [90mundefined[39m,
+      [[32mSymbol(fastify.request.cache.validateFns)[39m]: [1mnull[22m,
+      [[32mSymbol(fastify.reply.cache.serializeFns)[39m]: [1mnull[22m
+    },
+    [[32mSymbol(fastify.replySerializerDefault)[39m]: [1mnull[22m,
+    [[32mSymbol(fastify.routeByFastify)[39m]: [33mfalse[39m,
+    [[32mSymbol(fastify.request.cache.validateFns)[39m]: [1mnull[22m,
+    [[32mSymbol(fastify.reply.cache.serializeFns)[39m]: [1mnull[22m
+  },
+  [[32mSymbol(fastify.RequestPayloadStream)[39m]: [36m<ref *3>[39m IncomingMessage {
+    _readableState: ReadableState {
+      state: [33m137266[39m,
+      highWaterMark: [33m16384[39m,
+      buffer: BufferList {
+        head: [1mnull[22m,
+        tail: [1mnull[22m,
+        length: [33m0[39m
+      },
+      length: [33m0[39m,
+      pipes: [],
+      flowing: [1mnull[22m,
+      errored: [1mnull[22m,
+      defaultEncoding: [32m'utf8'[39m,
+      awaitDrainWriters: [1mnull[22m,
+      decoder: [1mnull[22m,
+      encoding: [1mnull[22m,
+      [[32mSymbol(kPaused)[39m]: [1mnull[22m
+    },
+    _events: [Object: null prototype] {},
+    _eventsCount: [33m0[39m,
+    _maxListeners: [90mundefined[39m,
+    socket: [36m<ref *2>[39m Socket {
+      connecting: [33mfalse[39m,
+      _hadError: [33mfalse[39m,
+      _parent: [1mnull[22m,
+      _host: [1mnull[22m,
+      _closeAfterHandlingError: [33mfalse[39m,
+      _readableState: ReadableState {
+        state: [33m4184[39m,
+        highWaterMark: [33m16384[39m,
+        buffer: BufferList {
+          head: [1mnull[22m,
+          tail: [1mnull[22m,
+          length: [33m0[39m
+        },
+        length: [33m0[39m,
+        pipes: [],
+        flowing: [33mtrue[39m,
+        errored: [1mnull[22m,
+        defaultEncoding: [32m'utf8'[39m,
+        awaitDrainWriters: [1mnull[22m,
+        decoder: [1mnull[22m,
+        encoding: [1mnull[22m,
+        [[32mSymbol(kPaused)[39m]: [33mfalse[39m
+      },
+      _events: [Object: null prototype] {
+        end: [
+          [36m[Function: onReadableStreamEnd][39m,
+          [36m[Function: bound socketOnEnd][39m
+        ],
+        timeout: [36m[Function: socketOnTimeout][39m,
+        data: [36m[Function: bound socketOnData][39m,
+        error: [36m[Function: socketOnError][39m,
+        close: [
+          [36m[Function: bound socketOnClose][39m,
+          [36m[Function: onServerResponseClose][39m
+        ],
+        drain: [36m[Function: bound socketOnDrain][39m,
+        resume: [36m[Function: onSocketResume][39m,
+        pause: [36m[Function: onSocketPause][39m
+      },
+      _eventsCount: [33m8[39m,
+      _maxListeners: [90mundefined[39m,
+      _writableState: WritableState {
+        state: [33m786508[39m,
+        highWaterMark: [33m16384[39m,
+        defaultEncoding: [32m'utf8'[39m,
+        length: [33m0[39m,
+        corked: [33m0[39m,
+        onwrite: [36m[Function: bound onwrite][39m,
+        writecb: [1mnull[22m,
+        writelen: [33m0[39m,
+        afterWriteTickInfo: [1mnull[22m,
+        buffered: [],
+        bufferedIndex: [33m0[39m,
+        pendingcb: [33m0[39m,
+        errored: [1mnull[22m,
+        [[32mSymbol(kOnFinished)[39m]: []
+      },
+      allowHalfOpen: [33mtrue[39m,
+      _sockname: [1mnull[22m,
+      _pendingData: [1mnull[22m,
+      _pendingEncoding: [32m''[39m,
+      server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      _server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      parser: HTTPParser {
+        [32m'0'[39m: [1mnull[22m,
+        [32m'1'[39m: [36m[Function: parserOnHeaders][39m,
+        [32m'2'[39m: [36m[Function: parserOnHeadersComplete][39m,
+        [32m'3'[39m: [36m[Function: parserOnBody][39m,
+        [32m'4'[39m: [36m[Function: parserOnMessageComplete][39m,
+        [32m'5'[39m: [36m[Function: bound onParserExecute][39m,
+        [32m'6'[39m: [36m[Function: bound onParserTimeout][39m,
+        _headers: [],
+        _url: [32m''[39m,
+        socket: [36m[Circular *2][39m,
+        incoming: [36m[Circular *3][39m,
+        outgoing: [1mnull[22m,
+        maxHeaderPairs: [33m2000[39m,
+        _consumed: [33mtrue[39m,
+        onIncoming: [36m[Function: bound parserOnIncoming][39m,
+        joinDuplicateHeaders: [1mnull[22m,
+        [[32mSymbol(resource_symbol)[39m]: HTTPServerAsyncResource {
+          type: [32m'HTTPINCOMINGMESSAGE'[39m,
+          socket: [36m[Circular *2][39m
+        }
+      },
+      on: [36m[Function: socketListenerWrap][39m,
+      addListener: [36m[Function: socketListenerWrap][39m,
+      prependListener: [36m[Function: socketListenerWrap][39m,
+      setEncoding: [36m[Function: socketSetEncoding][39m,
+      _paused: [33mfalse[39m,
+      _httpMessage: ServerResponse {
+        _events: [Object: null prototype] {
+          finish: [
+            [36m[Function: bound resOnFinish][39m,
+            [36m[Function: onResFinished][39m
+          ],
+          error: [36m[Function: onResFinished][39m
+        },
+        _eventsCount: [33m2[39m,
+        _maxListeners: [90mundefined[39m,
+        outputData: [],
+        outputSize: [33m0[39m,
+        writable: [33mtrue[39m,
+        destroyed: [33mfalse[39m,
+        _last: [33mfalse[39m,
+        chunkedEncoding: [33mfalse[39m,
+        shouldKeepAlive: [33mfalse[39m,
+        maxRequestsOnConnectionReached: [33mfalse[39m,
+        _defaultKeepAlive: [33mtrue[39m,
+        useChunkedEncodingByDefault: [33mtrue[39m,
+        sendDate: [33mtrue[39m,
+        _removedConnection: [33mfalse[39m,
+        _removedContLen: [33mfalse[39m,
+        _removedTE: [33mfalse[39m,
+        strictContentLength: [33mfalse[39m,
+        _contentLength: [1mnull[22m,
+        _hasBody: [33mtrue[39m,
+        _trailer: [32m''[39m,
+        finished: [33mfalse[39m,
+        _headerSent: [33mfalse[39m,
+        _closed: [33mfalse[39m,
+        socket: [36m[Circular *2][39m,
+        _header: [1mnull[22m,
+        _keepAliveTimeout: [33m72000[39m,
+        _onPendingData: [36m[Function: bound updateOutgoingData][39m,
+        req: [36m[Circular *3][39m,
+        _sent100: [33mfalse[39m,
+        _expect_continue: [33mfalse[39m,
+        _maxRequestsPerSocket: [33m0[39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(kBytesWritten)[39m]: [33m0[39m,
+        [[32mSymbol(kNeedDrain)[39m]: [33mfalse[39m,
+        [[32mSymbol(corked)[39m]: [33m0[39m,
+        [[32mSymbol(kOutHeaders)[39m]: [Object: null prototype] {
+          [32m'content-security-policy'[39m: [
+            [32m'Content-Security-Policy'[39m,
+            [32m"default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"[39m
+          ],
+          [32m'cross-origin-opener-policy'[39m: [
+            [32m'Cross-Origin-Opener-Policy'[39m,
+            [32m'same-origin'[39m
+          ],
+          [32m'cross-origin-resource-policy'[39m: [
+            [32m'Cross-Origin-Resource-Policy'[39m,
+            [32m'same-origin'[39m
+          ],
+          [32m'origin-agent-cluster'[39m: [
+            [32m'Origin-Agent-Cluster'[39m,
+            [32m'?1'[39m
+          ],
+          [32m'referrer-policy'[39m: [
+            [32m'Referrer-Policy'[39m,
+            [32m'no-referrer'[39m
+          ],
+          [32m'strict-transport-security'[39m: [
+            [32m'Strict-Transport-Security'[39m,
+            [32m'max-age=31536000; includeSubDomains'[39m
+          ],
+          [32m'x-content-type-options'[39m: [
+            [32m'X-Content-Type-Options'[39m,
+            [32m'nosniff'[39m
+          ],
+          [32m'x-dns-prefetch-control'[39m: [
+            [32m'X-DNS-Prefetch-Control'[39m,
+            [32m'off'[39m
+          ],
+          [32m'x-download-options'[39m: [
+            [32m'X-Download-Options'[39m,
+            [32m'noopen'[39m
+          ],
+          [32m'x-frame-options'[39m: [
+            [32m'X-Frame-Options'[39m,
+            [32m'SAMEORIGIN'[39m
+          ],
+          [32m'x-permitted-cross-domain-policies'[39m: [
+            [32m'X-Permitted-Cross-Domain-Policies'[39m,
+            [32m'none'[39m
+          ],
+          [32m'x-xss-protection'[39m: [
+            [32m'X-XSS-Protection'[39m,
+            [32m'0'[39m
+          ]
+        },
+        [[32mSymbol(errored)[39m]: [1mnull[22m,
+        [[32mSymbol(kHighWaterMark)[39m]: [33m16384[39m,
+        [[32mSymbol(kRejectNonStandardBodyWrites)[39m]: [33mfalse[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m
+      },
+      _peername: {
+        address: [32m'127.0.0.1'[39m,
+        family: [32m'IPv4'[39m,
+        port: [33m52880[39m
+      },
+      [[32mSymbol(async_id_symbol)[39m]: [33m150[39m,
+      [[32mSymbol(kHandle)[39m]: TCP {
+        reading: [33mtrue[39m,
+        onconnection: [1mnull[22m,
+        _consumed: [33mtrue[39m,
+        [[32mSymbol(owner_symbol)[39m]: [36m[Circular *2][39m
+      },
+      [[32mSymbol(lastWriteQueueSize)[39m]: [33m0[39m,
+      [[32mSymbol(timeout)[39m]: [1mnull[22m,
+      [[32mSymbol(kBuffer)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferCb)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferGen)[39m]: [1mnull[22m,
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetNoDelay)[39m]: [33mtrue[39m,
+      [[32mSymbol(kSetKeepAlive)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetKeepAliveInitialDelay)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesRead)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesWritten)[39m]: [33m0[39m
+    },
+    httpVersionMajor: [33m1[39m,
+    httpVersionMinor: [33m1[39m,
+    httpVersion: [32m'1.1'[39m,
+    complete: [33mtrue[39m,
+    rawHeaders: [
+      [32m'user-agent'[39m,
+      [32m'vscode-restclient'[39m,
+      [32m'cookie'[39m,
+      [32m'access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE3NDQzNjM5MzksImV4cCI6MTc0NDQyMzkzOX0.pQlDUQ7jzf2kSDfLV-1SUPeIT9RXZaoVZ2K2312jq9N7CQFOvmXRYr_QHXBlqaMX4xHmJsIr2kND3UZO9tEaoaLdr_eoIRQ9A7hn3SI3iHu_kusujeixTa0HaeI0Isze-4ZJ5IBnSmeBP_YuzOGSKo-DoaIwj2Vd3EdM07jo7om_5Sm6q8dS5RRNZRK-vmeh7_jDQYIXwYK0SbNLwvhUrOnkm55GGqIVzKQrU-5RHFaZvrVFo_rxzioR3-U_lv6B0P9WUpfZ0_7hqdklkQUlNfw5WzbS61v9YCCAUIzxgw8jgtzQNcnhFUnWC1MK1Ejyy7qf2z4IO_kVLtKiLjKQ4ls4tNbMdAmtjfUwbmKY8EUZdiqMj7rLINQ3sNr5RMqOJ5KxLUCLuuTAa1iTIxHbGyp18gNSmRVzHJiUaadFNm7pYpv5Cu442YvVrUbvE0IcQH7BSysH1bVfCepRrgS3O0R7oNOBS0Iqcl4HYdIJ80RuFxgse-EC7l7fFdAzRo_c3C38ywzgu78sIt3xtlEyy1CHDstEVC6Y8QI0ntMaSxLfkpQzQKC8UhSyxZCHqV5Aww9LREk_yQh_3YkhPPi3SP7D9p0jjh6hdxXFSbHDtgi_f9f5JZ7y2GlczqLQK3RqkLiwnF6y2Rkyq11BhnZ1nYuuP9-VjYIzDPkO8hbXrwA; refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiaWF0IjoxNzQ0MzYzOTM5LCJleHAiOjE3NDQ0ODM5Mzl9.b6n4s86_cGsLrpcZ0OV9d8eGZZIvRkO5JaAEXX2s2OtbHP1Cnn3OuYydGCqb_23qwZ4iLVEub6ejnG7_YqF7ZUoQzoB3X6msIRO4Ok6BF8QqNyYqHWKqR5MHk3CNbSA4EJJVdVlW5YJoLwNDO4czqDb4p3-0W3R5Vq-iw0od-xmRL_YhsuvM9K34mTUtR03K2uRZ9pVCA1ryd4gxAKbhDIiGkqhnuyclZi-aY9gqQ5VtkISQqctJ3DfCPo4RB8Eb6x3wxyr0Op9mvADWNA4cOPfgK_E-wz-ytojtY79SfLfP-DhCkM0ezzOLUWG4To-EOSSbqhV1dOn84QM2mwMWJIsHeQTZR8R7Lf-4wfAxjayeOWd7EyFegRJyd7P0gKwQ86kVDwFJJq-nF-WP7UgxY4__kFBouVpEkN0aGxEo5jNAqrDjK9Tugk9TT6xZQWV51PgD4tVGVIgZ7V_lUQ9Am3BzJi9JX2eo331todao3Qs82EAqAAskZ_UcwKJgasssxo65aJZLtvtSwXe8AtjdSS3xNqDIbZvg5Pt42W0UpCWzX7lK0RG1ctTqYLihhmel2sxSeIDFwTdjBCE0ATEMfvqDKH5qy7kKXhyQlk006tmWimSjj9jbMVwldEKdsjTvpRvVp-T_cV7kZEyAPKaIJz2L2T8RP1tsguZ7J0EU04s; {{signUp.response.headers.set-cookie}}'[39m,
+      [32m'accept-encoding'[39m,
+      [32m'gzip, deflate'[39m,
+      [32m'Host'[39m,
+      [32m'127.0.0.1:3001'[39m,
+      [32m'Connection'[39m,
+      [32m'close'[39m,
+      [32m'Content-Length'[39m,
+      [32m'0'[39m
+    ],
+    rawTrailers: [],
+    joinDuplicateHeaders: [1mnull[22m,
+    aborted: [33mfalse[39m,
+    upgrade: [33mfalse[39m,
+    url: [32m'/api/v1/auth/new-email-verification'[39m,
+    method: [32m'POST'[39m,
+    statusCode: [1mnull[22m,
+    statusMessage: [1mnull[22m,
+    client: [36m<ref *2>[39m Socket {
+      connecting: [33mfalse[39m,
+      _hadError: [33mfalse[39m,
+      _parent: [1mnull[22m,
+      _host: [1mnull[22m,
+      _closeAfterHandlingError: [33mfalse[39m,
+      _readableState: ReadableState {
+        state: [33m4184[39m,
+        highWaterMark: [33m16384[39m,
+        buffer: BufferList {
+          head: [1mnull[22m,
+          tail: [1mnull[22m,
+          length: [33m0[39m
+        },
+        length: [33m0[39m,
+        pipes: [],
+        flowing: [33mtrue[39m,
+        errored: [1mnull[22m,
+        defaultEncoding: [32m'utf8'[39m,
+        awaitDrainWriters: [1mnull[22m,
+        decoder: [1mnull[22m,
+        encoding: [1mnull[22m,
+        [[32mSymbol(kPaused)[39m]: [33mfalse[39m
+      },
+      _events: [Object: null prototype] {
+        end: [
+          [36m[Function: onReadableStreamEnd][39m,
+          [36m[Function: bound socketOnEnd][39m
+        ],
+        timeout: [36m[Function: socketOnTimeout][39m,
+        data: [36m[Function: bound socketOnData][39m,
+        error: [36m[Function: socketOnError][39m,
+        close: [
+          [36m[Function: bound socketOnClose][39m,
+          [36m[Function: onServerResponseClose][39m
+        ],
+        drain: [36m[Function: bound socketOnDrain][39m,
+        resume: [36m[Function: onSocketResume][39m,
+        pause: [36m[Function: onSocketPause][39m
+      },
+      _eventsCount: [33m8[39m,
+      _maxListeners: [90mundefined[39m,
+      _writableState: WritableState {
+        state: [33m786508[39m,
+        highWaterMark: [33m16384[39m,
+        defaultEncoding: [32m'utf8'[39m,
+        length: [33m0[39m,
+        corked: [33m0[39m,
+        onwrite: [36m[Function: bound onwrite][39m,
+        writecb: [1mnull[22m,
+        writelen: [33m0[39m,
+        afterWriteTickInfo: [1mnull[22m,
+        buffered: [],
+        bufferedIndex: [33m0[39m,
+        pendingcb: [33m0[39m,
+        errored: [1mnull[22m,
+        [[32mSymbol(kOnFinished)[39m]: []
+      },
+      allowHalfOpen: [33mtrue[39m,
+      _sockname: [1mnull[22m,
+      _pendingData: [1mnull[22m,
+      _pendingEncoding: [32m''[39m,
+      server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      _server: [36m<ref *1>[39m Server {
+        maxHeaderSize: [90mundefined[39m,
+        insecureHTTPParser: [90mundefined[39m,
+        requestTimeout: [33m0[39m,
+        headersTimeout: [33m60000[39m,
+        keepAliveTimeout: [33m72000[39m,
+        connectionsCheckingInterval: [33m30000[39m,
+        requireHostHeader: [33mtrue[39m,
+        joinDuplicateHeaders: [90mundefined[39m,
+        rejectNonStandardBodyWrites: [33mfalse[39m,
+        _events: [Object: null prototype] {
+          request: [36m[Function: preRouting][39m,
+          connection: [36m[Function: connectionListener][39m,
+          listening: [36m[Function: setupConnectionsTracking][39m,
+          clientError: [36m[Function: bound defaultClientErrorHandler][39m
+        },
+        _eventsCount: [33m4[39m,
+        _maxListeners: [90mundefined[39m,
+        _connections: [33m1[39m,
+        _handle: TCP {
+          reading: [33mfalse[39m,
+          onconnection: [36m[Function: onconnection][39m,
+          [[32mSymbol(owner_symbol)[39m]: [36m[Circular *1][39m
+        },
+        _usingWorkers: [33mfalse[39m,
+        _workers: [],
+        _unref: [33mfalse[39m,
+        allowHalfOpen: [33mtrue[39m,
+        pauseOnConnect: [33mfalse[39m,
+        noDelay: [33mtrue[39m,
+        keepAlive: [33mfalse[39m,
+        keepAliveInitialDelay: [33m0[39m,
+        highWaterMark: [33m16384[39m,
+        httpAllowHalfOpen: [33mfalse[39m,
+        timeout: [33m0[39m,
+        maxHeadersCount: [1mnull[22m,
+        maxRequestsPerSocket: [33m0[39m,
+        _connectionKey: [32m'4:0.0.0.0:3001'[39m,
+        [[32mSymbol(IncomingMessage)[39m]: [36m[Function: IncomingMessage][39m,
+        [[32mSymbol(ServerResponse)[39m]: [36m[Function: ServerResponse][39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(async_id_symbol)[39m]: [33m144[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m,
+        [[32mSymbol(http.server.connections)[39m]: ConnectionsList {},
+        [[32mSymbol(http.server.connectionsCheckingInterval)[39m]: Timeout {
+          _idleTimeout: [33m30000[39m,
+          _idlePrev: [36m[TimersList][39m,
+          _idleNext: [36m[TimersList][39m,
+          _idleStart: [33m504[39m,
+          _onTimeout: [36m[Function: bound checkConnections][39m,
+          _timerArgs: [90mundefined[39m,
+          _repeat: [33m30000[39m,
+          _destroyed: [33mfalse[39m,
+          [[32mSymbol(refed)[39m]: [33mfalse[39m,
+          [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+          [[32mSymbol(asyncId)[39m]: [33m146[39m,
+          [[32mSymbol(triggerId)[39m]: [33m145[39m
+        }
+      },
+      parser: HTTPParser {
+        [32m'0'[39m: [1mnull[22m,
+        [32m'1'[39m: [36m[Function: parserOnHeaders][39m,
+        [32m'2'[39m: [36m[Function: parserOnHeadersComplete][39m,
+        [32m'3'[39m: [36m[Function: parserOnBody][39m,
+        [32m'4'[39m: [36m[Function: parserOnMessageComplete][39m,
+        [32m'5'[39m: [36m[Function: bound onParserExecute][39m,
+        [32m'6'[39m: [36m[Function: bound onParserTimeout][39m,
+        _headers: [],
+        _url: [32m''[39m,
+        socket: [36m[Circular *2][39m,
+        incoming: [36m[Circular *3][39m,
+        outgoing: [1mnull[22m,
+        maxHeaderPairs: [33m2000[39m,
+        _consumed: [33mtrue[39m,
+        onIncoming: [36m[Function: bound parserOnIncoming][39m,
+        joinDuplicateHeaders: [1mnull[22m,
+        [[32mSymbol(resource_symbol)[39m]: HTTPServerAsyncResource {
+          type: [32m'HTTPINCOMINGMESSAGE'[39m,
+          socket: [36m[Circular *2][39m
+        }
+      },
+      on: [36m[Function: socketListenerWrap][39m,
+      addListener: [36m[Function: socketListenerWrap][39m,
+      prependListener: [36m[Function: socketListenerWrap][39m,
+      setEncoding: [36m[Function: socketSetEncoding][39m,
+      _paused: [33mfalse[39m,
+      _httpMessage: ServerResponse {
+        _events: [Object: null prototype] {
+          finish: [
+            [36m[Function: bound resOnFinish][39m,
+            [36m[Function: onResFinished][39m
+          ],
+          error: [36m[Function: onResFinished][39m
+        },
+        _eventsCount: [33m2[39m,
+        _maxListeners: [90mundefined[39m,
+        outputData: [],
+        outputSize: [33m0[39m,
+        writable: [33mtrue[39m,
+        destroyed: [33mfalse[39m,
+        _last: [33mfalse[39m,
+        chunkedEncoding: [33mfalse[39m,
+        shouldKeepAlive: [33mfalse[39m,
+        maxRequestsOnConnectionReached: [33mfalse[39m,
+        _defaultKeepAlive: [33mtrue[39m,
+        useChunkedEncodingByDefault: [33mtrue[39m,
+        sendDate: [33mtrue[39m,
+        _removedConnection: [33mfalse[39m,
+        _removedContLen: [33mfalse[39m,
+        _removedTE: [33mfalse[39m,
+        strictContentLength: [33mfalse[39m,
+        _contentLength: [1mnull[22m,
+        _hasBody: [33mtrue[39m,
+        _trailer: [32m''[39m,
+        finished: [33mfalse[39m,
+        _headerSent: [33mfalse[39m,
+        _closed: [33mfalse[39m,
+        socket: [36m[Circular *2][39m,
+        _header: [1mnull[22m,
+        _keepAliveTimeout: [33m72000[39m,
+        _onPendingData: [36m[Function: bound updateOutgoingData][39m,
+        req: [36m[Circular *3][39m,
+        _sent100: [33mfalse[39m,
+        _expect_continue: [33mfalse[39m,
+        _maxRequestsPerSocket: [33m0[39m,
+        [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+        [[32mSymbol(kBytesWritten)[39m]: [33m0[39m,
+        [[32mSymbol(kNeedDrain)[39m]: [33mfalse[39m,
+        [[32mSymbol(corked)[39m]: [33m0[39m,
+        [[32mSymbol(kOutHeaders)[39m]: [Object: null prototype] {
+          [32m'content-security-policy'[39m: [
+            [32m'Content-Security-Policy'[39m,
+            [32m"default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"[39m
+          ],
+          [32m'cross-origin-opener-policy'[39m: [
+            [32m'Cross-Origin-Opener-Policy'[39m,
+            [32m'same-origin'[39m
+          ],
+          [32m'cross-origin-resource-policy'[39m: [
+            [32m'Cross-Origin-Resource-Policy'[39m,
+            [32m'same-origin'[39m
+          ],
+          [32m'origin-agent-cluster'[39m: [
+            [32m'Origin-Agent-Cluster'[39m,
+            [32m'?1'[39m
+          ],
+          [32m'referrer-policy'[39m: [
+            [32m'Referrer-Policy'[39m,
+            [32m'no-referrer'[39m
+          ],
+          [32m'strict-transport-security'[39m: [
+            [32m'Strict-Transport-Security'[39m,
+            [32m'max-age=31536000; includeSubDomains'[39m
+          ],
+          [32m'x-content-type-options'[39m: [
+            [32m'X-Content-Type-Options'[39m,
+            [32m'nosniff'[39m
+          ],
+          [32m'x-dns-prefetch-control'[39m: [
+            [32m'X-DNS-Prefetch-Control'[39m,
+            [32m'off'[39m
+          ],
+          [32m'x-download-options'[39m: [
+            [32m'X-Download-Options'[39m,
+            [32m'noopen'[39m
+          ],
+          [32m'x-frame-options'[39m: [
+            [32m'X-Frame-Options'[39m,
+            [32m'SAMEORIGIN'[39m
+          ],
+          [32m'x-permitted-cross-domain-policies'[39m: [
+            [32m'X-Permitted-Cross-Domain-Policies'[39m,
+            [32m'none'[39m
+          ],
+          [32m'x-xss-protection'[39m: [
+            [32m'X-XSS-Protection'[39m,
+            [32m'0'[39m
+          ]
+        },
+        [[32mSymbol(errored)[39m]: [1mnull[22m,
+        [[32mSymbol(kHighWaterMark)[39m]: [33m16384[39m,
+        [[32mSymbol(kRejectNonStandardBodyWrites)[39m]: [33mfalse[39m,
+        [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m
+      },
+      _peername: {
+        address: [32m'127.0.0.1'[39m,
+        family: [32m'IPv4'[39m,
+        port: [33m52880[39m
+      },
+      [[32mSymbol(async_id_symbol)[39m]: [33m150[39m,
+      [[32mSymbol(kHandle)[39m]: TCP {
+        reading: [33mtrue[39m,
+        onconnection: [1mnull[22m,
+        _consumed: [33mtrue[39m,
+        [[32mSymbol(owner_symbol)[39m]: [36m[Circular *2][39m
+      },
+      [[32mSymbol(lastWriteQueueSize)[39m]: [33m0[39m,
+      [[32mSymbol(timeout)[39m]: [1mnull[22m,
+      [[32mSymbol(kBuffer)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferCb)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferGen)[39m]: [1mnull[22m,
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetNoDelay)[39m]: [33mtrue[39m,
+      [[32mSymbol(kSetKeepAlive)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetKeepAliveInitialDelay)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesRead)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesWritten)[39m]: [33m0[39m
+    },
+    _consuming: [33mfalse[39m,
+    _dumped: [33mfalse[39m,
+    [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+    [[32mSymbol(kHeaders)[39m]: {
+      [32m'user-agent'[39m: [32m'vscode-restclient'[39m,
+      cookie: [32m'access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE3NDQzNjM5MzksImV4cCI6MTc0NDQyMzkzOX0.pQlDUQ7jzf2kSDfLV-1SUPeIT9RXZaoVZ2K2312jq9N7CQFOvmXRYr_QHXBlqaMX4xHmJsIr2kND3UZO9tEaoaLdr_eoIRQ9A7hn3SI3iHu_kusujeixTa0HaeI0Isze-4ZJ5IBnSmeBP_YuzOGSKo-DoaIwj2Vd3EdM07jo7om_5Sm6q8dS5RRNZRK-vmeh7_jDQYIXwYK0SbNLwvhUrOnkm55GGqIVzKQrU-5RHFaZvrVFo_rxzioR3-U_lv6B0P9WUpfZ0_7hqdklkQUlNfw5WzbS61v9YCCAUIzxgw8jgtzQNcnhFUnWC1MK1Ejyy7qf2z4IO_kVLtKiLjKQ4ls4tNbMdAmtjfUwbmKY8EUZdiqMj7rLINQ3sNr5RMqOJ5KxLUCLuuTAa1iTIxHbGyp18gNSmRVzHJiUaadFNm7pYpv5Cu442YvVrUbvE0IcQH7BSysH1bVfCepRrgS3O0R7oNOBS0Iqcl4HYdIJ80RuFxgse-EC7l7fFdAzRo_c3C38ywzgu78sIt3xtlEyy1CHDstEVC6Y8QI0ntMaSxLfkpQzQKC8UhSyxZCHqV5Aww9LREk_yQh_3YkhPPi3SP7D9p0jjh6hdxXFSbHDtgi_f9f5JZ7y2GlczqLQK3RqkLiwnF6y2Rkyq11BhnZ1nYuuP9-VjYIzDPkO8hbXrwA; refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbTlja3d6Nm0wMDAwOXV4cGpsNmx3eDk3IiwiaWF0IjoxNzQ0MzYzOTM5LCJleHAiOjE3NDQ0ODM5Mzl9.b6n4s86_cGsLrpcZ0OV9d8eGZZIvRkO5JaAEXX2s2OtbHP1Cnn3OuYydGCqb_23qwZ4iLVEub6ejnG7_YqF7ZUoQzoB3X6msIRO4Ok6BF8QqNyYqHWKqR5MHk3CNbSA4EJJVdVlW5YJoLwNDO4czqDb4p3-0W3R5Vq-iw0od-xmRL_YhsuvM9K34mTUtR03K2uRZ9pVCA1ryd4gxAKbhDIiGkqhnuyclZi-aY9gqQ5VtkISQqctJ3DfCPo4RB8Eb6x3wxyr0Op9mvADWNA4cOPfgK_E-wz-ytojtY79SfLfP-DhCkM0ezzOLUWG4To-EOSSbqhV1dOn84QM2mwMWJIsHeQTZR8R7Lf-4wfAxjayeOWd7EyFegRJyd7P0gKwQ86kVDwFJJq-nF-WP7UgxY4__kFBouVpEkN0aGxEo5jNAqrDjK9Tugk9TT6xZQWV51PgD4tVGVIgZ7V_lUQ9Am3BzJi9JX2eo331todao3Qs82EAqAAskZ_UcwKJgasssxo65aJZLtvtSwXe8AtjdSS3xNqDIbZvg5Pt42W0UpCWzX7lK0RG1ctTqYLihhmel2sxSeIDFwTdjBCE0ATEMfvqDKH5qy7kKXhyQlk006tmWimSjj9jbMVwldEKdsjTvpRvVp-T_cV7kZEyAPKaIJz2L2T8RP1tsguZ7J0EU04s; {{signUp.response.headers.set-cookie}}'[39m,
+      [32m'accept-encoding'[39m: [32m'gzip, deflate'[39m,
+      host: [32m'127.0.0.1:3001'[39m,
+      connection: [32m'close'[39m,
+      [32m'content-length'[39m: [32m'0'[39m
+    },
+    [[32mSymbol(kHeadersCount)[39m]: [33m12[39m,
+    [[32mSymbol(kTrailers)[39m]: [1mnull[22m,
+    [[32mSymbol(kTrailersCount)[39m]: [33m0[39m
+  }
+}
+{"level":30,"time":1744364539365,"pid":89167,"hostname":"milleniumfalcon","reqId":"req-1","res":{"statusCode":400},"responseTime":21.31012199819088,"msg":"request completed"}

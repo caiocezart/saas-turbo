@@ -1,0 +1,10 @@
+import { z } from "zod";
+
+export const signedUpUserEventSchema = z.object({
+  email: z.string().email(),
+  name: z.string(),
+  verificationLink: z.string().url(),
+  verificationCode: z.string(),
+});
+
+export type SignedUpUserEvent = z.infer<typeof signedUpUserEventSchema>;

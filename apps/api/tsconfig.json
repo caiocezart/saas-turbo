@@ -1,0 +1,13 @@
+{
+  "extends": "@repo/typescript-config/nestjs.json",
+  "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
+    "outDir": "./dist",
+    "paths": {
+      "@/prisma/*": ["./prisma/generated/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

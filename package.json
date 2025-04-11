@@ -1,0 +1,20 @@
+{
+  "name": "saas-turbo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "start:dev": "turbo run start:dev",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "turbo": "^2.5.0",
+    "typescript": "5.8.2",
+    "ultracite": "^4.2.1"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,237 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PLATFORM_OWNER
+  PLATFORM_ADMIN
+  PLATFORM_USER
+  ORGANIZATION_OWNER
+  ORGANIZATION_ADMIN
+  ORGANIZATION_USER
+  USER
+}
+
+model Organization {
+  id           String   @id @default(cuid())
+  name         String
+  slug         String   @unique
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  timezone     String   @default("UTC")
+  language     String   @default("en")
+  settings     Json?
+  customDomain String?  @map("custom_domain")
+  // subscriptionId     String?  @map("subscription_id")
+  logo         String?
+  primaryColor String?  @map("primary_color")
+  accentColor  String?  @map("accent_color")
+
+  // Relations
+  // profiles    Profile[]
+  memberships Membership[]
+  invites     MembershipInvite[]
+
+  @@index([slug])
+  @@map("organizations")
+}
+
+// Core User model - represents the person/identity
+model User {
+  id                  String    @id @default(cuid())
+  email               String    @unique
+  firstName           String    @map("first_name")
+  lastName            String    @map("last_name")
+  name                String    @map("name")
+  avatarUrl           String?   @map("avatar_url")
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+  lastLoginAt         DateTime? @map("last_login_at")
+  isActive            Boolean   @default(true) @map("is_active")
+  languagePreference  String    @default("en") @map("language_preference")
+  emailVerified       Boolean   @default(false) @map("email_verified")
+  emailVerifiedAt     DateTime? @map("email_verified_at")
+  twoFactorEnabled    Boolean   @default(false) @map("two_factor_enabled")
+  phoneNumber         String?   @map("phone_number")
+  phoneNumberVerified Boolean   @default(false) @map("phone_number_verified")
+
+  // Relations
+  accounts                    Account[]
+  refreshTokens               RefreshToken[]
+  memberships                 Membership[]
+  verifications               Verification[]
+  twoFactor                   TwoFactor?
+  organizationInvitesReceived MembershipInvite[] @relation("invites_received")
+  organizationInvitesSent     MembershipInvite[] @relation("invites_sent")
+
+  @@index([name])
+  @@index([email])
+  @@map("users")
+}
+
+enum VerificationAction {
+  SIGNUP
+  FORGOT_PASSWORD
+}
+
+enum VerificationMethod {
+  EMAIL
+  OTP
+  MOBILE
+}
+
+model Verification {
+  id        String             @id @default(cuid())
+  action    VerificationAction
+  method    VerificationMethod
+  value     String
+  userId    String             @map("user_id")
+  expiresAt DateTime           @map("expires_at")
+  createdAt DateTime           @default(now()) @map("created_at")
+  updatedAt DateTime           @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId, action, method])
+  @@map("verifications")
+}
+
+model Provider {
+  id   String       @id @default(cuid())
+  name String       @unique
+  type ProviderType @unique
+
+  accounts Account[]
+
+  @@index([type])
+  @@index([name])
+  @@map("providers")
+}
+
+enum ProviderType {
+  PASSWORD
+}
+
+// Links a User to a specific authentication Provider
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @unique @map("user_id")
+  providerId        String  @map("provider_id")
+  providerType      String  @map("provider_type")
+  providerAccountId String  @map("provider_account_id")
+  passwordHash      String? @map("password_hash")
+  oauthToken        String? @map("oauth_token") @db.Text
+  oauthTokenSecret  String? @map("oauth_token_secret") @db.Text
+  refreshToken      String? @map("refresh_token") @db.Text
+  tokenType         String? @map("token_type")
+  scope             String? @map("scope")
+  idToken           String? @map("id_token") @db.Text
+  sessionState      String? @map("session_state")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([userId, providerId])
+  @@map("accounts")
+}
+
+model TwoFactor {
+  id          String @id @default(cuid())
+  userId      String @unique @map("user_id")
+  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  secret      String
+  backupCodes String @map("backup_codes")
+
+  @@map("two_factors")
+}
+
+model Membership {
+  id             String        @id @default(cuid())
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  organizationId String?       @map("organization_id")
+  user           User          @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  memberId       String        @map("member_id")
+  role           Role          @default(USER)
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+
+  @@index([memberId, organizationId])
+  @@map("memberships")
+}
+
+model MembershipInvite {
+  id             String    @id @default(cuid())
+  organizationId String    @map("organization_id")
+  memberId       String    @map("member_id")
+  role           Role      @default(USER)
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  inviterId      String    @map("inviter_id")
+  acceptedAt     DateTime? @map("accepted_at")
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  member       User         @relation("invites_received", fields: [memberId], references: [id], onDelete: Cascade)
+  inviter      User         @relation("invites_sent", fields: [inviterId], references: [id], onDelete: Cascade)
+
+  @@index([memberId, organizationId])
+  @@map("membership_invites")
+}
+
+// Refresh Token for JWT auth
+model RefreshToken {
+  id              String    @id @default(cuid())
+  token           String    @unique
+  expiresAt       DateTime  @map("expires_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  createdByIp     String?   @map("created_by_ip")
+  revokedAt       DateTime? @map("revoked_at")
+  revokedByIp     String?   @map("revoked_by_ip")
+  replacedByToken String?   @map("replaced_by_token")
+
+  // Relations
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @map("user_id")
+
+  @@index([userId, token])
+  @@map("refresh_tokens")
+}
+
+// Base Profile model - contains common profile data
+// model Profile {
+//   id           String   @id @default(cuid())
+//   firstName    String   @map("first_name")
+//   lastName     String   @map("last_name")
+//   displayName  String?  @map("display_name")
+//   phone        String?
+//   address      String?
+//   city         String?
+//   state        String?
+//   postalCode   String?  @map("postal_code")
+//   country      String?
+//   timezone     String?
+//   profileImage String?  @map("profile_image")
+//   bio          String?  @db.Text
+//   createdAt    DateTime @default(now()) @map("created_at")
+//   updatedAt    DateTime @updatedAt @map("updated_at")
+//   isDefault    Boolean  @default(false) @map("is_default")
+//   metadata     Json?
+
+//   // Relations
+//   user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId         String       @map("user_id")
+//   organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+//   organizationId String       @map("organization_id")
+
+//   @@index([userId])
+//   @@index([organizationId])
+//   @@map("profiles")
+// }

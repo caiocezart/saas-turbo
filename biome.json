@@ -1,0 +1,116 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "extends": ["ultracite"],
+  "organizeImports": {
+    "enabled": true
+  },
+  "javascript": {
+    "jsxRuntime": "transparent",
+    "globals": ["React"],
+    "formatter": {
+      "lineWidth": 80,
+      "quoteStyle": "double",
+      "semicolons": "always"
+    }
+  },
+  "linter": {
+    "rules": {
+      "recommended": true
+    }
+  },
+  "files": {
+    "ignore": [
+      "packages/design-system/src/components/ui/**",
+      "node_modules",
+      "dist",
+      ".next",
+      "**/*.d.ts",
+      "**/*.js"
+    ]
+  },
+  "overrides": [
+    {
+      "include": ["packages/**/*"],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "noExportedImports": "off",
+            "noEnum": "off"
+          },
+          "suspicious": {
+            "noAssignInExpressions": "off",
+            "noConfusingVoidType": "off",
+            "noExplicitAny": "off",
+            "noEvolvingTypes": "off",
+            "noImplicitAnyLet": "off"
+          },
+          "style": {
+            "useImportType": "off",
+            "useSingleCaseStatement": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["apps/web"],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "noNestedTernary": "off"
+          },
+          "suspicious": {
+            "noExplicitAny": "off",
+            "useAwait": "off",
+            "noConsole": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["apps/api/**"],
+      "javascript": {
+        "parser": {
+          "unsafeParameterDecoratorsEnabled": true
+        }
+      },
+      "linter": {
+        "rules": {
+          "a11y": {
+            "noSvgWithoutTitle": "off"
+          },
+          "complexity": {
+            "noExcessiveCognitiveComplexity": "off",
+            "noStaticOnlyClass": "off"
+          },
+          "correctness": {
+            "useHookAtTopLevel": "off",
+            "useExhaustiveDependencies": "off",
+            "noUndeclaredVariables": "off"
+          },
+          "nursery": {
+            "noEnum": "off"
+          },
+          "performance": {
+            "noDelete": "off",
+            "useTopLevelRegex": "off"
+          },
+          "style": {
+            "noParameterProperties": "off",
+            "useImportType": "off",
+            "noNonNullAssertion": "off",
+            "useShorthandArrayType": "off",
+            "useSingleCaseStatement": "off"
+          },
+          "suspicious": {
+            "noConsoleLog": "off",
+            "noConsole": "off",
+            "noExplicitAny": "off",
+            "noEmptyInterface": "off",
+            "useAwait": "off",
+            "noMisleadingCharacterClass": "off"
+          }
+        }
+      }
+    }
+  ]
+}
