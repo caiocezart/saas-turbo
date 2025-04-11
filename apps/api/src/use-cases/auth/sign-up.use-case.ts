@@ -15,6 +15,7 @@ import { VerificationService } from "./services/verification.service";
 import { VerificationMethod, VerificationAction } from "@prisma/client";
 import { TokenService } from "./services/token.service";
 import { Logger } from "@nestjs/common";
+import { PrismaService } from "@/database/prisma/prisma.service";
 
 @Injectable()
 export class SignUpUseCase {
@@ -26,7 +27,8 @@ export class SignUpUseCase {
     private readonly verificationService: VerificationService,
     private readonly userRepository: UserRepository,
     private readonly accountRepository: AccountRepository,
-    private readonly tokenService: TokenService
+    private readonly tokenService: TokenService,
+    private readonly prisma: PrismaService // Inject PrismaService
   ) {}
 
   async execute(request: RequestPayload, input: SignUpUser) {
@@ -40,32 +42,54 @@ export class SignUpUseCase {
 
     try {
       const passwordHash = await this.cryptoService.hash(input.password);
-      const account = await this.accountRepository.createUserAccount(
-        input,
-        passwordHash
-      );
 
-      this.logger.debug(`User created: ${account.user.id}`);
+      // --- Start Transaction ---
+      const { account, verificationCode, accessToken, refreshToken } =
+        await this.prisma.$transaction(async (tx) => {
+          const createdAccount = await this.accountRepository.createUserAccount(
+            input,
+            passwordHash,
+            tx // Pass transaction client
+          );
 
-      const { verificationCode } =
-        await this.verificationService.requestVerificationCode(
-          account.user.id,
-          VerificationAction.SIGNUP,
-          VerificationMethod.EMAIL
-        );
+          this.logger.debug(
+            `User created within transaction: ${createdAccount.user.id}`
+          );
 
-      this.logger.debug(`Verification code requested: ${verificationCode}`);
+          const { verificationCode: code } =
+            await this.verificationService.requestVerificationCode(
+              createdAccount.user.id,
+              VerificationAction.SIGNUP,
+              VerificationMethod.EMAIL,
+              tx // Pass transaction client
+            );
 
-      // generate jwt tokens
-      const { accessToken, refreshToken } = await this.tokenService.signTokens(
-        request.ip ?? "unknown",
-        account.user.id,
-        {
-          sub: account.user.id,
-          email: account.user.email,
-          name: account.user.name,
-        }
-      );
+          this.logger.debug(
+            `Verification code requested within transaction: ${code}`
+          );
+
+          // generate jwt tokens (assuming signTokens might save refresh token)
+          const tokens = await this.tokenService.signTokens(
+            request.ip ?? "unknown",
+            createdAccount.user.id,
+            {
+              sub: createdAccount.user.id,
+              email: createdAccount.user.email,
+              name: createdAccount.user.name,
+            },
+            tx // Pass transaction client
+          );
+
+          return {
+            account: createdAccount,
+            verificationCode: code,
+            accessToken: tokens.accessToken,
+            refreshToken: tokens.refreshToken,
+          };
+        });
+      // --- End Transaction ---
+
+      // Emit event *after* transaction commits successfully
 
       const signedUpEvent: SignedUpUserEvent = {
         email: account.user.email,
@@ -76,11 +100,11 @@ export class SignUpUseCase {
       };
 
       this.eventEmitter.emit(EventBusTopics.USER_SIGNED_UP, signedUpEvent);
+      this.logger.log(
+        `User sign up successful, event emitted: ${account.user.id}`
+      );
 
-      return {
-        accessToken,
-        refreshToken,
-      };
+      return { accessToken, refreshToken };
     } catch (error) {
       throw new AppException(
         ErrorCode.INTERNAL_SERVER_ERROR,

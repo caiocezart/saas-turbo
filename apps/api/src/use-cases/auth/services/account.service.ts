@@ -2,6 +2,7 @@ import { AccountRepository } from "@/database/repositories/account.repository";
 import { AppException } from "@/shared/exceptions/app.exception";
 import { ErrorCode } from "@repo/domain";
 import { CryptoService } from "./crypto.service";
+import { Prisma } from "@prisma/client"; // Import Prisma
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
@@ -11,13 +12,19 @@ export class AccountService {
     private readonly cryptoService: CryptoService
   ) {}
 
-  async resetPassword(userId: string, accountId: string, newPassword: string) {
+  async resetPassword(
+    userId: string,
+    accountId: string,
+    newPassword: string,
+    tx?: Prisma.TransactionClient // Add optional tx parameter
+  ) {
     const passwordHash = await this.cryptoService.hash(newPassword);
 
     await this.accountRepository.updatePassword(
       userId,
       accountId,
-      passwordHash
+      passwordHash,
+      tx // Pass tx to repository method
     );
   }
 
@@ -26,7 +33,8 @@ export class AccountService {
     accountId: string,
     dbPasswordHash: string,
     oldPassword: string,
-    newPassword: string
+    newPassword: string,
+    tx?: Prisma.TransactionClient // Add optional tx parameter
   ) {
     const isPasswordCorrect = await this.cryptoService.compare(
       oldPassword,
@@ -42,7 +50,8 @@ export class AccountService {
     await this.accountRepository.updatePassword(
       userId,
       accountId,
-      passwordHash
+      passwordHash,
+      tx // Pass tx to repository method
     );
   }
 }

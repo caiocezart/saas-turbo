@@ -3,7 +3,7 @@ import { CryptoService } from "./crypto.service";
 import { ErrorCode } from "@repo/domain";
 import { AppException } from "@/shared/exceptions/app.exception";
 import { VerificationRepository } from "@/database/repositories/verification.repository";
-import { VerificationMethod, VerificationAction } from "@prisma/client";
+import { VerificationMethod, VerificationAction, Prisma } from "@prisma/client";
 import { Verification } from "@prisma/client";
 import { ConfigService } from "@nestjs/config";
 import { Logger } from "@nestjs/common";
@@ -48,7 +48,8 @@ export class VerificationService {
   async requestVerificationCode(
     userId: string,
     action: VerificationAction,
-    method: VerificationMethod
+    method: VerificationMethod,
+    tx?: Prisma.TransactionClient // Add optional tx parameter
   ) {
     let verificationCode: { value: string; expiresAt: Date };
 
@@ -69,7 +70,8 @@ export class VerificationService {
         action,
         method,
         verificationCode.value,
-        verificationCode.expiresAt
+        verificationCode.expiresAt,
+        tx // Pass tx to repository method
       );
 
       this.logger.debug(`Verification created ${verification}`);

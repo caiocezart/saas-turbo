@@ -22,9 +22,12 @@ export class VerificationRepository extends BaseRepository<
   async deleteUserVerifications(
     userId: string,
     action: VerificationAction,
-    method: VerificationMethod
+    method: VerificationMethod,
+    tx?: Prisma.TransactionClient // Add optional tx parameter
   ) {
-    await this.prisma.verification.deleteMany({
+    // Use the provided transaction client or the default prisma client
+    const prismaClient = tx || this.prisma;
+    await prismaClient.verification.deleteMany({
       where: { userId, method, action },
     });
   }
@@ -34,7 +37,8 @@ export class VerificationRepository extends BaseRepository<
     action: VerificationAction,
     method: VerificationMethod,
     value: string,
-    expiresAt: Date
+    expiresAt: Date,
+    tx?: Prisma.TransactionClient // Add optional tx parameter
   ): Promise<
     Prisma.VerificationGetPayload<{
       include: {
@@ -42,28 +46,31 @@ export class VerificationRepository extends BaseRepository<
       };
     }>
   > {
-    return await this.prisma.$transaction(async (tx) => {
-      const deleteExisting = await this.prisma.verification.deleteMany({
-        where: { userId, method, action },
-      });
-
-      const verification = await this.prisma.verification.create({
-        data: {
-          action,
-          method,
-          value,
-          user: {
-            connect: { id: userId },
-          },
-          expiresAt,
-        },
-        include: {
-          user: true,
-        },
-      });
-
-      return verification;
+    // Use the provided transaction client or the default prisma client
+    const prismaClient = tx || this.prisma;
+    // Remove the internal transaction wrapper
+    // Delete existing verifications using the determined client
+    await prismaClient.verification.deleteMany({
+      where: { userId, method, action },
     });
+
+    // Create the new verification using the determined client
+    const verification = await prismaClient.verification.create({
+      data: {
+        action,
+        method,
+        value,
+        user: {
+          connect: { id: userId },
+        },
+        expiresAt,
+      },
+      include: {
+        user: true,
+      },
+    });
+
+    return verification;
   }
 
   async findVerification(

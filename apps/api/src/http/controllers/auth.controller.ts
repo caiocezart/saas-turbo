@@ -10,6 +10,8 @@ import {
   verifyUserEmailSchema,
   forgotPasswordSchema,
   otpRequestSchema,
+  ChangePassword,
+  changePasswordSchema,
 } from "@repo/domain";
 import { SignInUseCase } from "@/use-cases/auth/sign-in-use-case";
 import { VerifyEmailUserUseCase } from "@/use-cases/auth/verify-email.use-case";
@@ -24,7 +26,7 @@ import { ForgotPasswordUseCase } from "@/use-cases/auth/forgot-password.use-case
 import { RequestPayload } from "@repo/domain";
 import { Request } from "@/http/decorators/request-payload.decorator";
 import { RefreshTokenGuard } from "../guards/refresh-token.guard";
-
+import { ChangePasswordUseCase } from "@/use-cases/auth/change-password.use-case";
 const signUpBodyValidationPipe = new ZodValidationPipe(signUpUserSchema);
 const signInBodyValidationPipe = new ZodValidationPipe(signInUserSchema);
 const verifyEmailBodyValidationPipe = new ZodValidationPipe(
@@ -33,6 +35,9 @@ const verifyEmailBodyValidationPipe = new ZodValidationPipe(
 const otpRequestBodyValidationPipe = new ZodValidationPipe(otpRequestSchema);
 const forgotPasswordBodyValidationPipe = new ZodValidationPipe(
   forgotPasswordSchema
+);
+const changePasswordBodyValidationPipe = new ZodValidationPipe(
+  changePasswordSchema
 );
 
 @Controller("auth")
@@ -46,7 +51,8 @@ export class AuthController {
     private readonly refreshTokenUseCase: RefreshTokenUseCase,
     private readonly newEmailVerificationUseCase: NewEmailVerificationUseCase,
     private readonly otpRequestUseCase: OtpRequestUseCase,
-    private readonly forgotPasswordUseCase: ForgotPasswordUseCase
+    private readonly forgotPasswordUseCase: ForgotPasswordUseCase,
+    private readonly changePasswordUseCase: ChangePasswordUseCase
   ) {}
 
   @Public()
@@ -128,6 +134,16 @@ export class AuthController {
     @Body(forgotPasswordBodyValidationPipe) body: ForgotPassword
   ) {
     await this.forgotPasswordUseCase.execute(request, body);
+    res.status(200).send();
+  }
+
+  @Post("change-password")
+  async changePassword(
+    @Res() res: FastifyReply,
+    @Request() request: RequestPayload,
+    @Body(changePasswordBodyValidationPipe) body: ChangePassword
+  ) {
+    await this.changePasswordUseCase.execute(request, body);
     res.status(200).send();
   }
 

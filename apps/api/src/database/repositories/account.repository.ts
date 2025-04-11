@@ -1,12 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { BaseRepository } from "./base.repository";
 import { PrismaService } from "@/database/prisma/prisma.service";
-import {
-  Prisma,
-  Account,
-  VerificationAction,
-  ProviderType,
-} from "@prisma/client";
+import { Prisma, Account, ProviderType } from "@prisma/client";
 import { SignUpUser } from "@repo/domain";
 
 @Injectable()
@@ -19,38 +14,42 @@ export class AccountRepository extends BaseRepository<
     super(prisma, "account");
   }
 
-  async createUserAccount(input: SignUpUser, passwordHash: string) {
-    return await this.prisma.$transaction(async (tx) => {
-      const user = await tx.user.create({
-        data: {
-          email: input.email,
-          firstName: input.firstName,
-          lastName: input.lastName,
-          name: `${input.firstName} ${input.lastName}`,
-        },
-      });
-
-      const provider = await tx.provider.findUniqueOrThrow({
-        where: {
-          type: input.providerType,
-        },
-      });
-
-      const account = await tx.account.create({
-        data: {
-          userId: user.id,
-          providerType: input.providerType,
-          providerId: provider.id,
-          passwordHash,
-          providerAccountId: user.id,
-        },
-        include: {
-          user: true,
-        },
-      });
-
-      return account;
+  async createUserAccount(
+    input: SignUpUser,
+    passwordHash: string,
+    tx?: Prisma.TransactionClient
+  ) {
+    // Use the provided transaction client or the default prisma client
+    const prismaClient = tx || this.prisma;
+    const user = await prismaClient.user.create({
+      data: {
+        email: input.email,
+        firstName: input.firstName,
+        lastName: input.lastName,
+        name: `${input.firstName} ${input.lastName}`,
+      },
     });
+
+    const provider = await prismaClient.provider.findUniqueOrThrow({
+      where: {
+        type: input.providerType,
+      },
+    });
+
+    const account = await prismaClient.account.create({
+      data: {
+        userId: user.id,
+        providerType: input.providerType,
+        providerId: provider.id,
+        passwordHash,
+        providerAccountId: user.id,
+      },
+      include: {
+        user: true,
+      },
+    });
+
+    return account;
   }
 
   async findAccountByUserEmailAndProvider(
@@ -107,20 +106,17 @@ export class AccountRepository extends BaseRepository<
   async updatePassword(
     userId: string,
     accountId: string,
-    passwordHash: string
+    passwordHash: string,
+    tx?: Prisma.TransactionClient // Add optional tx parameter
   ) {
-    const deleteUserVerifications = this.prisma.verification.deleteMany({
-      where: {
-        userId,
-        action: VerificationAction.FORGOT_PASSWORD,
-      },
-    });
+    // Use the provided transaction client or the default prisma client
+    const prismaClient = tx || this.prisma;
 
-    const updatePassword = this.prisma.account.update({
+    // Perform only the password update using the determined client
+    // Verification deletion will be handled in the use case transaction
+    return await prismaClient.account.update({
       where: { id: accountId },
       data: { passwordHash },
     });
-
-    await this.prisma.$transaction([updatePassword, deleteUserVerifications]);
   }
 }

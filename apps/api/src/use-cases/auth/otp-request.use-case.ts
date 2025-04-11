@@ -5,7 +5,7 @@ import {
 } from "@repo/domain";
 import { VerificationService } from "./services/verification.service";
 import { EventEmitter2 } from "@nestjs/event-emitter";
-import { Injectable } from "@nestjs/common";
+import { Injectable, Logger } from "@nestjs/common";
 import { VerificationMethod } from "@prisma/client";
 import { OtpRequest } from "@repo/domain";
 import { AppException } from "@/shared/exceptions/app.exception";
@@ -13,6 +13,8 @@ import { ErrorCode } from "@repo/domain";
 
 @Injectable()
 export class OtpRequestUseCase {
+  private readonly logger = new Logger(OtpRequestUseCase.name);
+
   constructor(
     private readonly verificationService: VerificationService,
     private readonly eventEmitter: EventEmitter2
@@ -28,6 +30,7 @@ export class OtpRequestUseCase {
         method
       );
 
+    this.logger.debug(`Existing verification: ${existingVerification?.id}`);
     if (
       existingVerification &&
       (await this.verificationService.rateLimitCheck(existingVerification))

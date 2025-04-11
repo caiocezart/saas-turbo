@@ -21,14 +21,14 @@ export class RefreshTokenRepository extends BaseRepository<
     super(prisma, "refreshToken");
   }
 
-  async saveRefreshToken({
-    token,
-    expiresAt,
-    createdByIp,
-    userId,
-  }: z.infer<typeof saveRefreshToken>) {
+  async saveRefreshToken(
+    { token, expiresAt, createdByIp, userId }: z.infer<typeof saveRefreshToken>,
+    tx?: Prisma.TransactionClient // Add optional tx parameter
+  ) {
+    // Use the provided transaction client or the default prisma client
+    const prismaClient = tx || this.prisma;
     // save new refresh token
-    return await this.prisma.refreshToken.create({
+    return await prismaClient.refreshToken.create({
       data: {
         token,
         expiresAt,
@@ -42,8 +42,10 @@ export class RefreshTokenRepository extends BaseRepository<
     });
   }
 
-  async deleteUserRefreshTokens(userId: string) {
-    return this.prisma.refreshToken.deleteMany({
+  async deleteUserRefreshTokens(userId: string, tx?: Prisma.TransactionClient) {
+    // Use the provided transaction client or the default prisma client
+    const prismaClient = tx || this.prisma;
+    return prismaClient.refreshToken.deleteMany({
       where: { userId },
     });
   }

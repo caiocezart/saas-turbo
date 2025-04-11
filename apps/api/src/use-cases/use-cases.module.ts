@@ -21,6 +21,7 @@ import { GetOrganizationUseCase } from "./organizations/get-organization.use-cas
 import { UpdateOrganizationUseCase } from "./organizations/update-organization.use-case";
 import { DeleteOrganizationUseCase } from "./organizations/delete-organization.use-case";
 import { CreateMembershipInviteUseCase } from "./organizations/create-membership-invite.use-case";
+import { ChangePasswordUseCase } from "./auth/change-password.use-case";
 @Module({
   imports: [DatabaseModule, EventsModule],
   providers: [
@@ -42,6 +43,7 @@ import { CreateMembershipInviteUseCase } from "./organizations/create-membership
     UpdateOrganizationUseCase,
     DeleteOrganizationUseCase,
     CreateMembershipInviteUseCase,
+    ChangePasswordUseCase,
   ],
   exports: [
     SignUpUseCase,
@@ -58,6 +60,7 @@ import { CreateMembershipInviteUseCase } from "./organizations/create-membership
     UpdateOrganizationUseCase,
     DeleteOrganizationUseCase,
     CreateMembershipInviteUseCase,
+    ChangePasswordUseCase,
   ],
 })
 export class UseCasesModule {}
