@@ -117,11 +117,92 @@ Authentication is primarily token-based using JWT (JSON Web Tokens) with an acce
 *   **Validation (Zod):** Uses Zod for robust request validation via pipes. *Rationale: Type-safe validation, clear schema definitions.*
 *   **Custom Request Context (`RequestPayload`):** Encapsulates user, IP, etc., into a typed object passed down from the controller. *Rationale: Cleaner context propagation than passing raw request objects or multiple parameters.*
 
-## 3. Areas for Improvement / TODO List
+## 3. Organization, Membership, and Invites Flow
+
+The application includes functionality for creating and managing organizations, memberships within those organizations, and the invitation process for new members.
+
+### 3.1. Components
+
+* **Controllers:**
+  * **`OrganizationsController` (`http/controllers/organizations.controller.ts`):** Handles endpoints for creating, retrieving, updating, and deleting organizations.
+  * **`MembershipsController` (`http/controllers/memberships.controller.ts`):** Manages organization memberships, including listing, retrieving, updating roles, and removing members.
+  * **`MembershipInvitesController` (`http/controllers/membership-invites.controller.ts`):** Handles creating, listing, and retrieving membership invites for organizations.
+  * **`MembershipInvitesPublicController`:** Provides endpoints for retrieving invites by token and accepting invites.
+
+* **Use Cases:**
+  * **Organization Use Cases:** `CreateOrganizationUseCase`, `GetOrganizationUseCase`, `UpdateOrganizationUseCase`, `DeleteOrganizationUseCase`
+  * **Membership Use Cases:** `GetMembershipUseCase`, `ListMembershipsUseCase`, `UpdateMembershipUseCase`, `DeleteMembershipUseCase`
+  * **Membership Invite Use Cases:** `CreateMembershipInviteUseCase`, `GetMembershipInviteUseCase`, `GetMembershipInviteByTokenUseCase`, `ListMembershipInvitesUseCase`, `AcceptMembershipInviteUseCase`, `DeleteMembershipInviteUseCase`
+
+* **Services:**
+  * **`OrganizationService`:** Manages organization data operations.
+  * **`MembershipService`:** Handles membership-related logic, including role management.
+  * **`MembershipInviteService`:** Manages the lifecycle of membership invites, including creation, retrieval, and acceptance.
+
+* **Repositories:**
+  * **`OrganizationRepository`:** Extends BaseRepository for organization data access.
+  * **`MembershipRepository`:** Extends BaseRepository for membership data access.
+  * **`MembershipInviteRepository`:** Extends BaseRepository for invite data access.
+
+* **Event Handling:**
+  * **`MembershipInviteCreatedEvent`:** Emitted when an invite is created.
+  * **`MembershipInviteAcceptedEvent`:** Emitted when an invite is accepted.
+  * **`MembershipInviteListener`:** Listens for invite events to send email notifications.
+
+### 3.2. Organization and Membership Flow (Example)
+
+1. **Creating an Organization:**
+   * User sends POST to `/organizations` with organization details.
+   * `OrganizationsController` validates input and calls `CreateOrganizationUseCase`.
+   * Organization is created in the database.
+   * A membership record for the creator is automatically created with OWNER role.
+
+2. **Inviting a Member:**
+   * Organization owner/admin sends POST to `/organizations/:organizationId/membership-invites`.
+   * `MembershipInvitesController` validates the request and calls `CreateMembershipInviteUseCase`.
+   * System checks that the user has appropriate permissions (admin/owner role).
+   * An invite record is created with a unique token and expiration date.
+   * `MembershipInviteCreatedEvent` is emitted.
+   * `MembershipInviteListener` sends an email with the invitation link.
+
+3. **Accepting an Invite:**
+   * Invited user clicks the link and sends POST to `/membership-invites/accept/:token`.
+   * `MembershipInvitesPublicController` calls `AcceptMembershipInviteUseCase`.
+   * System validates that the token exists, hasn't expired, and hasn't been used.
+   * A new membership record is created for the user.
+   * The invite is marked as accepted with a timestamp.
+   * `MembershipInviteAcceptedEvent` is emitted.
+   * Notification is sent to the organization admin who created the invite.
+
+4. **Managing Memberships:**
+   * Organization admin can list members via GET to `/organizations/:organizationId/memberships`.
+   * Admin can update a member's role via PATCH to `/organizations/:organizationId/memberships/:membershipId`.
+   * Admin can remove a member via DELETE to `/organizations/:organizationId/memberships/:membershipId`.
+
+### 3.3. Design Decisions & Rationale
+
+* **Role-Based Permission Model:**
+  * Organizations have members with specific roles (OWNER, ADMIN, USER).
+  * Only users with OWNER or ADMIN roles can create invites and manage memberships.
+  * This enforces proper access control within organizations.
+
+* **Token-Based Invitations:**
+  * Unique tokens ensure secure invitation links.
+  * Tokens have expiration dates to limit the validity period.
+  * Invites track acceptance status for auditability.
+
+* **Event-Driven Notifications:**
+  * Events for invite creation and acceptance decouple the invite process from notification sending.
+  * This improves system responsiveness and resilience.
+
+* **Repository Pattern:**
+  * Consistent with authentication architecture, all data access goes through repositories.
+  * Allows for centralized data access patterns and easier testing.
+
+## 4. Areas for Improvement / TODO List
 
 Based on the latest code review and recent fixes, the following areas require attention:
 
-*   **[HIGH] Transactionality:**
 *   **[HIGH] Transactionality:**
     *   Implement atomic database transactions (`$transaction`) in:
         *   `SignUpUseCase` (User + Account creation).
@@ -129,9 +210,9 @@ Based on the latest code review and recent fixes, the following areas require at
         *   `ForgotPasswordUseCase` (Verify code + Reset password + Delete code).
         *   `ChangePasswordUseCase` (Verify code + Change password + Delete code).
         *   `VerificationService.requestVerificationCode` (if delete-before-create is desired, wrap delete+create).
+        *   `AcceptMembershipInviteUseCase` (Create membership + Update invite status).
 *   **[HIGH] Verification Code Deletion:**
     *   Ensure verification codes/OTPs are deleted immediately after successful use in `VerifyEmailUserUseCase`, `ForgotPasswordUseCase`, and `ChangePasswordUseCase` (within the transaction).
-*   **[MEDIUM] `ChangePasswordUseCase` Logic:**
 *   **[MEDIUM] `ChangePasswordUseCase` Logic:**
     *   Clarify OTP requirement. If needed, use a dedicated `VerificationAction` (e.g., `CHANGE_PASSWORD`).
     *   Check the return value of `verificationService.verify`.
@@ -150,8 +231,15 @@ Based on the latest code review and recent fixes, the following areas require at
     *   Align the `maxAge` returned by `TokenService` (and used by the controller/interceptor) with the actual refresh token expiration time configured via `EnvService`.
 *   **[LOW] Code Hygiene:**
     *   Remove remaining `console.log` statements (e.g., `AccessTokenStrategy`).
+*   **[MEDIUM] Organization/Membership Controller Improvements:**
+    *   Ensure all controller methods consistently capture the `organizationId` parameter from the URL.
+    *   Add proper authorization checks based on organization membership and roles.
+    *   Consider adding transaction support for critical operations like member removal.
+*   **[LOW] Type Improvements:**
+    *   Create proper types for all parameters, especially `ListMembershipInvitesParams`.
+    *   Ensure consistent handling of enum types, such as `PrismaRoles`.
 
-## 4. Potential Future Enhancements
+## 5. Potential Future Enhancements
 
 *   **OAuth Integration:** Add strategies and use cases for social logins (Google, GitHub, etc.).
 *   **Two-Factor Authentication (2FA):** Implement 2FA using TOTP apps or SMS/Email OTPs during login.
@@ -160,10 +248,14 @@ Based on the latest code review and recent fixes, the following areas require at
 *   **Audit Logging:** Implement comprehensive audit trails for sensitive actions (login attempts, password changes, email changes, etc.).
 *   **Session Management:** Explore server-side session management options if more complex state or immediate revocation beyond refresh token DB checks is needed.
 *   **API Documentation:** Integrate Swagger/OpenAPI documentation generation.
+*   **Organization Permissions System:** Implement more granular permissions within organizations beyond just roles.
+*   **Nested Organization Teams/Groups:** Allow for teams or groups within organizations with their own permission sets.
+*   **Invite Management Dashboard:** Build admin features for tracking and managing outstanding invitations.
+*   **Organization Activity Feed:** Implement an activity log for organization events (member joins, role changes, etc.).
 
-## 5. Diagrams
+## 6. Diagrams
 
-### 5.1. Authentication Flow (Simplified)
+### 6.1. Authentication Flow (Simplified)
 
 ```mermaid
 sequenceDiagram
@@ -207,7 +299,7 @@ sequenceDiagram
 
 ```
 
-### 5.2. Token Refresh Flow (Corrected)
+### 6.2. Token Refresh Flow (Corrected)
 
 ```mermaid
 sequenceDiagram
@@ -255,9 +347,7 @@ sequenceDiagram
     end
 ```
 
-### 5.3. Verification Code Flow (Request & Verify Email)
-
-### 5.2. Verification Code Flow (Request & Verify Email)
+### 6.3. Verification Code Flow (Request & Verify Email)
 
 ```mermaid
 sequenceDiagram
@@ -323,3 +413,73 @@ sequenceDiagram
         UseCase (VerifyEmail)--)-Controller: OK
         Controller-->>Client: 200 OK
     end
+```
+
+### 6.4. Organization and Membership Flow
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant OrgController
+    participant InviteController
+    participant OrgUseCase
+    participant InviteUseCase
+    participant OrgService
+    participant InviteService
+    participant Repository
+    participant EventEmitter
+    participant EmailListener
+    participant DB
+
+    Client->>+OrgController: POST /organizations (name, description)
+    OrgController->>+OrgUseCase: CreateOrganization.execute(userId, data)
+    OrgUseCase->>+OrgService: createOrganization(data)
+    OrgService->>+Repository: create(organization + ownership membership)
+    Repository->>+DB: Transaction (Create Org + Membership)
+    DB--)-Repository: New Organization with Membership
+    Repository--)-OrgService: Organization Data
+    OrgService--)-OrgUseCase: Organization Data
+    OrgUseCase--)-OrgController: Organization Data
+    OrgController->>Client: 201 Created (Organization)
+
+    Client->>+InviteController: POST /orgs/:id/membership-invites (email, role)
+    InviteController->>+InviteUseCase: CreateInvite.execute(userId, orgId, data)
+    InviteUseCase->>+OrgService: checkUserPermissions(userId, orgId)
+    OrgService->>+Repository: findMembership(userId, orgId)
+    Repository->>+DB: Query Membership
+    DB--)-Repository: Membership (with role)
+    Repository--)-OrgService: Membership Data
+    OrgService--)-InviteUseCase: isAuthorized
+    InviteUseCase->>+InviteService: createMembershipInvite(orgId, userId, data)
+    InviteService->>+Repository: create(invite with token)
+    Repository->>+DB: Insert Invite
+    DB--)-Repository: New Invite
+    Repository--)-InviteService: Invite Data
+    InviteService--)-InviteUseCase: Invite Data
+    InviteUseCase->>+EventEmitter: emit(INVITE_CREATED, invite)
+    EventEmitter--)-InviteUseCase: OK
+    InviteUseCase--)-InviteController: Invite Data
+    InviteController->>Client: 201 Created (Invite)
+
+    EmailListener->>EmailListener: Handle INVITE_CREATED Event
+    EmailListener->>EmailListener: Send Invitation Email
+
+    Client->>+InviteController: POST /membership-invites/accept/:token
+    InviteController->>+InviteUseCase: AcceptInvite.execute(token, userId)
+    InviteUseCase->>+InviteService: acceptMembershipInvite(token, userId)
+    InviteService->>+Repository: findInviteByToken(token)
+    Repository->>+DB: Query Invite
+    DB--)-Repository: Invite Data
+    Repository--)-InviteService: Invite Data
+    InviteService->>+Repository: transaction(createMembership + updateInvite)
+    Repository->>+DB: Transaction
+    DB--)-Repository: Updated Data
+    Repository--)-InviteService: Updated Data
+    InviteService--)-InviteUseCase: Result
+    InviteUseCase->>+EventEmitter: emit(INVITE_ACCEPTED, invite, userId)
+    EventEmitter--)-InviteUseCase: OK
+    InviteUseCase--)-InviteController: Result
+    InviteController->>Client: 200 OK
+
+    EmailListener->>EmailListener: Handle INVITE_ACCEPTED Event
+    EmailListener->>EmailListener: Send Notification Email

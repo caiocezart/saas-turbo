@@ -28,7 +28,6 @@ import { AcceptMembershipInviteUseCase } from "../../use-cases/membership-invite
 import { DeleteMembershipInviteUseCase } from "../../use-cases/membership-invites/delete-membership-invite.use-case";
 
 @Controller("organizations/:organizationId/membership-invites")
-@UseGuards(JwtAuthGuard)
 export class MembershipInvitesController {
   constructor(
     private readonly createMembershipInviteUseCase: CreateMembershipInviteUseCase,

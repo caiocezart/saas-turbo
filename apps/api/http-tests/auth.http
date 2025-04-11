@@ -27,7 +27,8 @@ POST {{baseUrl}}/auth/verify-email
 Content-Type: application/json
 
 {
-  "token": "{{signupResponse.response.body.verificationToken}}"
+  "userId": "cm9ct1dpl00009ucdqf88q46y",
+  "token": "ZauwM21cIXPMsto6oowf"
 }
 
 ### Login

@@ -3,7 +3,7 @@
 @email = test@example.com
 @password = password123
 @accessToken = {{loginResponse.response.body.accessToken}}
-@organizationId = {{createOrgResponse.response.body.id}}
+@organizationId = cm9ct5mlt00009uzjnrfq75uj
 @membershipId = {{listMembershipsResponse.response.body[0].id}}
 @inviteId = {{createInviteResponse.response.body.id}}
 @inviteToken = {{createInviteResponse.response.body.token}}
@@ -41,7 +41,7 @@ PATCH {{baseUrl}}/organizations/{{organizationId}}
 Content-Type: application/json
 
 {
-  "name": "Updated Organization Name",
+  "name": "Updated Organization Name2",
   "description": "Updated description"
 }
 
