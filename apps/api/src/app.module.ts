@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import { HttpModule } from "./http/http.module";
-import { envSchema } from "./env/env";
-import { EnvModule } from "./env/env.module";
-import { EnvService } from "./env/env.service";
+import { envSchema } from "@/core/env/env";
+import { EnvModule } from "@/core/env/env.module";
+import { EnvService } from "@/core/env/env.service";
 import { JwtModule } from "@nestjs/jwt";
 import { EventEmitterModule } from "@nestjs/event-emitter";
+import { CoreModule } from "./core/core.module";
 
 @Module({
   imports: [
@@ -13,7 +13,7 @@ import { EventEmitterModule } from "@nestjs/event-emitter";
       validate: (env) => envSchema.parse(env),
       isGlobal: true,
     }),
-    HttpModule,
+    CoreModule,
     JwtModule.registerAsync({
       imports: [EnvModule],
       inject: [EnvService],

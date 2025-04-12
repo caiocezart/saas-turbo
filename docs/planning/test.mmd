@@ -1,0 +1,37 @@
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Controller
+    participant UC_UpdateOrg as "UseCase (UpdateOrg)"
+    participant Repo_Org as "OrgRepo (Repository)"
+    participant Entity_Org as "Org (Domain Entity)"
+    participant DE as DomainEvents
+    participant Listener_AuditLog as "Listener (e.g., AuditLog)"
+    participant DB
+
+    Client->>+Controller: PATCH /organizations/:id (DTO)
+    Controller->>+UC_UpdateOrg: execute(orgId, validated DTO)
+    UC_UpdateOrg->>+Repo_Org: findById(orgId)
+    Repo_Org->>+DB: SELECT Organization
+    DB--)-Repo_Org: Prisma Org Data
+    Repo_Org->>Entity_Org: Map Prisma data to Org.fromPersistence() / new Org()
+    Repo_Org--)-UC_UpdateOrg: Returns Organization instance
+    UC_UpdateOrg->>Entity_Org: org.updateDetails(props from DTO)
+    Note over Entity_Org: Update internal props (name, description),\nCall this.touch()
+    Note over Entity_Org: Potentially call addDomainEvent(OrgUpdatedEvent) if defined
+    Entity_Org-->>UC_UpdateOrg: void
+    UC_UpdateOrg->>+Repo_Org: save(organization)
+    Repo_Org->>+DB: Map Org to Prisma data & UPDATE
+    DB--)-Repo_Org: Commit Transaction OK
+    Repo_Org--)-UC_UpdateOrg: Return updated Org (or void)
+    Note over UC_UpdateOrg: Transaction successful
+    UC_UpdateOrg->>DE: dispatchEventsForAggregate(org.id)
+    Note over DE: If OrgUpdatedEvent was raised...
+    DE->>+Listener_AuditLog: Handle(OrgUpdatedEvent)
+    Listener_AuditLog->>Listener_AuditLog: Perform side effect (e.g., write audit entry)
+    Listener_AuditLog--)-DE: OK
+    DE->>Entity_Org: org.clearEvents()
+    DE->>DE: Remove Org from marked list
+    UC_UpdateOrg--)-Controller: Result (e.g., updated Org DTO)
+    Controller-->>Client: 200 OK Response
+```

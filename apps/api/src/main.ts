@@ -5,7 +5,7 @@ import { NestFactory } from "@nestjs/core";
 import { NestFastifyApplication } from "@nestjs/platform-fastify";
 import { FastifyAdapter } from "@nestjs/platform-fastify";
 import { AppModule } from "./app.module";
-import { AppExceptionFilter } from "./shared/exceptions/exception-filter";
+import { AppExceptionFilter } from "./core/shared/exceptions/exception-filter";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(

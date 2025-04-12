@@ -9,6 +9,35 @@ services:
       POSTGRES_DB: saas
     volumes:
       - saas_platform_postgres_data:/bitnami/postgresql
+    networks:
+      - default # Ensure services are on the same default network
+
+  # dot-net-db:
+  #   image: bitnami/postgresql:latest
+  #   ports:
+  #     - 5433:5432
+  #   environment:
+  #     POSTGRES_USER: docker
+  #     POSTGRES_PASSWORD: docker
+  #     POSTGRES_DB: saas
+  #   volumes:
+  #     - dot-net-db:/bitnami/postgresql
+  #   networks:
+  #     - default # Ensure services are on the same default network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "test@test"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    networks:
+      - default
+    depends_on:
+      - db
 
   # db_test:
   #   image: bitnami/postgresql:latest
@@ -23,4 +52,9 @@ services:
 
 volumes:
   saas_platform_postgres_data:
+  pgadmin:
   # saas_platform_test_postgres_data:
+
+networks: # Define the default network explicitly if needed
+  default:
+    driver: bridge
