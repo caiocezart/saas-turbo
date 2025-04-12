@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { OrganizationService } from "./services/organization.service";
-import { UpdateOrganization } from "@repo/domain";
+import { OrganizationService } from "../services/organization.service";
+import { UpdateOrganizationDto } from "@repo/domain";
 
 @Injectable()
 export class UpdateOrganizationUseCase {
@@ -8,7 +8,7 @@ export class UpdateOrganizationUseCase {
 
   async execute(
     organizationId: string,
-    input: UpdateOrganization
+    input: UpdateOrganizationDto
   ): Promise<void> {
     // Optional: Check if organization exists first
     const existingOrg =

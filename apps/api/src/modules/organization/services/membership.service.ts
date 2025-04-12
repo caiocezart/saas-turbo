@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { MembershipRepository } from "@/database/repositories/membership.repository";
-import { PrismaRoles, ListMembershipsQuery, Membership } from "@repo/domain";
+import { MembershipRepository } from "../repositories/membership.repository";
+import { Membership } from "@/prisma/client";
+import { Query, UpdateMembershipDto } from "@repo/domain";
 
 @Injectable()
 export class MembershipService {
@@ -14,7 +15,7 @@ export class MembershipService {
 
   async listMemberships(
     organizationId: string,
-    query: ListMembershipsQuery
+    query: Query
   ): Promise<Membership[]> {
     // Build filter based on query (organizationId, userId)
     const where: Record<string, any> = {};
@@ -30,14 +31,14 @@ export class MembershipService {
     return memberships as Membership[];
   }
 
-  async updateMembershipRole(
+  async updateMembership(
     membershipId: string,
-    role: PrismaRoles
+    input: UpdateMembershipDto
   ): Promise<Membership> {
     // Assuming repository has update method taking id and data
     const updatedMembership = await this.membershipRepository.update(
       membershipId,
-      { role }
+      input
     );
     // Assert the type to match the domain entity
     return updatedMembership as Membership;

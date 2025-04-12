@@ -128,7 +128,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/Users/caio/saas-turbo/apps/api/prisma/generated/client",
+      "value": "/home/caio/saas-turbo/apps/api/prisma/generated/client",
       "fromEnvVar": null
     },
     "config": {
@@ -138,12 +138,12 @@ const config: runtime.GetPrismaClientConfig = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/caio/saas-turbo/apps/api/prisma/schema.prisma",
+    "sourceFilePath": "/home/caio/saas-turbo/apps/api/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../..",
@@ -181,8 +181,8 @@ config.compilerWasm = undefined
 
 
 // file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-darwin-arm64.dylib.node")
-path.join(process.cwd(), "prisma/generated/client/libquery_engine-darwin-arm64.dylib.node")
+path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node")
+path.join(process.cwd(), "prisma/generated/client/libquery_engine-debian-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma")
 path.join(process.cwd(), "prisma/generated/client/schema.prisma")
@@ -514,21 +514,21 @@ export namespace Prisma {
    *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
-  export const DbNull = runtime.objectEnumValues.instances.DbNull
+  export const DbNull = NullTypes.DbNull
 
   /**
    * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
    *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
-  export const JsonNull = runtime.objectEnumValues.instances.JsonNull
+  export const JsonNull = NullTypes.JsonNull
 
   /**
    * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
    *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
-  export const AnyNull = runtime.objectEnumValues.instances.AnyNull
+  export const AnyNull = NullTypes.AnyNull
 
   type SelectAndInclude = {
     select: any

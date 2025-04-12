@@ -15,16 +15,16 @@ import { DeleteOrganizationUseCase } from "../use-cases/delete-organization.use-
 import { RequestPayload } from "@/core/auth/schemas/jwt-request-payload.schema";
 import { PlatformListOrganizationUseCase } from "../use-cases/platform-list-organization.use-case";
 import { UpdateOrganizationUseCase } from "../use-cases/update-organization.use-case";
-import { Request } from "@/core/auth/decorators/request-payload.decorator";
+import { Request } from "@/core/auth/decorators/request.decorator";
 import { ZodValidationPipe } from "@/core/auth/pipes/zod-validation-pipe";
 import {
   CreateOrganizationDto,
   createOrganizationDtoSchema,
   UpdateOrganizationDto,
   updateOrganizationDtoSchema,
+  requestParamsSchema,
+  RequestParams,
 } from "@repo/domain";
-import { TempParams } from "@/temp.params";
-import { tempParams } from "@/temp.params";
 
 @Controller("organizations")
 export class OrganizationsController {
@@ -53,8 +53,8 @@ export class OrganizationsController {
 
   @Get(":organizationId")
   async getOrganization(
-    @Param(new ZodValidationPipe(tempParams))
-    params: TempParams
+    @Param(new ZodValidationPipe(requestParamsSchema))
+    params: RequestParams
     // @RequestPayloadDecorator() payload: RequestPayload, // Add if authorization check needed
   ) {
     // Basic get, authorization might be added in the use case or a dedicated guard later
@@ -64,8 +64,8 @@ export class OrganizationsController {
   @Patch(":organizationId")
   @HttpCode(HttpStatus.NO_CONTENT) // Return 204 on successful update
   async updateOrganization(
-    @Param(new ZodValidationPipe(tempParams))
-    params: TempParams,
+    @Param(new ZodValidationPipe(requestParamsSchema))
+    params: RequestParams,
     @Body(new ZodValidationPipe(updateOrganizationDtoSchema))
     body: UpdateOrganizationDto
     // @RequestPayloadDecorator() payload: RequestPayload, // Add if authorization check needed
@@ -78,8 +78,8 @@ export class OrganizationsController {
   @Delete(":organizationId")
   @HttpCode(HttpStatus.NO_CONTENT) // Return 204 on successful delete
   async deleteOrganization(
-    @Param(new ZodValidationPipe(tempParams))
-    params: TempParams
+    @Param(new ZodValidationPipe(requestParamsSchema))
+    params: RequestParams
     // @RequestPayloadDecorator() payload: RequestPayload, // Add if authorization check needed
   ) {
     // Authorization check needed here

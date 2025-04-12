@@ -1,17 +1,15 @@
 import { Injectable } from "@nestjs/common";
 import { OnEvent } from "@nestjs/event-emitter";
-import { EmailService } from "@/email/services/email.service";
-import {
-  EventBusTopics,
-  MembershipInviteAcceptedEvent,
-  MembershipInviteCreatedEvent,
-} from "@repo/domain";
+import { EmailService } from "@/core/email/services/email.service";
+import { MembershipInviteCreatedEvent } from "../membership-invite-created.event";
+import { EventBusOrganization } from "../organization.events.enum";
+import { MembershipInviteAcceptedEvent } from "../membership-invite-accepted.event";
 
 @Injectable()
 export class MembershipInviteListener {
   constructor(private readonly emailService: EmailService) {}
 
-  @OnEvent(EventBusTopics.MEMBERSHIP_INVITE_CREATED)
+  @OnEvent(EventBusOrganization.MEMBERSHIP_INVITE_CREATED)
   async handleMembershipInviteCreatedEvent(
     event: MembershipInviteCreatedEvent
   ) {
@@ -30,7 +28,7 @@ export class MembershipInviteListener {
     });
   }
 
-  @OnEvent(EventBusTopics.MEMBERSHIP_INVITE_ACCEPTED)
+  @OnEvent(EventBusOrganization.MEMBERSHIP_INVITE_ACCEPTED)
   async handleMembershipInviteAcceptedEvent(
     event: MembershipInviteAcceptedEvent
   ) {

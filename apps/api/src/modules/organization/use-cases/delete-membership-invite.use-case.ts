@@ -3,9 +3,10 @@ import {
   NotFoundException,
   ForbiddenException,
 } from "@nestjs/common";
-import { MembershipInviteService } from "./services/membership-invite.service";
-import { MembershipService } from "../memberships/services/membership.service";
-import { MembershipInvite, PrismaRoles } from "@repo/domain";
+import { MembershipInviteService } from "../services/membership-invite.service";
+import { MembershipService } from "../services/membership.service";
+import { Roles } from "@repo/domain";
+import { MembershipInvite } from "@/prisma/client";
 
 @Injectable()
 export class DeleteMembershipInviteUseCase {
@@ -34,8 +35,8 @@ export class DeleteMembershipInviteUseCase {
     }
 
     if (
-      membership.role !== PrismaRoles.ORGANIZATION_ADMIN &&
-      membership.role !== PrismaRoles.ORGANIZATION_OWNER
+      membership.role !== Roles.ORGANIZATION_ADMIN &&
+      membership.role !== Roles.ORGANIZATION_OWNER
     ) {
       throw new ForbiddenException(
         "User does not have permission to delete invites"

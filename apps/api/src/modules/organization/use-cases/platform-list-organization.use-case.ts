@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { OrganizationService } from "./services/organization.service";
+import { OrganizationService } from "../services/organization.service";
 
 @Injectable()
 export class PlatformListOrganizationUseCase {

@@ -29,8 +29,9 @@ import { VerificationRepository } from "./repositories/verification.repository";
 import { AccessTokenStrategy } from "./strategies/access-token.strategy";
 import { RefreshTokenStrategy } from "./strategies/refresh-token.strategy";
 import { APP_GUARD } from "@nestjs/core";
+import { EmailModule } from "../email/email.module";
 @Module({
-  imports: [EnvModule, DatabaseModule],
+  imports: [EnvModule, DatabaseModule, EmailModule],
   controllers: [AuthController, UsersController],
   providers: [
     // Guards

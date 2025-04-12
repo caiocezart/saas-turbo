@@ -10,7 +10,7 @@ import { NewEmailVerificationUseCase } from "../use-cases/new-email-verification
 import { OtpRequestUseCase } from "../use-cases/otp-request.use-case";
 import { ForgotPasswordUseCase } from "../use-cases/forgot-password.use-case";
 import { RequestPayload } from "../schemas/jwt-request-payload.schema";
-import { Request } from "../decorators/request-payload.decorator";
+import { Request } from "../decorators/request.decorator";
 import { RefreshTokenGuard } from "../guards/refresh-token.guard";
 import { ChangePasswordUseCase } from "../use-cases/change-password.use-case";
 import {

@@ -10,22 +10,22 @@ import {
   HttpCode,
   HttpStatus,
 } from "@nestjs/common";
-import { JwtAuthGuard } from "../guards/jwt-auth.guard";
-import { Request } from "@/http/decorators/request-payload.decorator";
-import { ZodValidationPipe } from "../pipes/zod-validation-pipe";
+import { JwtAuthGuard } from "@/core/auth/guards/jwt-auth.guard";
+import { RequestPayload } from "@/core/auth/schemas/jwt-request-payload.schema";
+import { Request } from "@/core/auth/decorators/request.decorator";
+import { ZodValidationPipe } from "@/core/auth/pipes/zod-validation-pipe";
+import { CreateMembershipInviteUseCase } from "../use-cases/create-membership-invite.use-case";
+import { GetMembershipInviteUseCase } from "../use-cases/get-membership-invite.use-case";
+import { GetMembershipInviteByTokenUseCase } from "../use-cases/get-membership-invite-by-token.use-case";
+import { ListMembershipInvitesUseCase } from "../use-cases/list-membership-invites.use-case";
+import { AcceptMembershipInviteUseCase } from "../use-cases/accept-membership-invite.use-case";
+import { DeleteMembershipInviteUseCase } from "../use-cases/delete-membership-invite.use-case";
 import {
-  createMembershipInviteSchema,
-  membershipInviteIdSchema,
-  membershipInviteTokenSchema,
-  listMembershipInvitesSchema,
-  organizationIdSchema,
+  paramsSchema,
+  createMembershipInviteDtoSchema,
+  requestQuerySchema,
+  requestParamsSchema,
 } from "@repo/domain";
-import { CreateMembershipInviteUseCase } from "../../use-cases/membership-invites/create-membership-invite.use-case";
-import { GetMembershipInviteUseCase } from "../../use-cases/membership-invites/get-membership-invite.use-case";
-import { GetMembershipInviteByTokenUseCase } from "../../use-cases/membership-invites/get-membership-invite-by-token.use-case";
-import { ListMembershipInvitesUseCase } from "../../use-cases/membership-invites/list-membership-invites.use-case";
-import { AcceptMembershipInviteUseCase } from "../../use-cases/membership-invites/accept-membership-invite.use-case";
-import { DeleteMembershipInviteUseCase } from "../../use-cases/membership-invites/delete-membership-invite.use-case";
 
 @Controller("organizations/:organizationId/membership-invites")
 export class MembershipInvitesController {
@@ -40,14 +40,14 @@ export class MembershipInvitesController {
 
   @Post()
   async createInvite(
-    @Request("sub") userId: string,
-    @Param(new ZodValidationPipe(organizationIdSchema)) {
+    @Request() request: RequestPayload,
+    @Param(new ZodValidationPipe(paramsSchema)) {
       organizationId,
     }: { organizationId: string },
-    @Body(new ZodValidationPipe(createMembershipInviteSchema)) body: any
+    @Body(new ZodValidationPipe(createMembershipInviteDtoSchema)) body: any
   ) {
     return this.createMembershipInviteUseCase.execute(
-      userId,
+      request.user.sub,
       organizationId,
       body
     );
@@ -55,14 +55,14 @@ export class MembershipInvitesController {
 
   @Get()
   async listInvites(
-    @Request("sub") userId: string,
-    @Param(new ZodValidationPipe(organizationIdSchema)) {
+    @Request() request: RequestPayload,
+    @Param(new ZodValidationPipe(paramsSchema)) {
       organizationId,
     }: { organizationId: string },
-    @Query(new ZodValidationPipe(listMembershipInvitesSchema)) query: any
+    @Query(new ZodValidationPipe(requestQuerySchema)) query: any
   ) {
     return this.listMembershipInvitesUseCase.execute(
-      userId,
+      request.user.sub,
       organizationId,
       query
     );
@@ -70,9 +70,8 @@ export class MembershipInvitesController {
 
   @Get(":id")
   async getInviteById(
-    @Param(new ZodValidationPipe(membershipInviteIdSchema)) {
-      id,
-    }: { id: string }
+    @Request() request: RequestPayload,
+    @Param(new ZodValidationPipe(requestParamsSchema)) { id }: { id: string }
   ) {
     return this.getMembershipInviteUseCase.execute(id);
   }
@@ -80,12 +79,10 @@ export class MembershipInvitesController {
   @Delete(":id")
   @HttpCode(HttpStatus.NO_CONTENT)
   async deleteInvite(
-    @Request("sub") userId: string,
-    @Param(new ZodValidationPipe(membershipInviteIdSchema)) {
-      id,
-    }: { id: string }
+    @Request() request: RequestPayload,
+    @Param(new ZodValidationPipe(requestParamsSchema)) { id }: { id: string }
   ) {
-    await this.deleteMembershipInviteUseCase.execute(userId, id);
+    await this.deleteMembershipInviteUseCase.execute(request.user.sub, id);
   }
 }
 
@@ -98,7 +95,7 @@ export class MembershipInvitesPublicController {
 
   @Get("by-token/:token")
   async getInviteByToken(
-    @Param(new ZodValidationPipe(membershipInviteTokenSchema)) {
+    @Param(new ZodValidationPipe(requestParamsSchema)) {
       token,
     }: { token: string }
   ) {
@@ -108,11 +105,11 @@ export class MembershipInvitesPublicController {
   @Post("accept/:token")
   @UseGuards(JwtAuthGuard)
   async acceptInvite(
-    @Request("sub") userId: string,
-    @Param(new ZodValidationPipe(membershipInviteTokenSchema)) {
+    @Request() request: RequestPayload,
+    @Param(new ZodValidationPipe(requestParamsSchema)) {
       token,
     }: { token: string }
   ) {
-    return this.acceptMembershipInviteUseCase.execute(token, userId);
+    return this.acceptMembershipInviteUseCase.execute(request.user.sub, token);
   }
 }

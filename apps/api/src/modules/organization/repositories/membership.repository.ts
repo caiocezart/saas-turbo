@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
-import { BaseRepository } from "./base.repository";
-import { PrismaService } from "@/database/prisma/prisma.service";
-import { Membership, Prisma, Role } from "@prisma/client";
-import { MembershipUpdate } from "@repo/domain";
+import { BaseRepository } from "@/core/database/repositories/base.repository";
+import { PrismaService } from "@/core/database/prisma/prisma.service";
+import { Membership, Prisma, Role } from "@/prisma/client";
+import { UpdateMembershipDto } from "@repo/domain";
 
 @Injectable()
 export class MembershipRepository extends BaseRepository<
@@ -46,7 +46,10 @@ export class MembershipRepository extends BaseRepository<
     });
   }
 
-  async updateMembership(organizationId: string, membership: MembershipUpdate) {
+  async updateMembership(
+    organizationId: string,
+    membership: UpdateMembershipDto
+  ) {
     return this.prisma.membership.update({
       where: {
         organizationId: organizationId,

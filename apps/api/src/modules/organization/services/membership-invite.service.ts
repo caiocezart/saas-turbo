@@ -1,10 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { MembershipInviteRepository } from "../../../database/repositories/membership-invite.repository";
-import { MembershipRepository } from "../../../database/repositories/membership.repository";
-import { MembershipInvite } from "@repo/domain";
-import { PrismaRoles } from "@repo/domain";
-import { PrismaService } from "@/database/prisma/prisma.service";
-import { EnvService } from "@/env/env.service";
+import { MembershipInviteRepository } from "../repositories/membership-invite.repository";
+import { MembershipRepository } from "../repositories/membership.repository";
+import { Role, MembershipInvite } from "@/prisma/client";
+import { PrismaService } from "@/core/database/prisma/prisma.service";
+import { EnvService } from "@/core/env/env.service";
 
 @Injectable()
 export class MembershipInviteService {
@@ -25,7 +24,7 @@ export class MembershipInviteService {
         userId,
         organizationId,
         role: {
-          in: [PrismaRoles.ORGANIZATION_ADMIN, PrismaRoles.ORGANIZATION_OWNER],
+          in: [Role.ORGANIZATION_ADMIN, Role.ORGANIZATION_OWNER],
         },
       },
     });

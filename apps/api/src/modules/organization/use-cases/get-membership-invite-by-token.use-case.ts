@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { MembershipInviteService } from "./services/membership-invite.service";
-import { MembershipInvite } from "@repo/domain";
+import { MembershipInviteService } from "../services/membership-invite.service";
+import { MembershipInvite } from "@/prisma/client";
 
 @Injectable()
 export class GetMembershipInviteByTokenUseCase {
@@ -13,7 +13,7 @@ export class GetMembershipInviteByTokenUseCase {
       await this.membershipInviteService.getMembershipInviteByToken(token);
 
     if (!invite) {
-      throw new NotFoundException(`Membership invite with token not found`);
+      throw new NotFoundException("Membership invite with token not found");
     }
 
     return invite;

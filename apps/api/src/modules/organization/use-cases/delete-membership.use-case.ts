@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { MembershipService } from "./services/membership.service";
+import { MembershipService } from "../services/membership.service";
 
 @Injectable()
 export class DeleteMembershipUseCase {

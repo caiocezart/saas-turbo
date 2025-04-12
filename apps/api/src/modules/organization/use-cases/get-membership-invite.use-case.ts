@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { MembershipInviteService } from "./services/membership-invite.service";
-import { MembershipInvite } from "@repo/domain";
+import { MembershipInviteService } from "../services/membership-invite.service";
+import { MembershipInvite } from "@/prisma/client";
 
 @Injectable()
 export class GetMembershipInviteUseCase {

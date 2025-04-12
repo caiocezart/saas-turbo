@@ -3,10 +3,10 @@ import {
   NotFoundException,
   BadRequestException,
 } from "@nestjs/common";
-import { MembershipInviteService } from "./services/membership-invite.service";
-import { membershipInviteAcceptedEventSchema } from "@repo/domain";
+import { MembershipInviteService } from "../services/membership-invite.service";
 import { EventEmitter2 } from "@nestjs/event-emitter";
-import { EventBusTopics } from "@repo/domain";
+import { EventBusOrganization } from "../events";
+import { MembershipInviteAcceptedEvent } from "../events";
 @Injectable()
 export class AcceptMembershipInviteUseCase {
   constructor(
@@ -26,15 +26,17 @@ export class AcceptMembershipInviteUseCase {
       );
 
       // Emit event for side effects (e.g., sending notification to org admin)
+      const membershipInviteAcceptedEvent: MembershipInviteAcceptedEvent = {
+        email: invite.inviter.email,
+        name: invite.inviter.name,
+        organizationName: invite.organization.name,
+        role: invite.role,
+        inviteUrl,
+      };
+
       this.eventEmitter.emit(
-        EventBusTopics.MEMBERSHIP_INVITE_ACCEPTED,
-        membershipInviteAcceptedEventSchema.parse({
-          email: invite.inviter.email,
-          name: invite.inviter.name,
-          organizationName: invite.organization.name,
-          role: invite.role,
-          inviteUrl,
-        })
+        EventBusOrganization.MEMBERSHIP_INVITE_ACCEPTED,
+        membershipInviteAcceptedEvent
       );
 
       return invite;

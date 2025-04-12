@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { BaseRepository } from "./base.repository";
-import { PrismaService } from "@/database/prisma/prisma.service";
-import { MembershipInvite, Prisma, Role } from "@prisma/client";
+import { BaseRepository } from "@/core/database/repositories/base.repository";
+import { PrismaService } from "@/core/database/prisma/prisma.service";
+import { MembershipInvite, Prisma, Role } from "@/prisma/client";
 
 @Injectable()
 export class MembershipInviteRepository extends BaseRepository<

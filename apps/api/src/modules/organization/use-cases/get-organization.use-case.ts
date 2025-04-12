@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { OrganizationService } from "./services/organization.service";
-import { Organization } from "@repo/domain"; // Assuming Organization entity exists in domain
+import { OrganizationService } from "../services/organization.service";
+import { Organization } from "@/prisma/client";
 
 @Injectable()
 export class GetOrganizationUseCase {
