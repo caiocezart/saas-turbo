@@ -9,24 +9,28 @@
 *   **Objective:** Review the current architecture and propose a scalable structure for a modular SaaS platform, considering future features and specialized modules (e.g., photography).
 *   **Current State:** The existing NestJS application uses a layered architecture (Controller -> Use Case -> Service -> Repository) and a shared `packages/domain` for types/schemas. This is a solid foundation but has potential scaling challenges in folder organization and schema clarity within `packages/domain`.
 
-## 2. Proposed Modular Monolith Structure (`project_scaling_review.md`)
+## 2. Implemented Modular Monolith Structure (`apps/api`)
 
-*   **Recommendation:** Evolve `apps/api` towards a "Modular Monolith".
-*   **Structure:** Group related components (controllers, services/use cases, repositories, DTOs, listeners) into domain-specific feature modules under `apps/api/src/modules/` (e.g., `modules/organizations/`, `modules/billing/`). Core infrastructure (DB connection, config, base auth) would reside in `apps/api/src/core/`.
-*   **Benefits:** Improves cohesion, clarifies boundaries, enhances maintainability, and facilitates potential future extraction if needed.
-*   **Repository Placement:** Repositories specific to a domain should reside within that feature module's `repositories/` subfolder, promoting encapsulation.
-*   **Module Interaction:** Modules interact by importing other modules and injecting their *exported* services or use cases, not by directly accessing repositories across module boundaries.
+*   **Status:** `apps/api` has been refactored towards a "Modular Monolith".
+*   **Implemented Structure:**
+    *   Core infrastructure (Auth, Database, Email, Shared utilities) resides in `apps/api/src/core/`.
+    *   Feature/domain logic is grouped into modules under `apps/api/src/modules/`. Currently, an `organization/` module exists, grouping logic for Organizations, Memberships, and Invites.
+    *   Components (controllers, services, use cases, repositories, events/listeners) are co-located within their respective core or feature module.
+    *   API DTOs are currently defined in and imported from `packages/domain`.
+*   **Benefits Realized:** Improved cohesion, clearer boundaries between core and feature logic, enhanced maintainability.
+*   **Repository Placement:** Repositories are located within their respective module's `repositories/` subfolder (e.g., `core/auth/repositories/`, `modules/organization/repositories/`).
+*   **Module Interaction:** Modules interact via NestJS module imports and dependency injection of exported providers (services, use cases).
 
-## 3. Proposed `packages/domain` Refinement (`project_scaling_review.md`)
+## 3. Implemented `packages/domain` Structure
 
-*   **Recommendation:** Improve clarity and organization.
-*   **Structure:**
-    *   Keep `entities/`, `enums/`, `events/`. Consider domain subfolders within these as complexity grows.
-    *   Clearly separate Zod schemas:
-        *   `schemas/api/`: For API Data Transfer Object (DTO) validation (request/response). Group by domain (e.g., `schemas/api/organizations/`).
-        *   `schemas/core/`: For fundamental types (ID, pagination).
-        *   `schemas/domain/`: Optional, for complex core domain rule validation if needed beyond entity logic or value objects.
-*   **Entity Flexibility:** The initial proposal allows `entities/` to contain simple interfaces, types inferred from Zod, or richer classes, depending on domain needs.
+*   **Status:** `packages/domain` has been refactored, but differs from the original proposal in `project_scaling_review.md`.
+*   **Implemented Structure:**
+    *   Code is primarily organized by domain folders at the root (`auth/`, `organization/`, `logging/`, `shared/`).
+    *   API DTOs (Zod schemas, `*.dto.ts`) are located in `dtos/` subfolders within their respective domain folders (e.g., `auth/dtos/`, `organization/dtos/`).
+    *   A top-level `entities/` folder contains Zod schemas (`*.schema.ts`) defining data structures/models. This differs from the proposal's intent to use this folder for plain types/interfaces.
+    *   Enums are located within the domain folders they most closely relate to (e.g., `auth/`, `logging/`, `shared/`).
+    *   There is no dedicated top-level `schemas/`, `enums/`, or `events/` folder as originally proposed.
+*   **Current Approach:** This structure groups shared code by domain feature rather than by code type (schema, entity, enum). While functional, it offers less explicit separation between API contracts (DTOs) and internal data structures (`entities/*.schema.ts`) compared to the original proposal.
 
 ## 4. Domain Entity Implementation Deep Dive
 

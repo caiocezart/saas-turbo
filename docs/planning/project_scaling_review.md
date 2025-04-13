@@ -29,49 +29,33 @@ Based on the existing documentation (`docs/backend-architecture.md`, `docs/backe
     *   The current `schemas/` organization is becoming complex and lacks clear distinction between different schema types (API DTOs vs. core domain validation).
     *   Flat lists within `entities/`, `enums/`, `events/` could become difficult to manage as the number of domains increases.
 
-## 2. Proposed Scaled Structure (`apps/api`) - Modular Monolith
+## 2. Implemented Scaled Structure (`apps/api`) - Modular Monolith
 
-To enhance scalability and maintainability within the monolith (pragmatic for solo dev), adopting a more explicit modular structure is recommended.
+The backend has been refactored towards a modular monolith structure to enhance scalability and maintainability.
 
-**Structure:** Group all related components (controllers, use cases, services, repositories, listeners, module-specific DTOs) under a top-level domain module folder.
+**Implemented Structure:** Related components (controllers, use cases, services, repositories, listeners) are grouped under domain-specific feature modules, while core infrastructure resides in a separate `core` directory. API DTOs are currently imported from `packages/domain`.
 
 ```
 apps/api/src/
-├── core/                  # Core infrastructure, shared modules (Auth, Database, Config, etc.)
-│   ├── auth/              # Auth module (controllers, use-cases, services, strategies, guards...)
+├── core/                  # Core infrastructure, shared modules
+│   ├── auth/              # Auth module (controllers, use-cases, services, strategies, guards, events, repositories...)
 │   ├── database/          # Prisma service, BaseRepository
-│   ├── config/            # Configuration module
-│   ├── shared/            # Truly shared utilities/exceptions across all modules
+│   ├── email/             # Email service integration
+│   ├── shared/            # Shared utilities/exceptions across all modules
 │   └── core.module.ts     # Imports/exports core functionalities
 ├── modules/               # Feature/Domain Modules
-│   ├── organizations/
-│   │   ├── controllers/
-│   │   │   └── organizations.controller.ts
-│   │   ├── use-cases/
-│   │   │   └── create-organization.use-case.ts
-│   │   │   └── ...
-│   │   ├── services/
-│   │   │   └── organization.service.ts
-│   │   ├── repositories/
-│   │   │   └── organization.repository.ts # Implementation
-│   │   ├── listeners/
-│   │   │   └── organization-event.listener.ts
-│   │   ├── dtos/            # Zod schemas specific to this module's API (can import base types from packages/domain)
-│   │   │   └── create-organization.dto.ts
-│   │   └── organizations.module.ts # Wires up this specific domain
-│   ├── memberships/         # Similar structure...
-│   ├── membership-invites/  # Similar structure...
-│   ├── billing/             # Future core SaaS module
-│   ├── notifications/       # Future core SaaS module
-│   ├── photography/         # Specialized Module Example
-│   │   ├── controllers/     # e.g., BookingsController, ProjectsController
-│   │   ├── use-cases/       # e.g., CreateBookingUseCase
-│   │   ├── services/        # e.g., PricingService, AvailabilityService
-│   │   ├── repositories/    # e.g., BookingRepository
-│   │   ├── listeners/
-│   │   ├── dtos/
-│   │   └── photography.module.ts
-│   └── ...                  # Other future modules (e.g., clients, projects)
+│   ├── organization/      # Groups Organization, Membership, and Invite logic
+│   │   ├── controllers/   # organization.controller, membership.controller, membership-invite.controller
+│   │   ├── use-cases/     # create-organization, update-membership, accept-invite, etc.
+│   │   ├── services/      # organization.service, membership.service, membership-invite.service
+│   │   ├── repositories/  # organization.repository, membership.repository, membership-invite.repository
+│   │   ├── events/        # Domain events & listeners specific to this module group
+│   │   │   └── listeners/
+│   │   └── organization.module.ts # Wires up this domain group
+│   ├── billing/             # Future core SaaS module (Placeholder)
+│   ├── notifications/       # Future core SaaS module (Placeholder)
+│   ├── photography/         # Future specialized Module Example (Placeholder)
+│   └── ...                  # Other future modules
 ├── app.module.ts          # Imports CoreModule and all feature Modules from modules/*
 └── main.ts
 ```
@@ -83,10 +67,10 @@ graph TD
     subgraph ClientApp [Client Application]
         direction LR
         WebApp[Web App]
-        MobileApp[Mobile App]
+        MobileApp[Mobile App (Future)]
     end
 
-    subgraph BackendAPI [apps/api - Modular Monolith]
+    subgraph BackendAPI [apps/api - Implemented Modular Monolith]
         direction TB
         AppModule(app.module.ts) --> CoreModule(core/core.module.ts)
         AppModule --> FeatureModules(modules/*)
@@ -95,52 +79,53 @@ graph TD
             direction LR
             AuthMod[auth/]
             DbMod[database/]
-            ConfigMod[config/]
+            EmailMod[email/]
             SharedMod[shared/]
         end
 
         subgraph Modules [modules/]
             direction TB
-            OrgMod[organizations/]
-            MembMod[memberships/]
-            InvMod[membership-invites/]
-            BillMod[billing/]
-            PhotoMod[photography/]
+            OrgMod[organization/ (incl. Memberships, Invites)]
+            BillMod[billing/ (Future)]
+            PhotoMod[photography/ (Future)]
             OtherMods[...]
         end
 
-        CoreModule --> AuthMod & DbMod & ConfigMod & SharedMod
-        FeatureModules --> OrgMod & MembMod & InvMod & BillMod & PhotoMod & OtherMods
+        CoreModule --> AuthMod & DbMod & EmailMod & SharedMod
+        FeatureModules --> OrgMod & BillMod & PhotoMod & OtherMods
 
-        OrgMod --> DbMod & SharedMod & CoreModule
-        MembMod --> DbMod & SharedMod & CoreModule
-        InvMod --> DbMod & SharedMod & CoreModule & OrgMod & MembMod
-        BillMod --> DbMod & SharedMod & CoreModule & OrgMod
-        PhotoMod --> DbMod & SharedMod & CoreModule & OrgMod # Example dependencies
+        OrgMod --> DbMod & SharedMod & CoreModule & AuthMod # Dependencies for Org/Membership/Invite logic
+        BillMod --> DbMod & SharedMod & CoreModule & OrgMod # Example future dependencies
+        PhotoMod --> DbMod & SharedMod & CoreModule & OrgMod # Example future dependencies
 
-        AuthMod --> DbMod & SharedMod
+        AuthMod --> DbMod & SharedMod & EmailMod
 
     end
 
-    subgraph SharedDomain [packages/domain]
-        direction LR
-        Entities[entities/]
-        Enums[enums/]
-        Events[events/]
-        Schemas[schemas/]
+    subgraph SharedDomain [packages/domain - Current Structure]
+        direction TB
+        subgraph DomainFolders [Domain Folders]
+          AuthDom[auth/ (enums, dtos)]
+          OrgDom[organization/ (dtos)]
+          LogDom[logging/ (enums)]
+          SharedDom[shared/ (enums, utils)]
+        end
+        Entities[entities/ (*.schema.ts)]
+
+        DomainFolders --> Entities # DTOs often relate to Entities
     end
 
     subgraph ExternalServices [External Services]
         direction TB
-        EmailService[Email Service]
-        PaymentGateway[Payment Gateway]
+        EmailProvider[Email Provider]
+        PaymentGateway[Payment Gateway (Future)]
     end
 
     ClientApp --> BackendAPI
     BackendAPI --> SharedDomain
     BackendAPI --> DbMod -- Uses --> Database[(Database - Prisma)]
-    BackendAPI --> EmailService
-    BackendAPI --> PaymentGateway # via Billing Module
+    BackendAPI --> EmailMod -- Uses --> EmailProvider
+    BackendAPI --> PaymentGateway # via Future Billing Module
 
     style BackendAPI fill:#f9f,stroke:#333,stroke-width:2px
     style SharedDomain fill:#ccf,stroke:#333,stroke-width:2px
@@ -148,58 +133,53 @@ graph TD
     style Modules fill:#efe,stroke:#999,stroke-width:1px
 ```
 
-*   **Rationale:** Promotes high cohesion (feature components live together), clear boundaries, easier navigation, and better prepares for potential future extraction if needed, while remaining a single deployable unit initially.
+*   **Rationale:** Promotes high cohesion (feature components live together), clear boundaries, and easier navigation within the monolith. Grouping related domains (Org, Membership, Invite) initially is pragmatic. DTOs are currently managed in `packages/domain`. Configuration is likely handled via `@nestjs/config` imported where needed.
 
-## 3. Proposed `packages/domain` Structure
+## 3. Implemented `packages/domain` Structure
 
-Improve clarity and organization, especially for schemas.
+The current structure organizes shared code by domain, differing from the original proposal which suggested organization by type (schemas, entities, enums).
 
 ```
 packages/domain/src/
-├── entities/              # Core domain entities (Plain classes, interfaces, or Zod inferred types)
-│   ├── index.ts
-│   ├── organization.entity.ts # Example definition
-│   ├── user.entity.ts
-│   └── photography/         # Optional: Group by domain if list grows large
-│       └── booking.entity.ts
-├── enums/                 # Shared enums
-│   ├── index.ts
-│   ├── role.enum.ts
-│   └── photography/
-│       └── booking-status.enum.ts
-├── events/                # Shared event payload definitions (interfaces/types)
-│   ├── index.ts
-│   ├── membership-invite-created.event.ts
-│   └── photography/
-│       └── booking-confirmed.event.ts
-├── schemas/               # Zod schemas
-│   ├── index.ts
-│   ├── core/                # Schemas for fundamental types (ID, pagination, etc.)
-│   │   ├── id.schema.ts
-│   │   └── pagination.schema.ts
-│   ├── api/                 # Schemas defining API request/response DTOs
+├── auth/                  # Auth-related shared code
+│   ├── dtos/              # Zod schemas for Auth API DTOs (*.dto.ts)
 │   │   ├── index.ts
-│   │   ├── auth/            # DTOs for Auth endpoints
-│   │   │   ├── sign-in.dto.schema.ts
-│   │   │   └── token-response.dto.schema.ts
-│   │   ├── organizations/   # DTOs for Org endpoints
-│   │   │   ├── create-organization.dto.schema.ts
-│   │   │   └── organization.dto.schema.ts # Response DTO
-│   │   ├── photography/     # DTOs for Photography endpoints
-│   │   │   ├── create-booking.dto.schema.ts
-│   │   │   └── booking.dto.schema.ts
-│   │   └── common/          # Common API response wrappers (if any)
-│   │       └── api-response.schema.ts
-│   └── domain/              # Optional: Zod schemas for validating core domain entity rules or complex value objects
-│       ├── index.ts
-│       └── organization/
-│           └── organization-name.schema.ts # e.g., specific validation for just the name
+│   │   ├── sign-in-user.dto.ts
+│   │   └── ...
+│   ├── index.ts
+│   ├── provider-types.enum.schema.ts # Enum schema
+│   ├── role.enum.schema.ts           # Enum schema
+│   └── ...                           # Other enums
+├── entities/              # Zod schemas defining data structures (*.schema.ts)
+│   ├── index.ts
+│   ├── account.schema.ts
+│   ├── membership.schema.ts
+│   ├── organization.schema.ts
+│   ├── user.schema.ts
+│   └── ...
+├── logging/               # Logging related code
+│   ├── index.ts
+│   └── error-codes.enum.ts # Enum
+├── organization/          # Organization/Membership/Invite related shared code
+│   ├── dtos/              # Zod schemas for Org/Memb/Invite API DTOs (*.dto.ts)
+│   │   ├── index.ts
+│   │   ├── create-organization.dto.ts
+│   │   ├── update-membership.dto.ts
+│   │   └── ...
+│   └── index.ts
+├── shared/                # General shared utilities/types
+│   ├── index.ts
+│   ├── request-params.ts
+│   ├── request-query.ts
+│   └── time-in-milliseconds.enum.ts # Enum
 └── index.ts               # Main package export
 ```
 
-*   **Key Change:** Explicitly separate API DTO schemas (`schemas/api/`) from potential core domain validation schemas (`schemas/domain/`). This clarifies intent – most validation happens at the API boundary using DTO schemas.
-*   **Grouping:** Introduce domain-specific subfolders within `entities/`, `enums/`, `events/`, and `schemas/api/` as the project grows.
-*   **Flexibility:** The `entities/` directory can contain plain TypeScript classes, interfaces, or types inferred from Zod schemas, depending on the complexity required for each domain concept.
+*   **Structure:** Code is grouped primarily by domain (`auth/`, `organization/`, `logging/`).
+*   **DTOs:** API Data Transfer Object Zod schemas (`*.dto.ts`) are located within `dtos/` subfolders inside their respective domain folders.
+*   **Entities:** Data structure definitions are Zod schemas (`*.schema.ts`) located in the top-level `entities/` folder. This differs from the proposal which suggested plain types/interfaces here and Zod schemas in a separate `schemas/` directory.
+*   **Enums:** Enumerations are currently located within the domain folders they relate to (e.g., `auth/`, `logging/`, `shared/`).
+*   **Events:** No dedicated shared `events/` folder exists currently. Event definitions might be local to `apps/api` modules or implicitly defined.
 
 ## 4. Potential Future Domains
 
